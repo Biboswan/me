@@ -1,6 +1,7 @@
 {
   "name": "me",
   "version": "0.1.0",
+  "private": true,
   "description": "Personal Website",
   "main": "index.js",
   "repository": "git@github.com:Biboswan/me.git",
@@ -8,8 +9,10 @@
   "license": "MIT",
   "dependencies": {
     "next": "^9.5.3",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -31,7 +34,8 @@
   },
   "lint-staged": {
     "./**/*.{js,jsx}": [
-      "eslint --fix && prettier --trailing-comma es5 --single-quote --write"
+      "eslint --fix",
+      "prettier --single-quote --write"
     ]
   },
   "engines": {
