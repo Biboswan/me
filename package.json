@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "next": "^9.5.3",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,6 +22,7 @@
     "export": "yarn build && next export"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1",
     "eslint": "^7.8.1",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.2.5",
