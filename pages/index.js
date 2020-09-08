@@ -50,7 +50,7 @@ const Home = () => {
         const progressType = () => {
             setBannerLength(bannerLength => bannerLength + 1);
             if (bannerLength < BANNER_TEXT.length) {
-                setTimeout(progressType, 100);
+                setTimeout(progressType, 60);
             }
         };
 
