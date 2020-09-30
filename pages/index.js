@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import Footer from 'components/Footer';
 import { Fragment } from 'react';
 import { H2 } from 'components/Font';
 
@@ -61,16 +62,13 @@ const Home = () => {
         <Fragment>
             <Head>
                 <title>Home Page - Biboswan Roy</title>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&display=swap"
-                    rel="stylesheet"
-                ></link>
             </Head>
             <div>
                 <AnimatedBanner as="h1">
                     {BANNER_TEXT.substr(0, bannerLength)}
                     {bannerLength < BANNER_TEXT.length && <Cursor />}
                 </AnimatedBanner>
+                <Footer />
             </div>
         </Fragment>
     );

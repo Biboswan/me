@@ -6,6 +6,12 @@ class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     <link rel="icon" href="/icons/favicon.svg" sizes="any" type="image/svg+xml" />
+                    <link
+                        rel="apple-touch-icon"
+                        href="/icons/favicon.svg"
+                        sizes="any"
+                        type="image/svg+xml"
+                    />
                 </Head>
                 <body>
                     <Main />

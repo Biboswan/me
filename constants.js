@@ -7,10 +7,20 @@ export const FONT_WEIGHT = {
     medium: 500,
     semi_bold: 600,
     bold: 700,
+    ebold: 800,
+    heavy: 900,
+};
+
+export const COLOR = {
+    blue: 'hsl(239, 86%, 60%)',
+    orange: 'hsl(24, 100%, 63%)',
+    green: 'hsl(165,100%,30%)',
+    white: 'hsl(0,0%,100%)',
+    black: 'hsl(0,0%,0%)',
 };
 
 export const FONT_FAMILY = {
-    one: 'Catamaran',
-    two: 'Cormorant Infant',
-    three: 'Martel Sans',
+    one: 'Grandstander, cursive',
+    two:
+        'Mulish, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,"Helvetica Neue",sans-serif',
 };
