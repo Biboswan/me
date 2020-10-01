@@ -39,11 +39,13 @@ export const H6 = styled.h6`
 export const Sub1 = styled.div`
     font-size: 1.2rem;
     font-family: ${props => props.theme.font_family.one};
+    color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
 `;
 
 export const Sub2 = styled.div`
     font-size: 1.2rem;
     font-family: ${props => props.theme.font_family.two};
+    color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
 `;
 
 export const Body1 = styled.div`
@@ -57,4 +59,14 @@ export const Body1 = styled.div`
 export const Body2 = styled.div`
     font-family: ${props => props.theme.font_family.two};
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
+    font-weight: ${props =>
+        props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
+`;
+
+export const Small = styled.div`
+    font-family: ${props => props.theme.font_family.two};
+    font-size: 0.833rem;
+    color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
+    font-weight: ${props =>
+        props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
 `;

@@ -3,6 +3,8 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 import getTheme from 'theme';
 import useToggle from 'custom-hooks/useToggle';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 //font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 const GlobalStyle = createGlobalStyle`
 	:root {
@@ -86,7 +88,9 @@ const App = ({ Component, pageProps }) => {
         <ThemeProvider theme={getTheme(isLightTheme)}>
             <>
                 <GlobalStyle />
+                <Header />
                 <Component toggleTheme={toggleTheme} {...pageProps} />
+                <Footer />
             </>
         </ThemeProvider>
     );

@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Footer from 'components/Footer';
 import { Fragment } from 'react';
-import { H2 } from 'components/Font';
+import { H1, H2 } from 'components/Font';
 
 const blink = keyframes`
     0% {
@@ -38,8 +37,9 @@ const AnimatedBanner = styled(H2)`
     max-width: 45ch;
     margin: auto;
 `;
+const HI = styled(H1)``;
 
-const BANNER_TEXT = `Hi! I’m Biboswan Roy. “Biboswan” is a synonym for sungod! I’m a software engineer
+const BANNER_TEXT = `I’m a software engineer
 physically based in India, inclined towards the web. Loves open source, tech
 communities and dancing too :). Open to write code in any programming language but
 if it can be done with Javascript, would certainly do so.`;
@@ -64,14 +64,18 @@ const Home = () => {
                 <title>Home Page - Biboswan Roy</title>
             </Head>
             <div>
+                <HI>HI!</HI>
                 <AnimatedBanner as="h1">
                     {BANNER_TEXT.substr(0, bannerLength)}
                     {bannerLength < BANNER_TEXT.length && <Cursor />}
                 </AnimatedBanner>
-                <Footer />
             </div>
         </Fragment>
     );
 };
 
 export default Home;
+
+/**
+ *
+ */
