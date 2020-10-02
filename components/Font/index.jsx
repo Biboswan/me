@@ -54,6 +54,7 @@ export const Body1 = styled.div`
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
     font-weight: ${props =>
         props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
+    line-height: 1.5em;
 `;
 
 export const Body2 = styled.div`
