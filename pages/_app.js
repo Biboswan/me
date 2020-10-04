@@ -6,7 +6,7 @@ import getTheme from 'theme';
 import useToggle from 'custom-hooks/useToggle';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-//font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
 const GlobalStyle = createGlobalStyle`
 	:root {
 		font-size: 16px;
@@ -76,7 +76,8 @@ const GlobalStyle = createGlobalStyle`
 	section,
 	article,
 	ul,
-	li {
+	li,
+	figure {
 		margin: 0;
 		padding: 0;
 	}

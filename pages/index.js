@@ -130,9 +130,9 @@ const Home = () => {
         const play = () => {
             if (audio === undefined) {
                 audio = new Audio('/audio/BiboswanAudio.m4a');
+                audio.onended = toggleIsWavyAnimate;
             }
             audio.play();
-            audio.onended = toggleIsWavyAnimate;
         };
 
         if (isWavyAnimate) {
