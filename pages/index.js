@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import useToggle from 'custom-hooks/useToggle';
 import styled, { keyframes } from 'styled-components';
 import { Fragment } from 'react';
 import { H1, H2, Body1 } from 'components/Font';
@@ -24,6 +25,38 @@ const blink = keyframes`
     }
 `;
 
+const wavyTextAnim = keyframes`
+    0% {
+        transform: translateY(0px);
+    } 
+    20% {
+        transform: translateY(-25px);
+    }
+    40%, 100% {
+        transform: translateY(0px);
+    }
+`;
+
+const WavyTextContainer = styled.div`
+    display: inline-block;
+    position: relative;
+    .playwavy-icon {
+        font-size: 24px;
+        margin-top: -36px;
+        position: absolute;
+        margin-left: 50%;
+        cursor: pointer;
+    }
+    .playwavy {
+        animation: ${wavyTextAnim} 1s ease-in-out;
+        animation-delay: calc(0.1s * var(--i));
+    }
+`;
+const WavyChar = styled.span`
+    position: relative;
+    display: inline-block;
+`;
+
 const Cursor = styled.span`
     &: after {
         margin-left: 5px;
@@ -44,6 +77,7 @@ const AnimatedBanner = styled(Body1)`
 `;
 const HI = styled(H1)`
     color: ${props => props.theme.color.brand};
+    margin-bottom: ${props => props.theme.base_spacing * 3}px;
     span {
         color: ${props => props.theme.color.secondary};
     }
@@ -72,19 +106,55 @@ Building interfaces got me interested lately into Human Computer Interaction bec
 Open to write code in any programming language but if it can be done with Javascript, would certainly do so.
 Open Source contribution has played a huge role in learning about software best practices and pushing high quality code.`;
 
+const FIRSTNAME = ['B', 'i', 'b', 'o', 's', 'w', 'a', 'n'];
+
+let audio;
+
 const Home = () => {
     const [bannerLength, setBannerLength] = useState(0);
-
+    const [isWavyAnimate, toggleIsWavyAnimate] = useToggle(false);
     useEffect(() => {
         const progressType = () => {
-            setBannerLength(bannerLength => bannerLength + 1);
-            if (bannerLength < BANNER_TEXT.length) {
-                setTimeout(progressType, 60);
-            }
+            setBannerLength(bannerLength => {
+                if (bannerLength + 1 < BANNER_TEXT.length) {
+                    setTimeout(progressType, 60);
+                }
+                return bannerLength + 1;
+            });
         };
 
         progressType();
     }, []);
+
+    useEffect(() => {
+        const play = () => {
+            if (audio === undefined) {
+                audio = new Audio('/audio/BiboswanAudio.m4a');
+            }
+            audio.play();
+            audio.onended = toggleIsWavyAnimate;
+        };
+
+        if (isWavyAnimate) {
+            play();
+        }
+    }, [isWavyAnimate]);
+
+    const renderFirstNameLetter = (letter, index) => {
+        return (
+            <WavyChar
+                key={index}
+                className={isWavyAnimate ? 'playwavy' : ''}
+                style={{ '--i': index + 1 }}
+            >
+                {letter}
+            </WavyChar>
+        );
+    };
+
+    const renderFirstNameLetters = useMemo(() => {
+        return FIRSTNAME.map(renderFirstNameLetter);
+    }, [isWavyAnimate]);
 
     return (
         <Fragment>
@@ -102,9 +172,21 @@ const Home = () => {
                 <HI>
                     HI<span>!</span>
                 </HI>
-                <FontAwesomeIcon icon={faPlayCircle} />
-                <H2>I’m Biboswan Roy</H2>
                 <H2>
+                    I’m{' '}
+                    <WavyTextContainer>
+                        {' '}
+                        <FontAwesomeIcon
+                            className="playwavy-icon"
+                            role="button image"
+                            onClick={toggleIsWavyAnimate}
+                            icon={faPlayCircle}
+                        />
+                        <div>{renderFirstNameLetters}</div>
+                    </WavyTextContainer>{' '}
+                    Roy
+                </H2>
+                <H2 as="h3">
                     A <BrandColoredHeading>Software</BrandColoredHeading> Engineer
                 </H2>
                 <AnimatedBanner as="p" weight="light">

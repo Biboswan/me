@@ -1,5 +1,6 @@
 import 'normalize.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import getTheme from 'theme';
 import useToggle from 'custom-hooks/useToggle';
@@ -85,14 +86,19 @@ const App = ({ Component, pageProps }) => {
     const [isLightTheme, toggleTheme] = useToggle(true);
 
     return (
-        <ThemeProvider theme={getTheme(isLightTheme)}>
-            <>
-                <GlobalStyle />
-                <Header />
-                <Component toggleTheme={toggleTheme} {...pageProps} />
-                <Footer />
-            </>
-        </ThemeProvider>
+        <>
+            <Head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+            </Head>
+            <ThemeProvider theme={getTheme(isLightTheme)}>
+                <>
+                    <GlobalStyle />
+                    <Header />
+                    <Component toggleTheme={toggleTheme} {...pageProps} />
+                    <Footer />
+                </>
+            </ThemeProvider>
+        </>
     );
 };
 
