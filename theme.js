@@ -18,8 +18,8 @@ const basicTheme = {
 };
 
 const lightTheme = {
-    brand: COLOR.blue,
-    secondary: COLOR.orange,
+    brand: COLOR.blue[500],
+    secondary: COLOR.orange[900],
 };
 
 const darkTheme = {};

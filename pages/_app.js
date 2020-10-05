@@ -71,13 +71,15 @@ const GlobalStyle = createGlobalStyle`
 	h3,
 	h4,
 	h5,
+	h6,
 	p,
 	span,
 	section,
 	article,
 	ul,
 	li,
-	figure {
+	figure,
+	blockquote {
 		margin: 0;
 		padding: 0;
 	}

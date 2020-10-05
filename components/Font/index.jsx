@@ -34,12 +34,17 @@ export const H6 = styled.h6`
     font-size: 1.44rem;
     font-family: ${props => props.theme.font_family.one};
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
+    font-weight: ${props =>
+        props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.bold};
 `;
 
 export const Sub1 = styled.div`
     font-size: 1.2rem;
     font-family: ${props => props.theme.font_family.one};
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
+    font-style: ${props => (props.isItalic ? 'italic' : 'normal')};
+    font-weight: ${props =>
+        props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.medium};
 `;
 
 export const Sub2 = styled.div`
@@ -58,6 +63,7 @@ export const Body1 = styled.div`
     font-weight: ${props =>
         props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
     line-height: 1.5em;
+    font-style: ${props => (props.isItalic ? 'italic' : 'normal')};
 `;
 
 export const Body2 = styled.div`
