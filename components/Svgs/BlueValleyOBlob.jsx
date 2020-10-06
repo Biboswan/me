@@ -14,7 +14,7 @@ const BlueValleyOBlob = ({ className, ...rest }) => {
                 clipRule="evenodd"
                 d="M0 138.401L15.0833 123.667C30.1667 108.933 60.3333 79.4649 90.5 79.4649C120.667 79.4649 150.833 108.933 181 97.0639C211.167 85.1948 241.333 32.3978 271.5 11.5246C301.667 -8.93931 331.833 2.92978 346.917 8.65968L362 14.3896V156H346.917C331.833 156 301.667 156 271.5 156C241.333 156 211.167 156 181 156C150.833 156 120.667 156 90.5 156C60.3333 156 30.1667 156 15.0833 156H0V138.401Z"
                 fill="#4346F1"
-                fillPpacity="0.9"
+                fillOpacity="0.9"
             />
             <path
                 fillRule="evenodd"
@@ -32,7 +32,7 @@ const BlueValleyOBlob = ({ className, ...rest }) => {
                     gradientUnits="userSpaceOnUse"
                 >
                     <stop stopColor="#FF8F44" />
-                    <stop offset="1" stopColor="#FF8F44" stopPpacity="0" />
+                    <stop offset="1" stopColor="#FF8F44" stopOpacity="0" />
                 </linearGradient>
             </defs>
         </svg>

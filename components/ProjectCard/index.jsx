@@ -38,11 +38,15 @@ const ProjectCard = props => {
     const { image, title, techTags, storyLink, intro, className, ...rest } = props;
 
     const renderTechTag = label => {
-        return <TechTag label={label} />;
+        return <TechTag key={label} label={label} />;
     };
 
-    const renderInfoPoint = point => {
-        return <Body1 as="li">{point}</Body1>;
+    const renderInfoPoint = (point, index) => {
+        return (
+            <Body1 key={index} as="li">
+                {point}
+            </Body1>
+        );
     };
 
     return (
@@ -72,7 +76,10 @@ const ProjectCard = props => {
 
 ProjectCard.propTypes = {
     className: PropTypes.string,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+        url: PropTypes.string,
+        label: PropTypes.string,
+    }).isRequired,
     title: PropTypes.string.isRequired,
     techTags: PropTypes.arrayOf(PropTypes.string).isRequired,
     storyLink: PropTypes.string,

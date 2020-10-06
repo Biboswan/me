@@ -24,6 +24,12 @@ export const SPACING = {
         sm: 16,
     },
 };
+/**
+ * Green
+ * 009A74
+ * 009A74, 5%
+ * 87C6CA
+ */
 //87C6CA
 //160 36 36
 //184 39 66 //67, 70, 241, 0.9 -> 4346F1
@@ -33,7 +39,7 @@ export const COLOR = {
         800: '#2c22cd',
         700: '#3530d8',
         600: '#3e3de5',
-        500: 'hsl(239, 86%, 60%)',
+        500: '#4346F1',
         400: '#6165f6',
         300: '#7e83f9',
         200: '#a5a7fa',
@@ -41,7 +47,7 @@ export const COLOR = {
         50: '#eaeafe',
     },
     orange: {
-        900: 'hsl(24, 100%, 63%)',
+        900: '#FF8F44',
         800: '#ffb550',
         700: '#ffcc57',
         600: '#ffdc56',
@@ -52,7 +58,9 @@ export const COLOR = {
         100: '#fffaca',
         50: '#fffeeb',
     },
-    green: 'hsl(165,100%,30%)',
+    green: {
+        500: '#009A74',
+    },
     white: 'hsl(0,0%,100%)',
     black: 'hsl(0,0%,0%)',
 };
@@ -133,3 +141,55 @@ export const CERTS = [
     'Problem Solving(Advanced) Hackerrank',
     'Programming, data structures and algorithms by IIT Madras and NPTEL (top 5%)',
 ];
+
+export const Testimonials = [
+    {
+        words: (
+            <>
+                <span>I am happy to recommend Biboswan Roy on LinkedIn</span>
+                <span>
+                    He has successfully completed a remote internship in DATA SCIENCE AND ANALYTICS
+                    under my guidance.The duration of the internship was 4 weeks.During this time,
+                    the following topics/issues were covered:
+                </span>{' '}
+                <span>R Programming</span>
+                <span>Basic concepts of Data Analytics</span>
+                <span>Basic Statistics and Econometrics</span>
+                <span>
+                    Applying these basic concepts to solve business cases published by Harvard
+                    Business School
+                </span>
+                <span>A capstone project on Data Analytics using R programming</span>
+            </>
+        ),
+        by: [
+            'Prof. Sameer Mathur',
+            'Ph.D. (Carnegie Mellon University, USA)',
+            'Associate Professor, Marketing (IIM Lucknow)',
+        ],
+    },
+    {
+        words:
+            'broy27 have been contributing to taskcluster and involved in discussions around the upcoming taskcluster-events refactoring.',
+        by: ['Jonas Finnemann Jensen', 'Ex-Mozilla, Software Engineer at Google'],
+    },
+    {
+        words: `As part of the responsibilities of the Student Ambassador, Biboswan Roy was the formal
+representative of IMAD to various educational institutes in the region. Student ambassadors
+visited colleges and interacted with both professors and students, actively promoted the
+course on social media and helped to spread awareness about the course. With their help and
+significant contribution, IMAD became the largest MOOC in India, with 127,000+
+registrations.`,
+        by: ['Dr. Gaurav Raina', 'Department of Electrical Engineering, IIT Madras'],
+    },
+];
+
+/** 
+export const Testimonials = [
+    {
+        words:
+            'broy27 have been contributing to taskcluster and involved in discussions around the upcoming taskcluster-events refactoring.',
+        by: ['Jonas Finnemann Jensen', 'Ex-Mozilla, Software Engineer at Google'],
+    },
+];
+**/

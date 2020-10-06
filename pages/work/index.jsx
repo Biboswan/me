@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import styled from 'styled-components';
+import { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import MainContainer from 'components/MainContainer';
 import { H2, Body1, H5, H4 } from 'components/Font';
 import ProjectCard from 'components/ProjectCard';
-import { Projects, CERTS } from 'app-constants';
+import { Projects, CERTS, Testimonials } from 'app-constants';
 import BlueValleyOBlob from 'components/Svgs/BlueValleyOBlob';
 import Testimonial from 'components/Testimonial';
 
@@ -44,8 +45,12 @@ const BlueValleyOBlobStyled = styled(BlueValleyOBlob)`
 `;
 
 const CertificateSection = () => {
-    const renderListItem = item => {
-        return <Body1 as="li">{item}</Body1>;
+    const renderListItem = (item, index) => {
+        return (
+            <Body1 key={index} as="li">
+                {item}
+            </Body1>
+        );
     };
     return (
         <section>
@@ -63,15 +68,17 @@ const TestimonialList = styled.ul`
 `;
 
 const TestimonialSection = () => {
+    const { color } = useContext(ThemeContext);
+    const bgColors = [color.brand, color.green[500], color.secondary];
+
+    const renderTestimonial = ({ words, by }, index) => {
+        return <Testimonial key={index} words={words} by={by} bgColor={bgColors[index % 3]} />;
+    };
+
     return (
         <section>
             <H4 as="h2">Testimonials</H4>
-            <TestimonialList>
-                <Testimonial
-                    words="broy27 have been contributing to taskcluster and involved in discussions around the upcoming taskcluster-events refactoring."
-                    by={['Jonas Finnemann Jensen', 'Ex-Mozilla, Software Engineer at Google']}
-                />
-            </TestimonialList>
+            <TestimonialList>{Testimonials.map(renderTestimonial)}</TestimonialList>
         </section>
     );
 };
