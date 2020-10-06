@@ -44,6 +44,11 @@ const BlueValleyOBlobStyled = styled(BlueValleyOBlob)`
     margin: 0 -${props => props.theme.spacing.pageside.sm}px;
 `;
 
+const ProjectCertTestContainer = styled.div`
+    display: grid;
+    row-gap: ${props => props.theme.base_spacing * 15}px;
+`;
+
 const CertificateSection = () => {
     const renderListItem = (item, index) => {
         return (
@@ -65,6 +70,7 @@ const TestimonialList = styled.ul`
     list-style: none;
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 15}px;
+    margin: 0 -${props => props.theme.spacing.pageside.sm}px;
 `;
 
 const TestimonialSection = () => {
@@ -120,24 +126,28 @@ const Work = () => {
                         Somehow everything remote till date.
                     </Body1>
                 </WorkSummary>
-                <ProjectContainer>
-                    <H2 as="h1" weight="bold" color="white">
-                        Projects
-                    </H2>
-                    <Body1 weight="light" color="white">
-                        Below is a some of what of I have done so far.
-                    </Body1>
-                    <ProjectCardsContainer>{Projects.map(renderProjectCard)}</ProjectCardsContainer>
-                    <H5 weight="bold" color="white">
-                        Project in mind
-                    </H5>
-                    <Body1 weight="semibold" color="white">
-                        I at times find the need to compare files. Hence a cli to easliy compare
-                        different files. https://www.npmjs.com/package/filediffer-cli
-                    </Body1>
-                </ProjectContainer>
-                <CertificateSection />
-                <TestimonialSection />
+                <ProjectCertTestContainer>
+                    <ProjectContainer>
+                        <H2 as="h1" weight="bold" color="white">
+                            Projects
+                        </H2>
+                        <Body1 weight="light" color="white">
+                            Below is a some of what of I have done so far.
+                        </Body1>
+                        <ProjectCardsContainer>
+                            {Projects.map(renderProjectCard)}
+                        </ProjectCardsContainer>
+                        <H5 weight="bold" color="white">
+                            Project in mind
+                        </H5>
+                        <Body1 weight="semibold" color="white">
+                            I at times find the need to compare files. Hence a cli to easliy compare
+                            different files. https://www.npmjs.com/package/filediffer-cli
+                        </Body1>
+                    </ProjectContainer>
+                    <CertificateSection />
+                    <TestimonialSection />
+                </ProjectCertTestContainer>
             </MainContainer>
         </>
     );

@@ -184,12 +184,4 @@ registrations.`,
     },
 ];
 
-/** 
-export const Testimonials = [
-    {
-        words:
-            'broy27 have been contributing to taskcluster and involved in discussions around the upcoming taskcluster-events refactoring.',
-        by: ['Jonas Finnemann Jensen', 'Ex-Mozilla, Software Engineer at Google'],
-    },
-];
-**/
+export const GA_TRACKING_ID = 'UA-164047951-2';

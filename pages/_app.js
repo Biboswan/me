@@ -1,7 +1,10 @@
 import 'normalize.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import * as gtag from 'utils/gtag';
 import getTheme from 'theme';
 import useToggle from 'custom-hooks/useToggle';
 import Header from 'components/Header';
@@ -87,6 +90,17 @@ const GlobalStyle = createGlobalStyle`
 
 const App = ({ Component, pageProps }) => {
     const [isLightTheme, toggleTheme] = useToggle(true);
+    const router = useRouter();
+
+    useEffect(() => {
+        const handleRouteChange = url => {
+            gtag.pageview(url);
+        };
+        router.events.on('routeChangeComplete', handleRouteChange);
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange);
+        };
+    }, [router.events]);
 
     return (
         <>
