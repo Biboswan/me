@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 const Hanger = ({ className, ...rest }) => {
     return (
         <svg
-            width="130"
-            height="71"
             viewBox="0 0 130 71"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

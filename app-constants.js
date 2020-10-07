@@ -22,6 +22,8 @@ export const BREAKPOINTS = {
 export const SPACING = {
     pageside: {
         sm: 16,
+        md: 32,
+        lg: 64,
     },
 };
 /**

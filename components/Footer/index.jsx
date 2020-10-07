@@ -9,7 +9,7 @@ import {
     faStackOverflow,
     faMedium,
 } from '@fortawesome/free-brands-svg-icons';
-import { Body1, Small } from 'components/Font';
+import { Body2, Small } from 'components/Font';
 import WhiteLogo from 'components/Icons/WhiteLogo';
 import { NAVLINKS } from 'app-constants';
 
@@ -34,6 +34,11 @@ const SocialLinkContainer = styled.section`
     grid-template-rows: 48px 48px;
     column-gap: ${props => props.theme.base_spacing * 12}px;
     row-gap: ${props => props.theme.base_spacing * 10}px;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        grid-template-columns: 48px 48px 48px 48px 48px 48px;
+        grid-template-rows: 48px;
+    }
 `;
 
 const SocialLink = styled.a`
@@ -53,6 +58,9 @@ const NavContainer = styled.ul`
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 7}px;
     width: max-content;
+    .navLink {
+        text-decoration-color: ${props => props.theme.color.white};
+    }
 `;
 
 const socialIcons = [
@@ -73,10 +81,13 @@ const WhiteLogoLink = styled.div`
     display: flex;
     justify-content: center;
     .white-logo {
-        width: 40px;
+        width: max(40px, 5vw);
     }
 `;
 
+const Copyright = styled(Small)`
+    text-align: center;
+`;
 const Footer = () => {
     const renderSocialIcons = ({ icon, link, label }) => {
         return (
@@ -90,10 +101,10 @@ const Footer = () => {
         return (
             <li key={label}>
                 <Link href={url}>
-                    <a>
-                        <Body1 color="white" weight="ebold">
+                    <a className="navLink">
+                        <Body2 color="white" weight="ebold">
                             {label}
-                        </Body1>
+                        </Body2>
                     </a>
                 </Link>
             </li>
@@ -112,9 +123,9 @@ const Footer = () => {
                         </a>
                     </Link>
                 </WhiteLogoLink>
-                <Small color="white" weight="medium">
+                <Copyright color="white" weight="medium">
                     All rights reserved © Biboswan Roy 2020
-                </Small>
+                </Copyright>
             </div>
         </Container>
     );

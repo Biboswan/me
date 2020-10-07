@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { NAVLINKS } from 'app-constants';
-import { Body1 } from 'components/Font';
+import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,34 +10,54 @@ const Container = styled.header`
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.08);
     background: ${props => props.theme.color.white};
     width: 100vw;
+    box-sizing: border-box;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
+        padding-left: ${props => props.theme.spacing.pageside.md}px;
+        padding-right: ${props => props.theme.spacing.pageside.md}px;
+    }
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        padding-left: ${props => props.theme.spacing.pageside.lg}px;
+        padding-right: ${props => props.theme.spacing.pageside.lg}px;
+    }
 `;
 
 const Nav = styled.nav`
     ul {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 3fr;
         align-items: center;
         list-style: none;
-
-        li {
-            text-align: center;
-            justify-self: center;
-        }
-
-        li:first-child {
-            justify-self: start;
+        @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
+            grid-template-columns: 1fr 1fr;
         }
     }
 `;
 
 const BrandLogo = styled.img`
-    width: 40px;
+    width: max(40px, 5.6vw);
+`;
+
+const PageLinkContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        display: inline-grid;
+        grid-template-columns: max-content max-content max-content;
+        column-gap: ${props => props.theme.base_spacing * 18}px;
+        justify-self: end;
+    }
 `;
 
 const PageLinkItem = styled.a`
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: ${props => props.theme.color.brand};
-    ${Body1} {
+    ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
     }
 
@@ -59,9 +79,9 @@ const Header = () => {
                 <Link href={url} passHref>
                     <PageLinkItem>
                         <FontAwesomeIcon icon={PagedLinkIcons[ind]} />
-                        <Body1 color="brand" href={url} weight="ebold">
+                        <Body2 color="brand" href={url} weight="ebold">
                             {label}
-                        </Body1>
+                        </Body2>
                     </PageLinkItem>
                 </Link>
             </li>
@@ -79,7 +99,7 @@ const Header = () => {
                             </a>
                         </Link>
                     </li>
-                    {NAVLINKS.map(renderNavLinks)}
+                    <PageLinkContainer>{NAVLINKS.map(renderNavLinks)}</PageLinkContainer>
                 </ul>
             </Nav>
         </Container>

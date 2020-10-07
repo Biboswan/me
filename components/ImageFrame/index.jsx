@@ -18,6 +18,7 @@ const Container = styled.div`
 
     .image-hanger {
         margin: 0 auto -8px;
+        width: 35%;
     }
 `;
 

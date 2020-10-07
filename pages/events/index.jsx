@@ -10,6 +10,7 @@ const Heading = styled(H4)`
 const Subheading = styled(Body1)`
     margin: ${props => props.theme.base_spacing * 6}px 0 ${props => props.theme.base_spacing * 10}px;
 `;
+
 const ImagesData = [
     { src: 'images/conf/AllHands2k18.jpg', label: 'Mozilla All Hands 2018, Orlando' },
     {
@@ -34,12 +35,28 @@ const ImagesData = [
 const frameColors = ['brand', 'secondary'];
 
 const renderImage = ({ src, label }, ind) => {
-    return <ImageFrame src={src} label={label} frameColor={frameColors[ind & 1]} />;
+    return (
+        <ImageFrame
+            className="imageItem"
+            key={label}
+            src={src}
+            label={label}
+            frameColor={frameColors[ind & 1]}
+        />
+    );
 };
 
 const ImagesContainer = styled.div`
-    display: grid;
     row-gap: ${props => props.theme.base_spacing * 15}px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+
+    .imageItem {
+        max-width: 480px;
+        margin: 0 auto;
+    }
 `;
 
 const Events = () => {

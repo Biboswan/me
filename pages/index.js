@@ -72,7 +72,7 @@ const Cursor = styled.span`
 `;
 
 const AnimatedBanner = styled(Body1)`
-    max-width: 45ch;
+    max-width: 65ch;
     margin-top: ${props => props.theme.base_spacing * 8}px;
 `;
 const HI = styled(H1)`
@@ -97,7 +97,7 @@ const BrandColoredHeading = styled.span`
 `;
 
 const ProfilePicContainer = styled.div`
-    width: 92px;
+    width: min(max(92px, 16vw), 200px);
     margin-bottom: ${props => props.theme.base_spacing * 8}px;
 `;
 
@@ -169,10 +169,10 @@ const Home = () => {
                 <ProfilePicContainer>
                     <ProfilePic />
                 </ProfilePicContainer>
-                <HI>
+                <HI as="h3">
                     HI<span>!</span>
                 </HI>
-                <H2>
+                <H2 as="h1">
                     I’m{' '}
                     <WavyTextContainer>
                         {' '}
@@ -186,7 +186,7 @@ const Home = () => {
                     </WavyTextContainer>{' '}
                     Roy
                 </H2>
-                <H2 as="h3">
+                <H2 as="h2">
                     A <BrandColoredHeading>Software</BrandColoredHeading> Engineer
                 </H2>
                 <AnimatedBanner as="p" weight="light">
