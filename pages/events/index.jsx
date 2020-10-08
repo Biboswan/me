@@ -54,7 +54,7 @@ const ImagesContainer = styled.div`
     align-items: start;
 
     .imageItem {
-        max-width: 480px;
+        max-width: 440px;
         margin: 0 auto;
     }
 `;

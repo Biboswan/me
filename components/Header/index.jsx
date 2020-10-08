@@ -79,7 +79,7 @@ const Header = () => {
                 <Link href={url} passHref>
                     <PageLinkItem>
                         <FontAwesomeIcon icon={PagedLinkIcons[ind]} />
-                        <Body2 color="brand" href={url} weight="ebold">
+                        <Body2 color="brand" weight="ebold">
                             {label}
                         </Body2>
                     </PageLinkItem>

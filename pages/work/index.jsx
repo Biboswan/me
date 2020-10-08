@@ -8,20 +8,6 @@ import { Projects, CERTS, Testimonials } from 'app-constants';
 import BlueValleyOBlob from 'components/Svgs/BlueValleyOBlob';
 import Testimonial from 'components/Testimonial';
 
-const ProjectContainer = styled.section`
-    background: linear-gradient(180deg, rgba(67, 70, 241, 0.81) 0%, rgba(255, 143, 68, 0.9) 100%);
-    margin: 0 -${props => props.theme.spacing.pageside.sm}px 0;
-    padding: ${props => props.theme.base_spacing * 10}px
-        ${props => props.theme.spacing.pageside.sm}px ${props => props.theme.base_spacing * 20}px;
-`;
-
-const ProjectCardsContainer = styled.div`
-    display: grid;
-    row-gap: ${props => props.theme.base_spacing * 15}px;
-    margin: ${props => props.theme.base_spacing * 10}px 0
-        ${props => props.theme.base_spacing * 15}px;
-`;
-
 const WorkSummary = styled.article`
     margin-top: ${props => props.theme.base_spacing * 6}px;
     margin-bottom: ${props => props.theme.base_spacing * 8}px;
@@ -30,6 +16,51 @@ const WorkSummary = styled.article`
     row-gap: ${props => props.theme.base_spacing * 10}px;
     .strong {
         font-weight: ${props => props.theme.font_weight.bold};
+    }
+`;
+
+const ProjectCertTestContainer = styled.div`
+    display: grid;
+    row-gap: ${props => props.theme.base_spacing * 15}px;
+`;
+
+const ProjectContainer = styled.section`
+    background: linear-gradient(180deg, rgba(67, 70, 241, 0.81) 0%, rgba(255, 143, 68, 0.9) 100%);
+    margin: 0 -${props => props.theme.spacing.pageside.sm}px 0;
+    padding: ${props => props.theme.base_spacing * 10}px
+        ${props => props.theme.spacing.pageside.sm}px ${props => props.theme.base_spacing * 20}px;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
+        margin-left: -${props => props.theme.spacing.pageside.md}px;
+        margin-right: -${props => props.theme.spacing.pageside.md}px;
+
+        padding-left: ${props => props.theme.spacing.pageside.md}px;
+        padding-right: ${props => props.theme.spacing.pageside.md}px;
+    }
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        margin-left: -${props => props.theme.spacing.pageside.lg}px;
+        margin-right: -${props => props.theme.spacing.pageside.lg}px;
+        padding-left: ${props => props.theme.spacing.pageside.lg}px;
+        padding-right: ${props => props.theme.spacing.pageside.lg}px;
+    }
+
+    .projectInMindHeading {
+        margin-bottom: ${props => props.theme.base_spacing * 6}px;
+    }
+`;
+
+const ProjectCardsContainer = styled.ul`
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    row-gap: ${props => props.theme.base_spacing * 15}px;
+    margin: ${props => props.theme.base_spacing * 10}px 0
+        ${props => props.theme.base_spacing * 15}px;
+    flex-wrap: wrap;
+
+    .projectCardItem {
+        max-width: 480px;
     }
 `;
 
@@ -42,11 +73,29 @@ const CertificationList = styled.ul`
 
 const BlueValleyOBlobStyled = styled(BlueValleyOBlob)`
     margin: 0 -${props => props.theme.spacing.pageside.sm}px;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
+        margin-left: -${props => props.theme.spacing.pageside.md}px;
+        margin-right: -${props => props.theme.spacing.pageside.md}px;
+    }
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        margin: 0 -${props => props.theme.spacing.pageside.sm}px;
+    }
 `;
 
-const ProjectCertTestContainer = styled.div`
-    display: grid;
+const TestimonialList = styled.ul`
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     row-gap: ${props => props.theme.base_spacing * 15}px;
+    margin: ${props => props.theme.base_spacing * 15}px -${props =>
+            props.theme.spacing.pageside.sm}px 0;
+
+    .testimonialListItem {
+        max-width: 450px;
+    }
 `;
 
 const CertificateSection = () => {
@@ -66,19 +115,16 @@ const CertificateSection = () => {
     );
 };
 
-const TestimonialList = styled.ul`
-    list-style: none;
-    display: grid;
-    row-gap: ${props => props.theme.base_spacing * 15}px;
-    margin: 0 -${props => props.theme.spacing.pageside.sm}px;
-`;
-
 const TestimonialSection = () => {
     const { color } = useContext(ThemeContext);
     const bgColors = [color.brand, color.green[500], color.secondary];
 
     const renderTestimonial = ({ words, by }, index) => {
-        return <Testimonial key={index} words={words} by={by} bgColor={bgColors[index % 3]} />;
+        return (
+            <li className="testimonialListItem" key={index}>
+                <Testimonial words={words} by={by} bgColor={bgColors[index % 3]} />
+            </li>
+        );
     };
 
     return (
@@ -92,14 +138,15 @@ const TestimonialSection = () => {
 const Work = () => {
     const renderProjectCard = ({ image, title, techTags, storyLink, intro }) => {
         return (
-            <ProjectCard
-                key={title}
-                image={image}
-                title={title}
-                techTags={techTags}
-                storyLink={storyLink}
-                intro={intro}
-            />
+            <li className="projectCardItem" key={title}>
+                <ProjectCard
+                    image={image}
+                    title={title}
+                    techTags={techTags}
+                    storyLink={storyLink}
+                    intro={intro}
+                />
+            </li>
         );
     };
 
@@ -137,12 +184,15 @@ const Work = () => {
                         <ProjectCardsContainer>
                             {Projects.map(renderProjectCard)}
                         </ProjectCardsContainer>
-                        <H5 weight="bold" color="white">
+                        <H5 as="h3" className="projectInMindHeading">
                             Project in mind
                         </H5>
-                        <Body1 weight="semibold" color="white">
+                        <Body1 weight="medium">
                             I at times find the need to compare files. Hence a cli to easliy compare
-                            different files. https://www.npmjs.com/package/filediffer-cli
+                            different files.{' '}
+                            <a href="https://www.npmjs.com/package/filediffer-cli">
+                                filediffer-cli
+                            </a>
                         </Body1>
                     </ProjectContainer>
                     <CertificateSection />

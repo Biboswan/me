@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Body1 } from 'components/Font';
+import { Body2 } from 'components/Font';
 
 const Tag = styled.div`
     background: linear-gradient(180deg, #2db392 68.75%, rgba(0, 154, 116, 0) 100%);
@@ -12,7 +12,7 @@ const Tag = styled.div`
 const TechTag = ({ label, ...rest }) => {
     return (
         <Tag {...rest}>
-            <Body1>{label}</Body1>
+            <Body2>{label}</Body2>
         </Tag>
     );
 };

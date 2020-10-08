@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Sub1, H6, Body1 } from 'components/Font';
+import { Sub1, H6, Body2 } from 'components/Font';
 import TechTag from 'components/TechTag';
 
-const Container = styled.div``;
+const Container = styled.div`
+    width: 100%;
+`;
 
 const PreviewImage = styled.img`
     max-width: 100%;
+    margin: auto;
 `;
 //rgba(179, 182, 229, 1);
 //rgba(135, 198, 202, 1)
@@ -43,9 +46,9 @@ const ProjectCard = props => {
 
     const renderInfoPoint = (point, index) => {
         return (
-            <Body1 key={index} as="li">
+            <Body2 key={index} as="li">
                 {point}
-            </Body1>
+            </Body2>
         );
     };
 

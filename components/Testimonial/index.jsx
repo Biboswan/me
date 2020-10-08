@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Body1 } from 'components/Font';
+import { Body2 } from 'components/Font';
 import LShapped from 'components/Svgs/LShapped';
 
 const Container = styled.div`
     width: 100%;
 `;
 
-const Quote = styled(Body1)`
+const Quote = styled(Body2)`
     padding: ${props => props.theme.base_spacing * 10}px ${props => props.theme.base_spacing * 4}px;
     background: ${props => props.bgColor + '0F'};
     display: grid;
@@ -37,14 +37,14 @@ const Testimonial = props => {
             </Quote>
             <QuoteByContainer>
                 <QuoteBy>
-                    <Body1 as="span" isItalic weight="bold">
+                    <Body2 as="span" isItalic weight="bold">
                         -{'  '}
-                    </Body1>
+                    </Body2>
                     <div>
                         {by.map(text => (
-                            <Body1 key={text} isItalic weight="bold">
+                            <Body2 key={text} isItalic weight="bold">
                                 {text}
-                            </Body1>
+                            </Body2>
                         ))}
                     </div>
                 </QuoteBy>

@@ -8,7 +8,7 @@ import MainContainer from 'components/MainContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import ProfilePic from 'components/ProfilePic';
-import BlobOrangeBlue from 'public/images/blob_OrangeBlue.svg';
+import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
 
 const blink = keyframes`
     0% {
@@ -88,10 +88,6 @@ const BlobContainer = styled.div`
     justify-content: flex-end;
 `;
 
-const Blob = styled.img`
-    position: relative;
-`;
-
 const BrandColoredHeading = styled.span`
     color: ${props => props.theme.color.brand};
 `;
@@ -163,7 +159,7 @@ const Home = () => {
             </Head>
             <MainContainer>
                 <BlobContainer>
-                    <Blob src={BlobOrangeBlue} />
+                    <BlobOrangeBlue />
                 </BlobContainer>
                 <br />
                 <ProfilePicContainer>

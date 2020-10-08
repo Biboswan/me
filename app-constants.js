@@ -6,7 +6,7 @@ export const FONT_WEIGHT = {
     light: 300,
     normal: 400,
     medium: 500,
-    semi_bold: 600,
+    semibold: 600,
     bold: 700,
     ebold: 800,
     heavy: 900,
