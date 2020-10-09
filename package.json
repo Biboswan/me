@@ -29,9 +29,16 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.11.1",
+    "del": "^6.0.0",
     "eslint": "^7.8.1",
     "eslint-plugin-react": "^7.20.6",
+    "gifsicle": "^5.1.0",
+    "gulp": "^4.0.2",
     "husky": "^4.2.5",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "jimp": "^0.16.1",
     "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
     "url-loader": "^4.1.0"
