@@ -1,8 +1,10 @@
 import Head from 'next/head';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import styled from 'styled-components';
 import MainContainer from 'components/MainContainer';
 import { H4, Body1 } from 'components/Font';
 import ImageFrame from 'components/ImageFrame';
+config.autoAddCss = false;
 
 const Heading = styled(H4)`
     margin-top: ${props => props.theme.base_spacing * 11}px;
@@ -12,22 +14,25 @@ const Subheading = styled(Body1)`
 `;
 
 const ImagesData = [
-    { src: 'processed-images/conf/440/AllHands2k18.jpg', label: 'Mozilla All Hands 2018, Orlando' },
     {
-        src: 'processed-images/conf/440/FBDC.jpg',
+        src: require('public/processed-images/conf/440/AllHands2k18.jpg'),
+        label: 'Mozilla All Hands 2018, Orlando',
+    },
+    {
+        src: require('public/processed-images/conf/440/FBDC.jpg'),
         label: 'React Fundamentals and State management in Facebook Develper Cirlces, Kolkata',
     },
     {
-        src: 'processed-images/conf/440/googleIo.jpg',
+        src: require('public/processed-images/conf/440/googleIo.jpg'),
         label:
             'Developer Student Club Kolkata organised Google IO Extended. Core Organiser and gave talk on PWA',
     },
     {
-        src: 'processed-images/conf/440/gnx.jpeg',
+        src: require('public/processed-images/conf/440/gnx.jpeg'),
         label: 'Getting $0 mentors via open source - NSEC Kolkata',
     },
     {
-        src: 'processed-images/conf/440/graphQLAsia.jpg',
+        src: require('public/processed-images/conf/440/graphQLAsia.jpg'),
         label: 'Received Scholarship for GraphQL Asia 2019',
     },
 ];
