@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { createGlobalStyle } from 'styled-components';
 import { useEffect, useState, useMemo } from 'react';
 import useToggle from 'custom-hooks/useToggle';
 import styled, { keyframes } from 'styled-components';
@@ -10,16 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import ProfilePic from 'components/ProfilePic';
 import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
-
-const GlobalStyle = createGlobalStyle`
-    .playwavy-icon {
-            font-size: 24px;
-            margin-top: -36px;
-            position: absolute;
-            margin-left: 50%;
-            cursor: pointer;
-        }
-`;
 
 const blink = keyframes`
     0% {
@@ -159,7 +148,6 @@ const Home = () => {
 
     return (
         <Fragment>
-            <GlobalStyle />
             <Head>
                 <title>Home Page - Biboswan Roy</title>
             </Head>
@@ -196,6 +184,15 @@ const Home = () => {
                     {bannerLength < BANNER_TEXT.length && <Cursor />}
                 </AnimatedBanner>
             </MainContainer>
+            <style global jsx>{`
+                .playwavy-icon {
+                    font-size: 24px;
+                    margin-top: -36px;
+                    position: absolute;
+                    margin-left: 50%;
+                    cursor: pointer;
+                }
+            `}</style>
         </Fragment>
     );
 };
