@@ -56,6 +56,7 @@ const PageLinkItem = styled.a`
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1rem;
     color: ${props => props.theme.color.brand};
     ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
