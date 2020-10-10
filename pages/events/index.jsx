@@ -1,10 +1,8 @@
 import Head from 'next/head';
-import { config } from '@fortawesome/fontawesome-svg-core';
 import styled from 'styled-components';
 import MainContainer from 'components/MainContainer';
 import { H4, Body1 } from 'components/Font';
 import ImageFrame from 'components/ImageFrame';
-config.autoAddCss = false;
 
 const Heading = styled(H4)`
     margin-top: ${props => props.theme.base_spacing * 11}px;
