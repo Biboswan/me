@@ -186,7 +186,7 @@ const Home = () => {
             </MainContainer>
             <style global jsx>{`
                 .playwavy-icon {
-                    font-size: 24px;
+                    width: 24px;
                     margin-top: -36px;
                     position: absolute;
                     margin-left: 50%;
