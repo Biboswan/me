@@ -39,6 +39,12 @@ class MyDocument extends Document {
                         sizes="any"
                         type="image/svg+xml"
                     />
+                    <link
+                        rel="preload"
+                        href="fonts/Grandstander-VF_wght.woff2"
+                        as="font"
+                        type="font/woff2"
+                    />
                     <script
                         async
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
