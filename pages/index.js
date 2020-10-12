@@ -40,13 +40,7 @@ const wavyTextAnim = keyframes`
 const WavyTextContainer = styled.div`
     display: inline-block;
     position: relative;
-    .playwavy-icon {
-        font-size: 24px;
-        margin-top: -36px;
-        position: absolute;
-        margin-left: 50%;
-        cursor: pointer;
-    }
+
     .playwavy {
         animation: ${wavyTextAnim} 1s ease-in-out;
         animation-delay: calc(0.1s * var(--i));
@@ -190,6 +184,15 @@ const Home = () => {
                     {bannerLength < BANNER_TEXT.length && <Cursor />}
                 </AnimatedBanner>
             </MainContainer>
+            <style global jsx>{`
+                .playwavy-icon {
+                    width: 24px !important;
+                    margin-top: -36px;
+                    position: absolute;
+                    margin-left: 50%;
+                    cursor: pointer;
+                }
+            `}</style>
         </Fragment>
     );
 };

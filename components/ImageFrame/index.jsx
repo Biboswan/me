@@ -15,11 +15,6 @@ const Image = styled.img`
 
 const Container = styled.div`
     display: grid;
-
-    .image-hanger {
-        margin: 0 auto -8px;
-        width: 35%;
-    }
 `;
 
 const ImageCaption = styled(Sub2)`
@@ -29,15 +24,23 @@ const ImageCaption = styled(Sub2)`
 const ImageFrame = props => {
     const { src, label, frameColor, className, ...rest } = props;
     return (
-        <Container className={className} {...rest}>
-            <Hanger className="image-hanger" />
-            <figure>
-                <Image src={src} alt={label} color={frameColor} />
-                <ImageCaption as="figcaption" isItalic weight="semi_bold">
-                    {label}
-                </ImageCaption>
-            </figure>
-        </Container>
+        <>
+            <Container className={className} {...rest}>
+                <Hanger className="image-hanger" />
+                <figure>
+                    <Image src={src} alt={label} color={frameColor} />
+                    <ImageCaption as="figcaption" isItalic weight="semi_bold">
+                        {label}
+                    </ImageCaption>
+                </figure>
+            </Container>
+            <style global jsx>{`
+                .image-hanger {
+                    margin: 0 auto -8px;
+                    width: 35%;
+                }
+            `}</style>
+        </>
     );
 };
 

@@ -12,22 +12,25 @@ const Subheading = styled(Body1)`
 `;
 
 const ImagesData = [
-    { src: 'images/conf/AllHands2k18.jpg', label: 'Mozilla All Hands 2018, Orlando' },
     {
-        src: 'images/conf/FBDC.jpg',
+        src: require('public/processed-images/conf/440/AllHands2k18.jpg'),
+        label: 'Mozilla All Hands 2018, Orlando',
+    },
+    {
+        src: require('public/processed-images/conf/440/FBDC.jpg'),
         label: 'React Fundamentals and State management in Facebook Develper Cirlces, Kolkata',
     },
     {
-        src: 'images/conf/googleIo.jpg',
+        src: require('public/processed-images/conf/440/googleIo.jpg'),
         label:
             'Developer Student Club Kolkata organised Google IO Extended. Core Organiser and gave talk on PWA',
     },
     {
-        src: 'images/conf/gnx.jpeg',
+        src: require('public/processed-images/conf/440/gnx.jpeg'),
         label: 'Getting $0 mentors via open source - NSEC Kolkata',
     },
     {
-        src: 'images/conf/graphQLAsia.jpg',
+        src: require('public/processed-images/conf/440/graphQLAsia.jpg'),
         label: 'Received Scholarship for GraphQL Asia 2019',
     },
 ];

@@ -8,7 +8,7 @@ const Image = styled.img`
 
 const ProfilePic = props => {
     const { className } = props;
-    return <Image className={className} src="/images/profile-pic.jpeg" />;
+    return <Image className={className} src={require('public/images/profile-pic.jpeg')} />;
 };
 
 ProfilePic.propTypes = {

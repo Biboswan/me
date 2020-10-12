@@ -13,13 +13,17 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.0",
     "@fortawesome/free-solid-svg-icons": "^5.15.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "gsap": "^3.5.1",
+    "@zeit/next-css": "^1.0.1",
     "next": "^9.5.3",
+    "next-images": "^1.6.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"
+  },
+  "resolutions": {
+    "gifsicle": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.0.2.tgz"
   },
   "scripts": {
     "dev": "next dev",
@@ -29,9 +33,15 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.11.1",
+    "del": "^6.0.0",
     "eslint": "^7.8.1",
     "eslint-plugin-react": "^7.20.6",
+    "gulp": "^4.0.2",
     "husky": "^4.2.5",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "jimp": "^0.16.1",
     "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
     "url-loader": "^4.1.0"

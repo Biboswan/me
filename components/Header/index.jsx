@@ -56,6 +56,7 @@ const PageLinkItem = styled.a`
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1rem;
     color: ${props => props.theme.color.brand};
     ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
@@ -78,7 +79,7 @@ const Header = () => {
             <li key={label}>
                 <Link href={url} passHref>
                     <PageLinkItem>
-                        <FontAwesomeIcon icon={PagedLinkIcons[ind]} />
+                        <FontAwesomeIcon className="navIcon" icon={PagedLinkIcons[ind]} />
                         <Body2 color="brand" weight="ebold">
                             {label}
                         </Body2>
@@ -89,20 +90,27 @@ const Header = () => {
     };
 
     return (
-        <Container>
-            <Nav>
-                <ul>
-                    <li>
-                        <Link href="/">
-                            <a>
-                                <BrandLogo src="/icons/favicon.svg/" alt="logo in white" />
-                            </a>
-                        </Link>
-                    </li>
-                    <PageLinkContainer>{NAVLINKS.map(renderNavLinks)}</PageLinkContainer>
-                </ul>
-            </Nav>
-        </Container>
+        <>
+            <Container>
+                <Nav>
+                    <ul>
+                        <li>
+                            <Link href="/">
+                                <a>
+                                    <BrandLogo src="/icons/favicon.svg/" alt="logo in white" />
+                                </a>
+                            </Link>
+                        </li>
+                        <PageLinkContainer>{NAVLINKS.map(renderNavLinks)}</PageLinkContainer>
+                    </ul>
+                </Nav>
+            </Container>
+            <style global jsx>{`
+                .navIcon {
+                    width: 20px;
+                }
+            `}</style>
+        </>
     );
 };
 

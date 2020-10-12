@@ -83,7 +83,7 @@ export const Projects = [
     {
         title: 'Open Source Saga @Mozilla',
         techTags: ['React', 'NodeJS', 'GraphQL', 'Go', 'Python', 'Testing', 'Documenting'],
-        image: { url: 'images/work/tc-flow.gif', alt: '' },
+        image: { url: require('public/processed-images/work/480/tc-flow.gif'), alt: '' },
         intro: [
             'Contributed to multiple projects at Taskcluster a task execution framework that supports Mozilla’s CI and release process.',
             'Wrote taskcluster-lib-pulse v2',
@@ -100,7 +100,7 @@ export const Projects = [
             'Iframe',
             'Amazon Lightsail',
         ],
-        image: { url: 'images/work/studioyou.png', alt: '' },
+        image: { url: require('public/processed-images/work/480/studioyou.png'), alt: '' },
         intro: [
             'Webstore is my baby because I build it from scratch. Apart from this, I contributed slightly to their CRM and main site which actually helped me in many ways.',
         ],
@@ -111,7 +111,7 @@ export const Projects = [
         intro: [
             'Works offline to the extend that you can add reviews offline and automatically send to server when connectivity restores, made during the Google India Scholarship program',
         ],
-        image: { url: 'images/work/RestReviewshp.png', alt: '' },
+        image: { url: require('public/processed-images/work/480/RestReviewshp.png'), alt: '' },
         techTags: [
             'Vanilla JS',
             'PWA',
@@ -129,7 +129,7 @@ export const Projects = [
             'Features include add to card, payment, oauth. Took flow inspiration from Swiggy,Zomato,Flipkart.',
         ],
         image: {
-            url: 'images/work/RestaurantE1.png',
+            url: require('public/processed-images/work/480/RestaurantE1.png'),
             alt: '',
         },
         techTags: ['MERN ', 'Material UI', 'Redux'],
