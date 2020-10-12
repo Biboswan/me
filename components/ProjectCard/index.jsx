@@ -32,16 +32,20 @@ const Brief = styled.ul`
 const TechTagsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    column-gap: ${props => props.theme.base_spacing * 7}px;
-    row-gap: ${props => props.theme.base_spacing * 4}px;
-    margin: ${props => props.theme.base_spacing * 7}px 0 ${props => props.theme.base_spacing * 9}px;
+    margin: ${props => props.theme.base_spacing * 7}px -${props => props.theme.base_spacing * 7}px ${props =>
+            props.theme.base_spacing * 5}px 0;
+
+    .techtag {
+        margin-bottom: ${props => props.theme.base_spacing * 4}px;
+        margin-right: ${props => props.theme.base_spacing * 7}px;
+    }
 `;
 
 const ProjectCard = props => {
     const { image, title, techTags, storyLink, intro, className, ...rest } = props;
 
     const renderTechTag = label => {
-        return <TechTag key={label} label={label} />;
+        return <TechTag className="techtag" key={label} label={label} />;
     };
 
     const renderInfoPoint = (point, index) => {

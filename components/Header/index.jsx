@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { NAVLINKS } from 'app-constants';
+import { NAVLINKS, zIndex } from 'app-constants';
 import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,9 @@ const Container = styled.header`
     background: ${props => props.theme.color.white};
     width: 100vw;
     box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: ${zIndex.header};
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
         padding-left: ${props => props.theme.spacing.pageside.md}px;

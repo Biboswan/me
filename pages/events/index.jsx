@@ -50,7 +50,7 @@ const renderImage = ({ src, label }, ind) => {
 };
 
 const ImagesContainer = styled.div`
-    row-gap: ${props => props.theme.base_spacing * 15}px;
+    margin-bottom: -${props => props.theme.base_spacing * 15}px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -58,7 +58,7 @@ const ImagesContainer = styled.div`
 
     .imageItem {
         max-width: 440px;
-        margin: 0 auto;
+        margin: 0 auto ${props => props.theme.base_spacing * 15}px;
     }
 `;
 
