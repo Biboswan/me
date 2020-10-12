@@ -1,6 +1,5 @@
 import 'normalize.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-//import { config } from '@fortawesome/fontawesome-svg-core';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -10,8 +9,6 @@ import getTheme from 'theme';
 import useToggle from 'custom-hooks/useToggle';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-
-//config.autoAddCss = false;
 
 const GlobalStyle = createGlobalStyle`
 	:root {
