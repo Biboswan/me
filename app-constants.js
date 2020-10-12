@@ -187,3 +187,7 @@ registrations.`,
 ];
 
 export const GA_TRACKING_ID = 'UA-164047951-2';
+
+export const zIndex = {
+    header: 10,
+};
