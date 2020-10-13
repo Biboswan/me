@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useContext } from 'react';
 import useToggle from 'custom-hooks/useToggle';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, ThemeContext } from 'styled-components';
 import { Fragment } from 'react';
 import { H1, H2, Body1 } from 'components/Font';
 import MainContainer from 'components/MainContainer';
@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import ProfilePic from 'components/ProfilePic';
 import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
+import dynamic from 'next/dynamic';
+
+const WebBall = dynamic(() => import('components/WebBall'));
 
 const blink = keyframes`
     0% {
@@ -80,6 +83,10 @@ const HI = styled(H1)`
 const BlobContainer = styled.div`
     display: flex;
     justify-content: flex-end;
+
+    .bloborangeblue {
+        width: max(16vw, 100px);
+    }
 `;
 
 const BrandColoredHeading = styled.span`
@@ -103,6 +110,8 @@ let audio;
 const Home = () => {
     const [bannerLength, setBannerLength] = useState(0);
     const [isWavyAnimate, toggleIsWavyAnimate] = useToggle(false);
+    const themeContext = useContext(ThemeContext);
+
     useEffect(() => {
         const progressType = () => {
             setBannerLength(bannerLength => {
@@ -149,11 +158,16 @@ const Home = () => {
     return (
         <Fragment>
             <Head>
+                {/**
+                <script async type="module"
+                    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+                </script>
+                **/}
                 <title>Home Page - Biboswan Roy</title>
             </Head>
             <MainContainer>
                 <BlobContainer>
-                    <BlobOrangeBlue />
+                    <BlobOrangeBlue className="bloborangeblue" />
                 </BlobContainer>
                 <br />
                 <ProfilePicContainer>
@@ -183,6 +197,7 @@ const Home = () => {
                     {BANNER_TEXT.substr(0, bannerLength)}
                     {bannerLength < BANNER_TEXT.length && <Cursor />}
                 </AnimatedBanner>
+                <WebBall color={themeContext.color.orange[800]} />
             </MainContainer>
             <style global jsx>{`
                 .playwavy-icon {
