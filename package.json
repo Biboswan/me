@@ -32,6 +32,7 @@
     "export": "yarn build && next export"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.11.1",
     "del": "^6.0.0",
     "eslint": "^7.8.1",

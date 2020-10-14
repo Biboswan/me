@@ -20,9 +20,9 @@ const Container = styled.div`
     margin: auto;
 `;
 
+const widthFactor = 0.7;
 const WebBall = ({ color, ...rest }) => {
     const canvasRef = useRef();
-    const widthFactor = 0.7;
     useEffect(() => {
         let then = 0;
         const renderScene = () => {

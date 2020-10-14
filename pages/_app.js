@@ -23,8 +23,8 @@ const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-display: swap;
 		font-family: 'Grandstander';
-		src: url('./fonts/Grandstander-VF_wght.woff2') format('woff2 supports variations'),
-			url('./fonts/Grandstander-VF_wght.woff2') format('woff2-variations');
+		src: url('/fonts/Grandstander-VF_wght.woff2') format('woff2 supports variations'),
+			url('/fonts/Grandstander-VF_wght.woff2') format('woff2-variations');
 		font-weight: 100 900;
 		font-style: normal;
 		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
@@ -35,8 +35,8 @@ const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-display: swap;
 		font-family: 'Grandstander';
-		src: url('./fonts/Grandstander-Italic-VF_wght.woff2') format('woff2 supports variations'),
-			url('./fonts/Grandstander-Italic-VF_wght.woff2') format('woff2-variations');
+		src: url('/fonts/Grandstander-Italic-VF_wght.woff2') format('woff2 supports variations'),
+			url('/fonts/Grandstander-Italic-VF_wght.woff2') format('woff2-variations');
 		font-weight: 100 900;
 		font-style: italic;
 		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
@@ -47,8 +47,8 @@ const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-display: swap;
 		font-family: 'Mulish';
-		src: url('./fonts/Mulish-VF_wght.woff2') format('woff2 supports variations'),
-			url('./fonts/Mulish-VF_wght.woff2') format('woff2-variations');
+		src: url('/fonts/Mulish-VF_wght.woff2') format('woff2 supports variations'),
+			url('/fonts/Mulish-VF_wght.woff2') format('woff2-variations');
 		font-weight: 200 900;
 		font-style: normal;
 		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
@@ -59,8 +59,8 @@ const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-display: swap;
 		font-family: 'Mulish';
-		src: url('./fonts/Mulish-Italic-VF_wght.woff2') format('woff2 supports variations'),
-			url('./fonts/Mulish-Italic-VF_wght.woff2') format('woff2-variations');
+		src: url('/fonts/Mulish-Italic-VF_wght.woff2') format('woff2 supports variations'),
+			url('/fonts/Mulish-Italic-VF_wght.woff2') format('woff2-variations');
 		font-weight: 200 900;
 		font-style: italic;
 		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
@@ -88,6 +88,10 @@ const GlobalStyle = createGlobalStyle`
 	blockquote {
 		margin: 0;
 		padding: 0;
+	}
+
+	img {
+		max-width: 100%;
 	}
 `;
 

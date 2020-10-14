@@ -41,7 +41,7 @@ class MyDocument extends Document {
                     />
                     <link
                         rel="preload"
-                        href="fonts/Grandstander-VF_wght.woff2"
+                        href="/fonts/Grandstander-VF_wght.woff2"
                         as="font"
                         type="font/woff2"
                     />
