@@ -23,7 +23,7 @@ const myMkdirSync = function (dir) {
         }
     }
 };
-const compress = async (src, dest, min = 0.6, max = 0.8) => {
+const compress = async (src, dest, min = 0.7, max = 0.8) => {
     try {
         await imagemin([src], {
             destination: dest,

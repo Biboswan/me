@@ -33,6 +33,10 @@ const ImagesData = [
         src: require('public/processed-images/conf/440/graphQLAsia.jpg'),
         label: 'Received Scholarship for GraphQL Asia 2019',
     },
+    {
+        src: require('public/processed-images/conf/440/abcofreact.png'),
+        label: 'Virtual session at Google Developer Student Club Techno India University',
+    },
 ];
 
 const frameColors = ['brand', 'secondary'];
