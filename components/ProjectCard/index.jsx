@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Sub1, H6, Body2 } from 'components/Font';
 import TechTag from 'components/TechTag';
+import { useSpring, animated } from 'react-spring';
 
-const Container = styled.div`
-    width: 100%;
+const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.07];
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
+const Container = styled(animated.div)`
+    will-change: transform;
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+
+    :hover {
+        box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+    }
 `;
 
 const PreviewImage = styled.img`
@@ -43,6 +52,10 @@ const TechTagsContainer = styled.div`
 
 const ProjectCard = props => {
     const { image, title, techTags, storyLink, intro, className, ...rest } = props;
+    const [springprops, setSpringprops] = useSpring(() => ({
+        xys: [0, 0, 1],
+        config: { mass: 5, tension: 350, friction: 40 },
+    }));
 
     const renderTechTag = label => {
         return <TechTag className="techtag" key={label} label={label} />;
@@ -57,7 +70,13 @@ const ProjectCard = props => {
     };
 
     return (
-        <Container className={className || ''} {...rest}>
+        <Container
+            className={className || ''}
+            onMouseMove={({ clientX: x, clientY: y }) => setSpringprops({ xys: calc(x, y) })}
+            onMouseLeave={() => setSpringprops({ xys: [0, 0, 1] })}
+            style={{ transform: springprops.xys.to(trans) }}
+            {...rest}
+        >
             <PreviewImage src={image.url} alt={image.label} />
             <Description>
                 <H6 as="h3" weight="semibold">

@@ -17,10 +17,6 @@ const Container = styled.div`
     display: grid;
 `;
 
-const ImageCaption = styled(Sub2)`
-    text-decoration: underline;
-`;
-
 const ImageFrame = props => {
     const { src, label, frameColor, className, ...rest } = props;
     return (
@@ -29,9 +25,9 @@ const ImageFrame = props => {
                 <Hanger className="image-hanger" />
                 <figure>
                     <Image src={src} alt={label} color={frameColor} />
-                    <ImageCaption as="figcaption" isItalic weight="semi_bold">
+                    <Sub2 as="figcaption" isItalic weight="semi_bold">
                         {label}
-                    </ImageCaption>
+                    </Sub2>
                 </figure>
             </Container>
             <style global jsx>{`

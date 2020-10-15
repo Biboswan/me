@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { NAVLINKS, zIndex } from 'app-constants';
 import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -52,6 +53,15 @@ const PageLinkContainer = styled.div`
         column-gap: ${props => props.theme.base_spacing * 18}px;
         justify-self: end;
     }
+
+    .currentLink,
+    a:focus,
+    a:hover,
+    a:active {
+        color: ${props => props.theme.color.secondary};
+        border: none;
+        outline: none;
+    }
 `;
 
 const PageLinkItem = styled.a`
@@ -64,24 +74,17 @@ const PageLinkItem = styled.a`
     ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
     }
-
-    &:focus,
-    &:hover,
-    &:active {
-        color: ${props => props.theme.color.secondary} !important;
-        border: none;
-        outline: none;
-    }
 `;
 
 const PagedLinkIcons = [faUsers, faBriefcase, faPen];
 
 const Header = () => {
+    const { pathname } = useRouter();
     const renderNavLinks = ({ label, url }, ind) => {
         return (
             <li key={label}>
                 <Link href={url} passHref>
-                    <PageLinkItem>
+                    <PageLinkItem className={pathname === url ? 'currentLink' : ''}>
                         <FontAwesomeIcon className="navIcon" icon={PagedLinkIcons[ind]} />
                         <Body2 color="brand" weight="ebold">
                             {label}
