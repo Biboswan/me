@@ -45,21 +45,29 @@ const SubtopicTitle = styled(Sub1)`
     max-width: 50ch;
 `;
 
-const SubtopicDesc = styled.div`
-    margin-top: ${props => props.theme.base_spacing * 9}px;
+const SubtopicSection = styled.section`
     display: grid;
-    row-gap: ${props => props.theme.base_spacing * 17}px;
+    row-gap: ${props => props.theme.base_spacing * 10}px;
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
         grid-template-columns: 1fr 1fr;
+        align-items: center;
         column-gap: ${props => props.theme.base_spacing * 4}px;
     }
+`;
+
+const SubtopicTextData = styled.div`
+    display: contents;
 
     .paragraph-spacing {
         display: grid;
         row-gap: ${props => props.theme.base_spacing * 7}px;
-        text-align: justify;
-        max-width: 50ch;
+        max-width: 60ch;
+    }
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        display: grid;
+        row-gap: ${props => props.theme.base_spacing * 7}px;
     }
 `;
 
@@ -76,24 +84,29 @@ const WorkStory = ({ title, intro, bannerImage, techTags, subtopics }) => {
         );
 
         return (
-            <section key={title}>
-                <SubtopicTitle as="h4" weight="semibold" family={2} isItalic>
-                    {title}
-                </SubtopicTitle>
-                <SubtopicDesc>
-                    {index & 1 ? (
-                        <>
+            <SubtopicSection key={title}>
+                {index % 2 === 0 ? (
+                    <>
+                        <SubtopicTextData>
+                            <SubtopicTitle as="h4" weight="semibold" family={2} isItalic>
+                                {title}
+                            </SubtopicTitle>
                             <div className="paragraph-spacing">{desc.map(renderPara)}</div>
-                            {image && image.url && <img src={image.url} alt={image.alt} />}
-                        </>
-                    ) : (
-                        <>
-                            {image && image.url && <img src={image.url} alt={image.alt} />}
+                        </SubtopicTextData>
+                        {image && image.url && <img src={image.url} alt={image.alt} />}
+                    </>
+                ) : (
+                    <>
+                        {image && image.url && <img src={image.url} alt={image.alt} />}
+                        <SubtopicTextData>
+                            <SubtopicTitle as="h4" weight="semibold" family={2} isItalic>
+                                {title}
+                            </SubtopicTitle>
                             <div className="paragraph-spacing">{desc.map(renderPara)}</div>
-                        </>
-                    )}
-                </SubtopicDesc>
-            </section>
+                        </SubtopicTextData>
+                    </>
+                )}
+            </SubtopicSection>
         );
     };
 
