@@ -18,13 +18,19 @@ const Container = styled.div`
 `;
 
 const ImageFrame = props => {
-    const { src, label, frameColor, className, ...rest } = props;
+    const { src, label, frameColor, className, imageWidth, imageHeight, ...rest } = props;
     return (
         <>
             <Container className={className} {...rest}>
                 <Hanger className="image-hanger" />
                 <figure>
-                    <Image src={src} alt={label} color={frameColor} />
+                    <Image
+                        src={src}
+                        alt={label}
+                        color={frameColor}
+                        width={imageWidth}
+                        height={imageHeight}
+                    />
                     <Sub2 as="figcaption" isItalic weight="semi_bold">
                         {label}
                     </Sub2>
@@ -45,6 +51,8 @@ ImageFrame.propTypes = {
     src: PropTypes.string.isRequired,
     frameColor: PropTypes.string,
     className: PropTypes.string,
+    imageWidth: PropTypes.number,
+    imageHeight: PropTypes.number,
 };
 
 export default ImageFrame;

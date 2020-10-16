@@ -15,33 +15,45 @@ const ImagesData = [
     {
         src: require('public/processed-images/conf/440/AllHands2k18.jpg'),
         label: 'Mozilla All Hands 2018, Orlando',
+        width: 440,
+        height: 550,
     },
     {
         src: require('public/processed-images/conf/440/FBDC.jpg'),
         label: 'React Fundamentals and State management in Facebook Develper Cirlces, Kolkata',
+        width: 440,
+        height: 330,
     },
     {
         src: require('public/processed-images/conf/440/googleIo.jpg'),
         label:
             'Developer Student Club Kolkata organised Google IO Extended. Core Organiser and gave talk on PWA',
+        width: 440,
+        height: 587,
     },
     {
         src: require('public/processed-images/conf/440/gnx.jpeg'),
         label: 'Getting $0 mentors via open source - NSEC Kolkata',
+        width: 440,
+        height: 293,
     },
     {
         src: require('public/processed-images/conf/440/graphQLAsia.jpg'),
         label: 'Received Scholarship for GraphQL Asia 2019',
+        width: 440,
+        height: 330,
     },
     {
         src: require('public/processed-images/conf/440/abcofreact.png'),
         label: 'Virtual session at Google Developer Student Club Techno India University',
+        width: 440,
+        height: 246,
     },
 ];
 
 const frameColors = ['brand', 'secondary'];
 
-const renderImage = ({ src, label }, ind) => {
+const renderImage = ({ src, label, width, height }, ind) => {
     return (
         <ImageFrame
             className="imageItem"
@@ -49,6 +61,8 @@ const renderImage = ({ src, label }, ind) => {
             src={src}
             label={label}
             frameColor={frameColors[ind & 1]}
+            imageWidth={width}
+            imageHeight={height}
         />
     );
 };
