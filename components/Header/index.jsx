@@ -5,6 +5,7 @@ import { NAVLINKS, zIndex } from 'app-constants';
 import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import Logo from 'components/Svgs/Logo';
 
 const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
@@ -39,7 +40,7 @@ const Nav = styled.nav`
     }
 `;
 
-const BrandLogo = styled.img`
+const BrandLogo = styled(Logo)`
     width: max(40px, 5.6vw);
 `;
 
@@ -103,7 +104,7 @@ const Header = () => {
                         <li>
                             <Link href="/">
                                 <a>
-                                    <BrandLogo src="/icons/favicon.svg/" alt="logo in white" />
+                                    <BrandLogo role="image" alt="logo in white" />
                                 </a>
                             </Link>
                         </li>

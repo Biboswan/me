@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const BlueValleyOBlob = ({ className, ...rest }) => {
+const BlueValleyOBlob = ({ className, blobClassName, ...rest }) => {
     return (
         <svg
             viewBox="0 0 354 156"
@@ -17,6 +17,7 @@ const BlueValleyOBlob = ({ className, ...rest }) => {
                 fillOpacity="0.9"
             />
             <path
+                className={blobClassName}
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M320.555 86.2072C324.865 86.9788 327.834 91.6952 331.439 94.9011C335.216 98.2602 340.311 99.8965 342.133 105.398C344.001 111.036 342.512 117.571 340.853 123.32C339.26 128.842 336.528 133.545 332.973 137.146C329.335 140.831 325.098 144.733 320.555 143.882C316.131 143.052 314.08 136.385 310.465 132.926C306.85 129.467 301.549 128.858 299.435 123.672C297.21 118.212 297.899 111.452 299.302 105.538C300.717 99.5733 303.382 94.1271 307.285 90.5766C311.131 87.0786 315.924 85.378 320.555 86.2072Z"
@@ -41,6 +42,7 @@ const BlueValleyOBlob = ({ className, ...rest }) => {
 
 BlueValleyOBlob.propTypes = {
     className: PropTypes.string,
+    blobClassName: PropTypes.string,
 };
 
 export default BlueValleyOBlob;

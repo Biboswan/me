@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useState, useMemo, useContext } from 'react';
+import { useEffect, useMemo, useContext } from 'react';
 import useToggle from 'custom-hooks/useToggle';
 import styled, { keyframes, ThemeContext } from 'styled-components';
 import { Fragment } from 'react';
@@ -12,21 +12,6 @@ import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
 import dynamic from 'next/dynamic';
 
 const WebBall = dynamic(() => import('components/WebBall'));
-
-const blink = keyframes`
-    0% {
-        opacity:1;
-    }
-    49% {
-        opacity:1;
-    }
-    50% {
-        opacity:0;
-    }
-    100% {
-        opacity:0;
-    }
-`;
 
 const wavyTextAnim = keyframes`
     0% {
@@ -52,20 +37,6 @@ const WavyTextContainer = styled.div`
 const WavyChar = styled.span`
     position: relative;
     display: inline-block;
-`;
-
-const Cursor = styled.span`
-    &: after {
-        margin-left: 5px;
-        display: inline-block;
-        content: '|';
-        color: transparent;
-        width: 10px;
-        background-color: green;
-        animation-name: ${blink};
-        animation-duration: 0.5s;
-        animation-iteration-count: infinite;
-    }
 `;
 
 const AnimatedBanner = styled(Body1)`
@@ -108,22 +79,8 @@ const FIRSTNAME = ['B', 'i', 'b', 'o', 's', 'w', 'a', 'n'];
 let audio;
 
 const Home = () => {
-    const [bannerLength, setBannerLength] = useState(0);
     const [isWavyAnimate, toggleIsWavyAnimate] = useToggle(false);
     const themeContext = useContext(ThemeContext);
-
-    useEffect(() => {
-        const progressType = () => {
-            setBannerLength(bannerLength => {
-                if (bannerLength + 1 < BANNER_TEXT.length) {
-                    setTimeout(progressType, 60);
-                }
-                return bannerLength + 1;
-            });
-        };
-
-        progressType();
-    }, []);
 
     useEffect(() => {
         const play = () => {
@@ -194,8 +151,7 @@ const Home = () => {
                     A <BrandColoredHeading>Software</BrandColoredHeading> Engineer
                 </H2>
                 <AnimatedBanner as="p" weight="light">
-                    {BANNER_TEXT.substr(0, bannerLength)}
-                    {bannerLength < BANNER_TEXT.length && <Cursor />}
+                    {BANNER_TEXT}
                 </AnimatedBanner>
                 <WebBall color={themeContext.color.orange[800]} />
             </MainContainer>
