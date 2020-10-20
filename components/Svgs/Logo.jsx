@@ -56,8 +56,16 @@ function Logo(props) {
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="-40 -40 240 240"
+            aria-labelledby="title"
+            aria-describedby="desc"
+            role="img"
             {...props}
         >
+            <title id="title">Website Logo</title>
+            <desc id="desc">
+                Text Br with 5 sun ray like paths emitting from the top of the Br. Everything
+                colored in orange blueish linear gradient
+            </desc>
             <defs>
                 <linearGradient id="linearGradient2218">
                     <stop offset="0" stopColor="#ff8f44" stopOpacity="0.843"></stop>

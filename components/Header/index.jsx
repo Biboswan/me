@@ -42,8 +42,8 @@ const Nav = styled.nav`
 
 const BrandLogo = styled(Logo)`
     width: max(50px, 5.6vw);
-    margin-top: calc(max(5.6vw,50px) * 40 / -240);
-    margin-left: calc(max(5.6vw,50px) * 40 / -240);
+    margin-top: calc(max(5.6vw, 50px) * 40 / -240);
+    margin-left: calc(max(5.6vw, 50px) * 40 / -240);
 `;
 
 const PageLinkContainer = styled.div`
@@ -106,7 +106,7 @@ const Header = () => {
                         <li>
                             <Link href="/">
                                 <a>
-                                    <BrandLogo role="image" alt="logo in white" />
+                                    <BrandLogo />
                                 </a>
                             </Link>
                         </li>
