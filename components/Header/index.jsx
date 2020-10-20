@@ -41,7 +41,9 @@ const Nav = styled.nav`
 `;
 
 const BrandLogo = styled(Logo)`
-    width: max(40px, 5.6vw);
+    width: max(50px, 5.6vw);
+    margin-top: calc(max(5.6vw,50px) * 40 / -240);
+    margin-left: calc(max(5.6vw,50px) * 40 / -240);
 `;
 
 const PageLinkContainer = styled.div`

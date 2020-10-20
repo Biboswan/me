@@ -56,7 +56,6 @@ function Logo(props) {
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="-40 -40 240 240"
-            style={{ marginTop: -20 }}
             {...props}
         >
             <defs>
