@@ -115,11 +115,6 @@ const Home = () => {
     return (
         <Fragment>
             <Head>
-                {/**
-                <script async type="module"
-                    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
-                </script>
-                **/}
                 <title>Home Page - Biboswan Roy</title>
             </Head>
             <MainContainer>
