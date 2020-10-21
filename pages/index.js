@@ -14,7 +14,6 @@ import { useTrail, animated, } from 'react-spring';
 
 const WebBall = dynamic(() => import('components/WebBall'));
 const config = { mass: 5, tension: 2000, friction: 400 };
-//const config = { mass: 1, tension: 210, friction: 20 };
 
 const Container = styled(MainContainer)`
     min-height: 100vh;
