@@ -6,6 +6,7 @@ import Hanger from 'components/Svgs/Hanger';
 const Image = styled.img`
     max-width: 100%;
     width: 100%;
+    height: auto;
     border: 5px solid
         ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
     box-sizing: border-box;
@@ -17,21 +18,23 @@ const Container = styled.div`
     display: grid;
 `;
 
-const ImageCaption = styled(Sub2)`
-    text-decoration: underline;
-`;
-
 const ImageFrame = props => {
-    const { src, label, frameColor, className, ...rest } = props;
+    const { src, label, frameColor, className, imageWidth, imageHeight, ...rest } = props;
     return (
         <>
             <Container className={className} {...rest}>
                 <Hanger className="image-hanger" />
                 <figure>
-                    <Image src={src} alt={label} color={frameColor} />
-                    <ImageCaption as="figcaption" isItalic weight="semi_bold">
+                    <Image
+                        src={src}
+                        alt={label}
+                        color={frameColor}
+                        width={imageWidth}
+                        height={imageHeight}
+                    />
+                    <Sub2 as="figcaption" isItalic weight="semi_bold">
                         {label}
-                    </ImageCaption>
+                    </Sub2>
                 </figure>
             </Container>
             <style global jsx>{`
@@ -49,6 +52,8 @@ ImageFrame.propTypes = {
     src: PropTypes.string.isRequired,
     frameColor: PropTypes.string,
     className: PropTypes.string,
+    imageWidth: PropTypes.number,
+    imageHeight: PropTypes.number,
 };
 
 export default ImageFrame;

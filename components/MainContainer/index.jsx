@@ -19,8 +19,12 @@ const Container = styled.main`
 `;
 
 const MainContainer = props => {
-    const { children, className } = props;
-    return <Container className={className || ''}>{children}</Container>;
+    const { children, className, ...rest } = props;
+    return (
+        <Container className={className || ''} {...rest}>
+            {children}
+        </Container>
+    );
 };
 
 MainContainer.propTypes = {

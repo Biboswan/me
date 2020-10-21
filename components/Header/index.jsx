@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { NAVLINKS } from 'app-constants';
+import { useRouter } from 'next/router';
+import { NAVLINKS, zIndex } from 'app-constants';
 import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import Logo from 'components/Svgs/Logo';
 
 const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
@@ -11,6 +13,9 @@ const Container = styled.header`
     background: ${props => props.theme.color.white};
     width: 100vw;
     box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: ${zIndex.header};
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
         padding-left: ${props => props.theme.spacing.pageside.md}px;
@@ -35,8 +40,10 @@ const Nav = styled.nav`
     }
 `;
 
-const BrandLogo = styled.img`
-    width: max(40px, 5.6vw);
+const BrandLogo = styled(Logo)`
+    width: max(50px, 5.6vw);
+    margin-top: calc(max(5.6vw, 50px) * 40 / -240);
+    margin-left: calc(max(5.6vw, 50px) * 40 / -240);
 `;
 
 const PageLinkContainer = styled.div`
@@ -48,6 +55,15 @@ const PageLinkContainer = styled.div`
         grid-template-columns: max-content max-content max-content;
         column-gap: ${props => props.theme.base_spacing * 18}px;
         justify-self: end;
+    }
+
+    .currentLink,
+    a:focus,
+    a:hover,
+    a:active {
+        color: ${props => props.theme.color.secondary};
+        border: none;
+        outline: none;
     }
 `;
 
@@ -61,24 +77,17 @@ const PageLinkItem = styled.a`
     ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
     }
-
-    &:focus,
-    &:hover,
-    &:active {
-        color: ${props => props.theme.color.secondary} !important;
-        border: none;
-        outline: none;
-    }
 `;
 
 const PagedLinkIcons = [faUsers, faBriefcase, faPen];
 
 const Header = () => {
+    const { pathname } = useRouter();
     const renderNavLinks = ({ label, url }, ind) => {
         return (
             <li key={label}>
                 <Link href={url} passHref>
-                    <PageLinkItem>
+                    <PageLinkItem className={pathname === url ? 'currentLink' : ''}>
                         <FontAwesomeIcon className="navIcon" icon={PagedLinkIcons[ind]} />
                         <Body2 color="brand" weight="ebold">
                             {label}
@@ -97,7 +106,7 @@ const Header = () => {
                         <li>
                             <Link href="/">
                                 <a>
-                                    <BrandLogo src="/icons/favicon.svg/" alt="logo in white" />
+                                    <BrandLogo />
                                 </a>
                             </Link>
                         </li>

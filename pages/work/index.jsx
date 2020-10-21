@@ -54,13 +54,12 @@ const ProjectCardsContainer = styled.ul`
     display: flex;
     justify-content: space-around;
     list-style: none;
-    row-gap: ${props => props.theme.base_spacing * 15}px;
-    margin: ${props => props.theme.base_spacing * 10}px 0
-        ${props => props.theme.base_spacing * 15}px;
+    margin: ${props => props.theme.base_spacing * 10}px 0 0;
     flex-wrap: wrap;
 
     .projectCardItem {
         max-width: 480px;
+        margin-bottom: ${props => props.theme.base_spacing * 15}px;
     }
 `;
 
@@ -89,12 +88,12 @@ const TestimonialList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    row-gap: ${props => props.theme.base_spacing * 15}px;
     margin: ${props => props.theme.base_spacing * 15}px -${props =>
-            props.theme.spacing.pageside.sm}px 0;
+            props.theme.spacing.pageside.sm}px -${props => props.theme.base_spacing * 15}px -${({ theme }) => theme.spacing.pageside.sm}px;
 
     .testimonialListItem {
         max-width: 450px;
+        margin-bottom: ${props => props.theme.base_spacing * 15}px;
     }
 `;
 

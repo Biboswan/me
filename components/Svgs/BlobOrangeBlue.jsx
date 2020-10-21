@@ -1,13 +1,6 @@
 const BlobOrangeBlue = props => {
     return (
-        <svg
-            width="128"
-            height="110"
-            viewBox="0 0 128 110"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            {...props}
-        >
+        <svg viewBox="0 0 128 110" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             {' '}
             <path
                 fillRule="evenodd"

@@ -28,6 +28,8 @@ export const H4 = styled.h4`
     line-height: 1.485em;
     font-family: ${props => props.theme.font_family.one};
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
+    font-weight: ${props =>
+        props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.semibold};
 `;
 
 export const H5 = styled.h5`
@@ -48,7 +50,10 @@ export const H6 = styled.h6`
 
 export const Sub1 = styled.div`
     font-size: min(calc(1.2rem + ${diff(1.728, 1.2)} * 16 * (100vw - 360px) / ${d}), 1.728rem);
-    font-family: ${props => props.theme.font_family.one};
+    font-family: ${props =>
+        props.family && props.family === 2
+            ? props.theme.font_family.two
+            : props.theme.font_family.one};
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
     font-style: ${props => (props.isItalic ? 'italic' : 'normal')};
     font-weight: ${props =>
