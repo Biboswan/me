@@ -10,13 +10,20 @@ import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import ProfilePic from 'components/ProfilePic';
 import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
 import dynamic from 'next/dynamic';
+import { useTrail, animated, } from 'react-spring';
 
 const WebBall = dynamic(() => import('components/WebBall'));
+const config = { mass: 5, tension: 2000, friction: 400 };
+//const config = { mass: 1, tension: 210, friction: 20 };
+
+const Container = styled(MainContainer)`
+    min-height: 100vh;
+`;
 
 const wavyTextAnim = keyframes`
     0% {
         transform: translateY(0px);
-    } 
+    }
     20% {
         transform: translateY(-25px);
     }
@@ -33,23 +40,36 @@ const WavyTextContainer = styled.div`
         animation: ${wavyTextAnim} 1s ease-in-out;
         animation-delay: calc(0.1s * var(--i));
     }
+
+    .playwavy-icon {
+        width: 24px !important;
+        margin-top: -40px;
+        position: absolute;
+        margin-left: 50%;
+        cursor: pointer;
+    }
 `;
 const WavyChar = styled.span`
     position: relative;
     display: inline-block;
 `;
 
-const AnimatedBanner = styled(Body1)`
+const AnimatedBanner = animated(styled(Body1)`
     max-width: 65ch;
     margin-top: ${props => props.theme.base_spacing * 8}px;
-`;
-const HI = styled(H1)`
+    display: grid;
+    row-gap: ${props => props.theme.base_spacing * 3}px;
+`);
+
+const HI = animated(styled(H1)`
     color: ${props => props.theme.color.brand};
     margin-bottom: ${props => props.theme.base_spacing * 3}px;
     span {
         color: ${props => props.theme.color.secondary};
     }
-`;
+`);
+
+const AnimatedH2 = animated(H2);
 
 const BlobContainer = styled.div`
     display: flex;
@@ -69,11 +89,6 @@ const ProfilePicContainer = styled.div`
     margin-bottom: ${props => props.theme.base_spacing * 8}px;
 `;
 
-const BANNER_TEXT = `physically based in India, inclined towards the web. Loves open source, tech communities, green tea (not coffee) and dancing too. 
-Building interfaces got me interested lately into Human Computer Interaction because I had always tried to understand why humans behave the way they do.
-Open to write code in any programming language but if it can be done with Javascript, would certainly do so.
-Open Source contribution has played a huge role in learning about software best practices and pushing high quality code.`;
-
 const FIRSTNAME = ['B', 'i', 'b', 'o', 's', 'w', 'a', 'n'];
 
 let audio;
@@ -81,6 +96,13 @@ let audio;
 const Home = () => {
     const [isWavyAnimate, toggleIsWavyAnimate] = useToggle(false);
     const themeContext = useContext(ThemeContext);
+    const trail = useTrail(4, {
+        config,
+        opacity: 1,
+        height: 'auto',
+        x: 0,
+        from: { opacity: 0, height: 0, x:20 },
+    });
 
     useEffect(() => {
         const play = () => {
@@ -117,7 +139,7 @@ const Home = () => {
             <Head>
                 <title>Home Page - Biboswan Roy</title>
             </Head>
-            <MainContainer>
+            <Container>
                 <BlobContainer>
                     <BlobOrangeBlue className="bloborangeblue" />
                 </BlobContainer>
@@ -125,40 +147,43 @@ const Home = () => {
                 <ProfilePicContainer>
                     <ProfilePic />
                 </ProfilePicContainer>
-                <HI as="h3">
-                    HI<span>!</span>
-                </HI>
-                <H2 as="h1">
-                    I’m{' '}
-                    <WavyTextContainer>
-                        {' '}
-                        <FontAwesomeIcon
-                            className="playwavy-icon"
-                            role="button image"
-                            onClick={toggleIsWavyAnimate}
-                            icon={faPlayCircle}
-                        />
-                        <div>{renderFirstNameLetters}</div>
-                    </WavyTextContainer>{' '}
-                    Roy
-                </H2>
-                <H2 as="h2">
-                    A <BrandColoredHeading>Software</BrandColoredHeading> Engineer
-                </H2>
-                <AnimatedBanner as="p" weight="light">
-                    {BANNER_TEXT}
-                </AnimatedBanner>
+                <animated.div style={{ opacity: trail[0].opacity, transform: trail[0].x.to(x => `translate3d(0,${x}px,0)`) }}>
+                    <HI as="h3" style={{ height: trail[0].height }}>
+                        HI<span>!</span>
+                    </HI>
+                </animated.div>
+                <animated.div style={{ opacity: trail[1].opacity, transform: trail[1].x.to(x => `translate3d(0,${x}px,0)`) }}>
+                    <AnimatedH2 as="h1" style={{ height: trail[1].height }}>
+                        I’m{' '}
+                        <WavyTextContainer>
+                            {' '}
+                            <FontAwesomeIcon
+                                className="playwavy-icon"
+                                role="button image"
+                                onClick={toggleIsWavyAnimate}
+                                icon={faPlayCircle}
+                            />
+                            <div>{renderFirstNameLetters}</div>
+                        </WavyTextContainer>{' '}
+                        Roy
+                    </AnimatedH2>
+                </animated.div>
+                 <animated.div style={{ opacity: trail[2].opacity, transform: trail[2].x.to(x => `translate3d(0,${x}px,0)`) }}>
+                    <AnimatedH2 as="h2" style={{ height: trail[2].height }}>
+                        A <BrandColoredHeading>Software</BrandColoredHeading> Engineer
+                    </AnimatedH2>
+                </animated.div>
+                 <animated.div style={{ opacity: trail[3].opacity, transform: trail[3].x.to(x => `translate3d(0,${x}px,0)`) }}>
+                    <AnimatedBanner weight="light" style={{ height: trail[3].height }}>
+                        <p>physically based in India, inclined towards the web. Loves open source, tech communities, green tea (not coffee) and dancing too. Google Udacity Scholar 2k18 and a Mozillian</p>
+                        <p>Building interfaces got me interested lately into Human Computer Interaction because I had always tried to understand why humans behave the way they do. Still I like to kinda meddle in both frontend and backend aspects of software and beyond if possible.
+                        Open to write code in any programming language but if it can be done with Javascript, would certainly do so.</p>
+                        <p>Despite securing a seat in IIIT, I had to continue my computer science engineering degree from a tier-3 college because i wasn’t  allowed to leave my hometown and study in a different city. Things have changed now though. Kudos to free online education, I think I have made up abit for that, to the point where college tag may not matter that much.</p>
+                    </AnimatedBanner>
+                </animated.div>
+                 <audio preload="auto" src="/audio/BiboswanAudio.m4a"></audio>
                 <WebBall color={themeContext.color.orange[800]} />
-            </MainContainer>
-            <style global jsx>{`
-                .playwavy-icon {
-                    width: 24px !important;
-                    margin-top: -36px;
-                    position: absolute;
-                    margin-left: 50%;
-                    cursor: pointer;
-                }
-            `}</style>
+            </Container>
         </Fragment>
     );
 };

@@ -6,6 +6,7 @@ import Hanger from 'components/Svgs/Hanger';
 const Image = styled.img`
     max-width: 100%;
     width: 100%;
+    height: auto;
     border: 5px solid
         ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
     box-sizing: border-box;

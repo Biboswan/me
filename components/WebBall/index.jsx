@@ -18,6 +18,7 @@ import { useEffect, useRef } from 'react';
 const Container = styled.div`
     width: min(max(70vw, 350px), 600px);
     margin: auto;
+    background-color: transparent;
 `;
 
 const widthFactor = 0.7;
@@ -53,7 +54,6 @@ const WebBall = ({ color, ...rest }) => {
         //renderer.setClearAlpha('');
         renderer.setClearColor('white', 1);
         let width = getWidth();
-        canvasRef.current.appendChild(renderer.domElement);
         // Setup a camera
         const camera = new PerspectiveCamera(50, 1, 1, 100);
         camera.position.set(0, 0, 4);
@@ -89,6 +89,7 @@ const WebBall = ({ color, ...rest }) => {
         // Setup a mesh with geometry + material
         const mesh = new Mesh(geometry, material);
         scene.add(mesh);
+        canvasRef.current.appendChild(renderer.domElement);
         renderScene();
         requestAnimationFrame(animate);
         window.addEventListener('resize', handleResize);
@@ -100,7 +101,6 @@ const WebBall = ({ color, ...rest }) => {
     }, []);
 
     return <Container ref={canvasRef} {...rest}></Container>;
-    //return <model-viewer src="models/webball.gltf" background-color="#70BCD1" controls auto-rotate alt="A 3D model of an astronaut"></model-viewer>
 };
 
 WebBall.propTypes = {
