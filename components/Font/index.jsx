@@ -97,4 +97,5 @@ export const Small = styled.div`
     color: ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
     font-weight: ${props =>
         props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
+    font-style: ${props => (props.isItalic ? 'italic' : 'normal')};
 `;
