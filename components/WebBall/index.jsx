@@ -12,16 +12,15 @@ import {
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
-
-//import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Container = styled.div`
-    width: min(max(70vw, 350px), 600px);
-    margin: auto;
+    width: min(max(40vw, 150px), 200px);
+    margin: 0 auto;
     background-color: transparent;
 `;
 
-const widthFactor = 0.7;
+const widthFactor = 0.4;
 const WebBall = ({ color, ...rest }) => {
     const canvasRef = useRef();
     useEffect(() => {
@@ -37,6 +36,7 @@ const WebBall = ({ color, ...rest }) => {
             mesh.rotation.y += time * 0.05;
             mesh.rotation.x += time * 0.05;
             then = now;
+            controls.update();
             renderScene();
             requestAnimationFrame(animate);
         };
@@ -47,15 +47,15 @@ const WebBall = ({ color, ...rest }) => {
             renderScene();
         };
 
-        const getWidth = () => Math.min(Math.max(widthFactor * window.innerWidth, 350), 600);
-        const renderer = new WebGLRenderer({ antialias: true });
+        const getWidth = () => Math.min(Math.max(widthFactor * window.innerWidth, 150), 200);
+        const renderer = new WebGLRenderer({ antialias: true, alpha: true });
 
         // WebGL background color
         //renderer.setClearAlpha('');
-        renderer.setClearColor('white', 1);
+        renderer.setClearColor(0xffffff, 0);
         let width = getWidth();
         // Setup a camera
-        const camera = new PerspectiveCamera(50, 1, 1, 100);
+        const camera = new PerspectiveCamera(30, 1, 0.1, 20);
         camera.position.set(0, 0, 4);
         camera.lookAt(new Vector3());
         renderer.setPixelRatio(1);
@@ -72,6 +72,8 @@ const WebBall = ({ color, ...rest }) => {
         const light = new DirectionalLight(0xffffff);
         light.position.set(0, 0, 1);
         scene.add(light);
+        scene.background = null;
+
         // Setup a geometry
         const geometry = new SphereGeometry(1, 32, 16);
         //const geometry = new THREE.SphereBufferGeometry(1,32,16);
@@ -88,6 +90,8 @@ const WebBall = ({ color, ...rest }) => {
 
         // Setup a mesh with geometry + material
         const mesh = new Mesh(geometry, material);
+        const controls = new OrbitControls(camera, renderer.domElement);
+
         scene.add(mesh);
         canvasRef.current.appendChild(renderer.domElement);
         renderScene();
@@ -95,6 +99,7 @@ const WebBall = ({ color, ...rest }) => {
         window.addEventListener('resize', handleResize);
 
         return () => {
+            controls.update();
             renderer.dispose();
             window.removeEventListener('resize', handleResize);
         };

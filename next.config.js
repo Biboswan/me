@@ -1,11 +1,14 @@
 //const withCSS = require('@zeit/next-css');
 const withImages = require('next-images');
+const withTM = require('next-transpile-modules')(['three']);
 
-module.exports = withImages({
-    webpack(config) {
-        return config;
-    },
-});
+module.exports = withTM(
+    withImages({
+        webpack(config) {
+            return config;
+        },
+    })
+);
 /** 
  *  ,webpack: config => {
             config.module.rules.push({

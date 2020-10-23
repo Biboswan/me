@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { useEffect, useMemo, useContext } from 'react';
+import { useEffect, useMemo } from 'react';
 import useToggle from 'custom-hooks/useToggle';
-import styled, { keyframes, ThemeContext } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Fragment } from 'react';
 import { H1, H2, Body1 } from 'components/Font';
 import MainContainer from 'components/MainContainer';
@@ -9,10 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import ProfilePic from 'components/ProfilePic';
 import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
-import dynamic from 'next/dynamic';
 import { useTrail, animated } from 'react-spring';
 
-const WebBall = dynamic(() => import('components/WebBall'));
 const config = { mass: 5, tension: 2000, friction: 400 };
 
 const Container = styled(MainContainer)`
@@ -94,7 +92,7 @@ let audio;
 
 const Home = () => {
     const [isWavyAnimate, toggleIsWavyAnimate] = useToggle(false);
-    const themeContext = useContext(ThemeContext);
+
     const trail = useTrail(4, {
         config,
         opacity: 1,
@@ -240,7 +238,6 @@ const Home = () => {
                     </AnimatedBanner>
                 </animated.div>
                 <audio preload="auto" src="/audio/BiboswanAudio.m4a"></audio>
-                <WebBall color={themeContext.color.orange[800]} />
             </Container>
         </Fragment>
     );

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,8 @@ import {
 import { Body2, Small } from 'components/Font';
 import WhiteLogo from 'components/Icons/WhiteLogo';
 import { NAVLINKS } from 'app-constants';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
 
 const Container = styled.footer`
     width: 100vw;
@@ -26,6 +28,10 @@ const Container = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .webball {
+        margin-top: ${props => props.theme.base_spacing * 12}px;
+    }
 `;
 
 const SocialLinkContainer = styled.section`
@@ -34,6 +40,7 @@ const SocialLinkContainer = styled.section`
     grid-template-rows: 48px 48px;
     column-gap: ${props => props.theme.base_spacing * 12}px;
     row-gap: ${props => props.theme.base_spacing * 10}px;
+    justify-content: center;
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
         grid-template-columns: 48px 48px 48px 48px 48px 48px;
@@ -88,7 +95,12 @@ const WhiteLogoLink = styled.div`
 const Copyright = styled(Small)`
     text-align: center;
 `;
+
+const WebBall = dynamic(() => import('components/WebBall'));
+
 const Footer = () => {
+    const themeContext = useContext(ThemeContext);
+
     const renderSocialIcons = ({ icon, link, label }) => {
         return (
             <SocialLink role="link" aria-label={label} key={label} href={link}>
@@ -115,6 +127,7 @@ const Footer = () => {
         <Container>
             <div>
                 <SocialLinkContainer>{socialIcons.map(renderSocialIcons)}</SocialLinkContainer>
+                <WebBall className="webball" color={themeContext.color.orange[800]} />
                 <NavContainer>{NAVLINKS.map(renderNavLinks)}</NavContainer>
                 <WhiteLogoLink>
                     <Link href="/">
