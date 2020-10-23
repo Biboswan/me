@@ -126,7 +126,7 @@ const WorkStory = ({ title, intro, bannerImage, techTags, subtopics, id }) => {
                     content="work experience, javascript, react, software engineer,"
                 />
                 <meta property="og:title" content={title} />
-                <meta property="og:url" content={`http://biboswanroy.com/work/${id}`} />
+                <meta property="og:url" content={`https://biboswanroy.com/work/${id}`} />
                 <meta property="og:description" content={intro.toString().substring(0, 300)} />
                 <meta property="og:image" content={bannerImage.url} />
                 <meta name="twitter:title" content={title} />

@@ -94,7 +94,7 @@ const Events = () => {
                     content="portfolio, full-stack, javascript, react, software engineer"
                 />
                 <meta property="og:title" content="Biboswan Roy" />
-                <meta property="og:url" content="http://biboswanroy.com/" />
+                <meta property="og:url" content="https://biboswanroy.com/" />
                 <meta
                     property="og:description"
                     content="Frontend and full stackish engineer,passionate about open source and public speaking"
