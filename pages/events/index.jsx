@@ -85,6 +85,35 @@ const Events = () => {
         <>
             <Head>
                 <title>Events - Biboswan Roy</title>
+                <meta
+                    name="description"
+                    content="Frontend and full stackish engineer, passionate about open source and public speaking"
+                />
+                <meta
+                    name="keywords"
+                    content="portfolio, full-stack, javascript, react, software engineer"
+                />
+                <meta property="og:title" content="Biboswan Roy" />
+                <meta property="og:url" content="http://biboswanroy.com/" />
+                <meta
+                    property="og:description"
+                    content="Frontend and full stackish engineer,passionate about open source and public speaking"
+                />
+                <meta
+                    property="og:image"
+                    content={require('public/images/conf/AllHands2k18.jpg')}
+                />
+                <meta name="twitter:title" content="Biboswan Roy" />
+                <meta
+                    name="twitter:description"
+                    content="Frontend and full stackish engineer,passionate about open source and public speaking"
+                />
+                <meta
+                    name="twitter:image"
+                    content={require('public/images/conf/AllHands2k18.jpg')}
+                />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:creator" content="@Biboswan98" />
             </Head>
             <MainContainer>
                 <Heading as="h1">Communities & Confs</Heading>

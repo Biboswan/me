@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { H4, Body2, H5, H6, Sub1 } from 'components/Font';
@@ -71,7 +72,7 @@ const SubtopicTextData = styled.div`
     }
 `;
 
-const WorkStory = ({ title, intro, bannerImage, techTags, subtopics }) => {
+const WorkStory = ({ title, intro, bannerImage, techTags, subtopics, id }) => {
     const renderTechTag = label => {
         return <TechTag className="techtag" key={label} label={label} />;
     };
@@ -117,31 +118,50 @@ const WorkStory = ({ title, intro, bannerImage, techTags, subtopics }) => {
     );
 
     return (
-        <Container>
-            <article>
-                <H4 as="h1" weight="bold">
-                    {title}
-                </H4>
-                <BannerImage src={bannerImage.url} />
-                <Introduction>{intro.map(renderIntroPara)}</Introduction>
-                <section>
-                    <H6 weight="medium" as="h3">
-                        Some Related Tags
-                    </H6>
-                    <TechTagsContainer>{techTags.map(renderTechTag)}</TechTagsContainer>
-                </section>
-                <section>
-                    <H5 as="h2" weight="bold">
-                        Challenges and My take
-                    </H5>
-                    <SubtopicsContainer>{subtopics.map(renderSubtopic)}</SubtopicsContainer>
-                </section>
-            </article>
-        </Container>
+        <>
+            <Head>
+                <meta name="description" content={intro} />
+                <meta
+                    name="keywords"
+                    content="work experience, javascript, react, software engineer,"
+                />
+                <meta property="og:title" content={title} />
+                <meta property="og:url" content={`http://biboswanroy.com/work/${id}`} />
+                <meta property="og:description" content={intro.toString().substring(0, 300)} />
+                <meta property="og:image" content={bannerImage.url} />
+                <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={intro.toString().substring(0, 300)} />
+                <meta name="twitter:image" content={bannerImage.url} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:creator" content="@Biboswan98" />
+            </Head>
+            <Container>
+                <article>
+                    <H4 as="h1" weight="bold">
+                        {title}
+                    </H4>
+                    <BannerImage src={bannerImage.url} />
+                    <Introduction>{intro.map(renderIntroPara)}</Introduction>
+                    <section>
+                        <H6 weight="medium" as="h3">
+                            Some Related Tags
+                        </H6>
+                        <TechTagsContainer>{techTags.map(renderTechTag)}</TechTagsContainer>
+                    </section>
+                    <section>
+                        <H5 as="h2" weight="bold">
+                            Challenges and My take
+                        </H5>
+                        <SubtopicsContainer>{subtopics.map(renderSubtopic)}</SubtopicsContainer>
+                    </section>
+                </article>
+            </Container>
+        </>
     );
 };
 
 WorkStory.propTypes = {
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     intro: PropTypes.any.isRequired,
     techTags: PropTypes.array,
@@ -152,7 +172,7 @@ WorkStory.propTypes = {
 export default WorkStory;
 
 export async function getStaticProps({ params: { id } }) {
-    return { props: WorkStories[id] };
+    return { props: { ...WorkStories[id], id } };
 }
 
 export async function getStaticPaths() {
