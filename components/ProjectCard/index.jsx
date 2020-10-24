@@ -93,7 +93,7 @@ const ProjectCard = props => {
             style={isAnimateCard ? { transform: springprops.xys.to(trans) } : dummyObj}
             {...rest}
         >
-            <PreviewImage src={image.url} alt={image.label} />
+            <PreviewImage src={image.url} alt={image.alt} />
             <Description>
                 <H6 as="h3" weight="semibold">
                     {title}
@@ -116,7 +116,7 @@ ProjectCard.propTypes = {
     className: PropTypes.string,
     image: PropTypes.shape({
         url: PropTypes.string,
-        label: PropTypes.string,
+        alt: PropTypes.string,
     }).isRequired,
     title: PropTypes.string.isRequired,
     techTags: PropTypes.arrayOf(PropTypes.string).isRequired,
