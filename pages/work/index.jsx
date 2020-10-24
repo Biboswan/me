@@ -7,6 +7,7 @@ import ProjectCard from 'components/ProjectCard';
 import { Projects, CERTS, Testimonials } from 'app-constants';
 import BlueValleyOBlob from 'components/Svgs/BlueValleyOBlob';
 import Testimonial from 'components/Testimonial';
+import useIsMobileDevice from 'custom-hooks/useIsMobileDevice';
 
 const WorkSummary = styled.article`
     margin-top: ${props => props.theme.base_spacing * 6}px;
@@ -135,6 +136,8 @@ const TestimonialSection = () => {
 };
 
 const Work = () => {
+    const isMobileDevice = useIsMobileDevice();
+
     const renderProjectCard = ({ image, title, techTags, storyLink, intro }) => {
         return (
             <li className="projectCardItem" key={title}>
@@ -144,6 +147,7 @@ const Work = () => {
                     techTags={techTags}
                     storyLink={storyLink}
                     intro={intro}
+                    isAnimateCard={!isMobileDevice}
                 />
             </li>
         );

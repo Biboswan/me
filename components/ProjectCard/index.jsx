@@ -50,8 +50,20 @@ const TechTagsContainer = styled.div`
     }
 `;
 
+const dummyFunc = () => {};
+const dummyObj = Object.create(null);
+
 const ProjectCard = props => {
-    const { image, title, techTags, storyLink, intro, className, ...rest } = props;
+    const {
+        image,
+        title,
+        techTags,
+        storyLink,
+        intro,
+        className,
+        isAnimateCard = true,
+        ...rest
+    } = props;
     const [springprops, setSpringprops] = useSpring(() => ({
         xys: [0, 0, 1],
         config: { mass: 5, tension: 350, friction: 40 },
@@ -72,9 +84,13 @@ const ProjectCard = props => {
     return (
         <Container
             className={className || ''}
-            onMouseMove={({ clientX: x, clientY: y }) => setSpringprops({ xys: calc(x, y) })}
-            onMouseLeave={() => setSpringprops({ xys: [0, 0, 1] })}
-            style={{ transform: springprops.xys.to(trans) }}
+            onMouseMove={
+                isAnimateCard
+                    ? ({ clientX: x, clientY: y }) => setSpringprops({ xys: calc(x, y) })
+                    : dummyFunc
+            }
+            onMouseLeave={isAnimateCard ? () => setSpringprops({ xys: [0, 0, 1] }) : dummyFunc}
+            style={isAnimateCard ? { transform: springprops.xys.to(trans) } : dummyObj}
             {...rest}
         >
             <PreviewImage src={image.url} alt={image.label} />
@@ -84,17 +100,13 @@ const ProjectCard = props => {
                 </H6>
                 <TechTagsContainer>{techTags.map(renderTechTag)}</TechTagsContainer>
                 <Brief listLen={intro.length}>{intro.map(renderInfoPoint)}</Brief>
-                <Link
-                    href={
-                        storyLink ||
-                        'https://www.timeout.com/london/theatre/the-ten-best-shakespeare-plays-of-all-time'
-                    }
-                    passHref
-                >
-                    <Sub1 isItalic as="a">
-                        Read Story...
-                    </Sub1>
-                </Link>
+                {storyLink && (
+                    <Link href={storyLink} passHref>
+                        <Sub1 isItalic as="a">
+                            Read Story...
+                        </Sub1>
+                    </Link>
+                )}
             </Description>
         </Container>
     );
@@ -110,6 +122,7 @@ ProjectCard.propTypes = {
     techTags: PropTypes.arrayOf(PropTypes.string).isRequired,
     storyLink: PropTypes.string,
     intro: PropTypes.arrayOf(PropTypes.string).isRequired,
+    isAnimateCard: PropTypes.bool,
 };
 
 export default ProjectCard;

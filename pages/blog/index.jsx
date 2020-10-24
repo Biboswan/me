@@ -10,18 +10,27 @@ const STORIES_APT =
     'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@Biboswan98';
 
 const Subheading = styled(Body1)`
-    margin: ${props => props.theme.base_spacing * 6}px 0 ${props => props.theme.base_spacing * 10}px;
+    margin: ${props => props.theme.base_spacing * 6}px 0 ${props => props.theme.base_spacing * 12}px;
     max-width: 65ch;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
+        margin-bottom: ${props => props.theme.base_spacing * 15}px;
+    }
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
+        margin-bottom: ${props => props.theme.base_spacing * 18}px;
+    }
 `;
 
 const ArticlesContainer = styled.div`
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 15}px;
+    column-gap: ${props => props.theme.base_spacing * 15}px;
 
     .articleCard {
-        max-width: 480px;
+        max-width: 450px;
         box-sizing: border-box;
-        margin: auto;
+        margin: 0 auto;
     }
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {

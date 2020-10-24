@@ -6,17 +6,22 @@ import { useCallback } from 'react';
 
 const Container = styled.section`
     border: 1px solid #000000;
-    border-radius: 0px 0px 12px 12px;
+    border-radius: 12px;
 `;
 
 const PreviewImage = styled.div`
     display: flex;
     justify-content: center;
+    border-radius: 12px 12px 0 0;
+
+    img {
+        border-radius: 12px 12px 0 0;
+    }
 `;
 
 const TextInfo = styled.div`
     padding: ${props => props.theme.base_spacing * 7}px ${props => props.theme.base_spacing * 4}px
-        ${props => props.theme.base_spacing * 4}px;
+        ${props => props.theme.base_spacing * 8}px;
     max-width: 70ch;
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 8}px;
