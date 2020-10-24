@@ -103,7 +103,10 @@ const BlogArticleCard = ({ thumbnail, link, title, startingLines, readTime, ...r
         <Container {...rest}>
             {thumbnail && (
                 <PreviewImage>
-                    <img src={thumbnail} alt={`image ${thumbnail}`} />
+                    <img
+                        src={thumbnail}
+                        alt="Preview image | Image detail available from original source website"
+                    />
                 </PreviewImage>
             )}
             <TextInfo>

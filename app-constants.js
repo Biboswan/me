@@ -83,7 +83,10 @@ export const Projects = [
     {
         title: 'Open Source Saga @Mozilla',
         techTags: ['React', 'NodeJS', 'GraphQL', 'Go', 'Python', 'Testing', 'Documenting'],
-        image: { url: require('public/processed-images/work/480/tc-flow.gif'), alt: '' },
+        image: {
+            url: require('public/processed-images/work/480/tc-flow.gif'),
+            alt: 'A gif show the taskcluster workflow',
+        },
         intro: [
             'Contributed to multiple projects at Taskcluster a task execution framework that supports Mozilla’s CI and release process.',
             'Wrote taskcluster-lib-pulse v2',
@@ -100,7 +103,10 @@ export const Projects = [
             'Iframe',
             'Amazon Lightsail',
         ],
-        image: { url: require('public/processed-images/work/480/studioyou.png'), alt: '' },
+        image: {
+            url: require('public/processed-images/work/480/studioyou.png'),
+            alt: 'Landing page of studioyou website',
+        },
         intro: [
             'Webstore is my baby because I build it from scratch. Apart from this, I contributed slightly to their CRM and main site which actually helped me in many ways.',
         ],
@@ -111,7 +117,11 @@ export const Projects = [
         intro: [
             'Works offline to the extend that you can add reviews offline and automatically send to server when connectivity restores, made during the Google India Scholarship program',
         ],
-        image: { url: require('public/processed-images/work/480/RestReviewshp.png'), alt: '' },
+        image: {
+            url: require('public/processed-images/work/480/RestReviewshp.png'),
+            alt:
+                'Webpage showing list of restaurant cards having buttons to favourite them as well',
+        },
         techTags: [
             'Vanilla JS',
             'PWA',
@@ -130,9 +140,21 @@ export const Projects = [
         ],
         image: {
             url: require('public/processed-images/work/480/RestaurantE1.png'),
-            alt: '',
+            alt: 'Typical food ordering website showing items ordered and add to cart',
         },
         techTags: ['MERN ', 'Material UI', 'Redux'],
+        storyLink: '',
+    },
+    {
+        title: 'HealthCheckZen',
+        intro: [
+            'Primary level detection for Covid 19 signs to detect, monitor and avail suggestions via some simple questions asked by an application. Decision tree is being populated by medical researchers.',
+        ],
+        image: {
+            url: require('public/processed-images/work/480/HealthCheckZen.png'),
+            alt: 'Questionaire having language options of hindi, english and bengali',
+        },
+        techTags: ['Internationalization', 'Tree Traversal'],
         storyLink: '',
     },
 ];

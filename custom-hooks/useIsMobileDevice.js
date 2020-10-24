@@ -1,5 +1,4 @@
-const { useEffect, useState } = require('react');
-
+import { useEffect, useState } from 'react';
 import { isMobile } from 'utils/helper';
 
 const useIsMobileDevice = () => {
