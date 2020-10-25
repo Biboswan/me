@@ -16,7 +16,8 @@ import dynamic from 'next/dynamic';
 import { useContext } from 'react';
 
 const Container = styled.footer`
-    width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
     position: absolute;
     padding: ${props => props.theme.base_spacing * 12}px 0
         ${props => props.theme.base_spacing * 12}px;

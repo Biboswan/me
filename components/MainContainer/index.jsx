@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Container = styled.main`
+    width: 100%;
     padding: ${props => props.theme.base_spacing * 5}px
         ${props => props.theme.spacing.pageside.sm}px ${props => props.theme.base_spacing * 12}px;
     position: relative;
