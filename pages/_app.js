@@ -101,7 +101,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppContainer = styled.div`
-    width: 100vw;
+    width: 100%;
 `;
 
 const App = ({ Component, pageProps }) => {
