@@ -108,7 +108,7 @@ const CertificateSection = () => {
     };
     return (
         <section>
-            <H4 as="h2">Certifications/Courses</H4>
+            <H4 as="h2">Certifications / Courses</H4>
             <CertificationList>{CERTS.map(renderListItem)}</CertificationList>
             <BlueValleyOBlobStyled />
         </section>
