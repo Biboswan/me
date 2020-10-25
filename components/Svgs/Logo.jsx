@@ -158,7 +158,7 @@ function Logo(props) {
             ></Ray5>
             <text
                 fill="url(#linearGradient2212)"
-                fontFamily="Grandstander"
+                fontFamily="Chalkboard"
                 fontSize="25.4"
                 transform="matrix(7.493 0 0 8.8892 -411.62 -1734.9)"
                 style={{

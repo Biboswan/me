@@ -16,6 +16,15 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	//latin
+	//Chalkboard.ttf
+
+	@font-face {
+		font-display: swap;
+		font-family: 'Chalkboard';
+		src: url('/fonts/Chalkboard-logo.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+	}
 
 	@font-face {
 		font-display: swap;

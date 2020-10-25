@@ -32,6 +32,13 @@ class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <link
+                        rel="preload"
+                        href="/fonts/Chalkboard-logo.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="crossorigin"
+                    />
                     <link rel="icon" href="/icons/favicon.svg" sizes="any" type="image/svg+xml" />
                     <link
                         rel="apple-touch-icon"
