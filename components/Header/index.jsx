@@ -11,7 +11,7 @@ const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.08);
     background: ${props => props.theme.color.white};
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     position: sticky;
     top: 0;

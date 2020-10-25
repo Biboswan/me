@@ -1,5 +1,5 @@
 import 'normalize.css';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -100,6 +100,10 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
+const AppContainer = styled.div`
+    width: 100vw;
+`;
+
 const App = ({ Component, pageProps }) => {
     const [isLightTheme, toggleTheme] = useToggle(true);
     const router = useRouter();
@@ -122,9 +126,11 @@ const App = ({ Component, pageProps }) => {
             <ThemeProvider theme={getTheme(isLightTheme)}>
                 <>
                     <GlobalStyle />
-                    <Header />
-                    <Component toggleTheme={toggleTheme} {...pageProps} />
-                    <Footer />
+                    <AppContainer>
+                        <Header />
+                        <Component toggleTheme={toggleTheme} {...pageProps} />
+                        <Footer />
+                    </AppContainer>
                 </>
             </ThemeProvider>
         </>
