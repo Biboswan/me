@@ -17,6 +17,9 @@ const Container = styled.main`
         padding-left: ${props => props.theme.spacing.pageside.lg}px;
         padding-right: ${props => props.theme.spacing.pageside.lg}px;
     }
+
+    max-width: ${props => props.theme.breakpoint.lg}px;
+    margin: auto;
 `;
 
 const MainContainer = props => {
