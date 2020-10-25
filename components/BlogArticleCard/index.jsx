@@ -12,6 +12,7 @@ const Container = styled.section`
 const PreviewImage = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 12px 12px 0 0;
 
     img {
