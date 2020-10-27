@@ -38,14 +38,42 @@ const WavyTextContainer = styled.div`
         animation-delay: calc(0.1s * var(--i));
     }
 
-    .playwavy-icon {
-        width: 24px !important;
-        margin-top: -40px;
+    .playwavy-btn {
+        background: transparent;
+        margin-top: -35px;
         position: absolute;
         margin-left: 50%;
         cursor: pointer;
+        z-index: 10;
+        border: none;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+
+        span {
+            width: inherit;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .playwavy-btn:focus,
+    .playwavy-btn > span :focus {
+        outline: none;
+    }
+
+    .playwavy-btn:focus > span {
+        box-shadow: 0 0 2px 2px ${props => props.theme.color.blue[400]};
+    }
+
+    .playwavy-btn__icon {
+        width: 24px !important;
+        height: auto;
     }
 `;
+
 const WavyChar = styled.span`
     position: relative;
     display: inline-block;
@@ -187,12 +215,18 @@ const Home = () => {
                         I’m{' '}
                         <WavyTextContainer>
                             {' '}
-                            <FontAwesomeIcon
-                                className="playwavy-icon"
-                                role="button image"
+                            <button
+                                aria-label="play"
+                                className="playwavy-btn"
                                 onClick={toggleIsWavyAnimate}
-                                icon={faPlayCircle}
-                            />
+                            >
+                                <span tabIndex={1}>
+                                    <FontAwesomeIcon
+                                        className="playwavy-btn__icon"
+                                        icon={faPlayCircle}
+                                    />
+                                </span>
+                            </button>
                             <div>{renderFirstNameLetters}</div>
                         </WavyTextContainer>{' '}
                         Roy
