@@ -5,8 +5,8 @@ import { Sub1, H6, Body2 } from 'components/Font';
 import TechTag from 'components/TechTag';
 import { useSpring, animated } from 'react-spring';
 
-const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.07];
-const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+const calc = (x, y) => [-(y - window.innerHeight / 2) / 40, (x - window.innerWidth / 2) / 40, 1.02];
+const trans = (x, y, s) => `perspective(1200px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
 const Container = styled(animated.div)`
     will-change: transform;
