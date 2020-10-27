@@ -67,6 +67,7 @@ const ProjectCard = props => {
     const [springprops, setSpringprops] = useSpring(() => ({
         xys: [0, 0, 1],
         config: { mass: 5, tension: 350, friction: 40 },
+        immediate: !isAnimateCard,
     }));
 
     const renderTechTag = label => {

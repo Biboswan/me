@@ -8,6 +8,7 @@ import { Projects, CERTS, Testimonials } from 'app-constants';
 import BlueValleyOBlob from 'components/Svgs/BlueValleyOBlob';
 import Testimonial from 'components/Testimonial';
 import useIsMobileDevice from 'custom-hooks/useIsMobileDevice';
+import usePrefersReducedMotion from 'custom-hooks/usePrefersReducedMotion';
 
 const WorkSummary = styled.article`
     margin-top: ${props => props.theme.base_spacing * 6}px;
@@ -137,6 +138,7 @@ const TestimonialSection = () => {
 
 const Work = () => {
     const isMobileDevice = useIsMobileDevice();
+    const prefersReducedMotion = usePrefersReducedMotion();
 
     const renderProjectCard = ({ image, title, techTags, storyLink, intro }) => {
         return (
@@ -147,7 +149,7 @@ const Work = () => {
                     techTags={techTags}
                     storyLink={storyLink}
                     intro={intro}
-                    isAnimateCard={!isMobileDevice}
+                    isAnimateCard={!(isMobileDevice || prefersReducedMotion)}
                 />
             </li>
         );
