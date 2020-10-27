@@ -220,7 +220,7 @@ const Home = () => {
                                 className="playwavy-btn"
                                 onClick={toggleIsWavyAnimate}
                             >
-                                <span tabIndex={1}>
+                                <span tabIndex={-1}>
                                     <FontAwesomeIcon
                                         className="playwavy-btn__icon"
                                         icon={faPlayCircle}
