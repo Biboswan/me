@@ -64,6 +64,10 @@ const SubtopicTextData = styled.div`
         display: grid;
         row-gap: ${props => props.theme.base_spacing * 7}px;
         max-width: 60ch;
+
+        strong {
+            color: ${props => props.theme.color.blue[600]};
+        }
     }
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
@@ -79,9 +83,7 @@ const WorkStory = ({ title, intro, bannerImage, techTags, subtopics, id }) => {
 
     const renderSubtopic = ({ title, desc, image }, index) => {
         const renderPara = (para, index) => (
-            <Body2 key={index} as="p" weight="light">
-                {para}
-            </Body2>
+            <Body2 dangerouslySetInnerHTML={{ __html: para }} key={index} as="p" weight="light" />
         );
 
         return (

@@ -225,8 +225,9 @@ export const WorkStories = {
     studioyou: {
         title: 'Journey At StudioYou',
         intro: [
-            'StudioYou is the modern complete business management software for boutique fitness studios, yoga studios, boxes and gyms.Initially I made my hands dirty on all the existing products by adding features on https://getstudioyou.com (pricing page done by me), crm and pwa webstore.',
-            'Then I began solely building the new frontend webstore B2B (having customizable themes lignt and dark themes matching the business brands) from scratch which would be embeddedable on our customers own websites. Involved lot of research about competitors. Taking tech stack decisions and architecture etc.',
+            'StudioYou is the modern complete business management software for boutique fitness studios, yoga studios, boxes and gyms. Initially I made my hands dirty on all the existing products by adding features on https://getstudioyou.com (pricing page done by me), crm and pwa webstore.',
+            'Then I began solely building the new frontend webstore B2B (having customizable themes lignt and dark themes matching the business brands) from scratch which would be embeddedable on our customers own websites.',
+            'Involved lot of research about competitors. Taking independently tech decisions and architecture etc.',
         ],
         bannerImage: { url: '/images/work/studioyou.png', alt: '' },
         techTags: [
@@ -240,15 +241,15 @@ export const WorkStories = {
             {
                 title: 'Move Fast vs Building Foundation for Tomorrow',
                 desc: [
-                    'Being a new startup we needed to move fast.But I believe slight extra thought in the beginning can save hours later. I motivated the product designer to make a well documeted design system. Observing all the screens and design system I first made Modular Reusable Extendable(making room for newer options without much overwriting) components which I could later plug into screens and gotta I’m done.',
-                    'Way later wrote an article which got approached by The Startup, The UX Collective and other.',
+                    'Being a new startup we needed to move fast. But I believe slight extra thought in the beginning can save hours later. I motivated the product designer to make a well documeted design system. Observing all the screens and design system I first made <strong>Modular</strong>, <strong>Reusable</strong>, <strong>Extendable</strong> (making room for newer options without much overwriting) components which I could later plug into screens and gotta I’m done.',
+                    'Way later wrote an article which got approached by <strong>The Startup</strong>, <strong>The UX Collective</strong> and other.',
                 ],
             },
             {
                 title: 'Seamless integration of entire webstore as an iframe',
                 desc: [
-                    'Iframe window shall be able to change the outer window’s URL and vice vera. Security aspects also needed to be seen. Researched and came across interesting cross-domain javascript libraries of paypal - zoid etc ,read frontend bundled code of studioyou competitor’s products 🙈 having similar implementations and Content Security Header. Utimately developed cross window communication protocol successfully.',
-                    'Dealt with the common challenge of setting iframe dimensions dynamically with mutation observers.',
+                    'Iframe window shall be able to change the outer window’s URL and vice vera. Security aspects also needed to be seen. Researched and came across interesting cross-domain javascript libraries of paypal - <strong>zoid</strong> etc , read frontend bundled code of studioyou competitor’s products 🙈 having similar implementations and Content Security Header. Utimately developed cross window communication protocol successfully.',
+                    'Dealt with the common challenge of setting iframe dimensions dynamically with <strong>mutation observers</strong>.',
                 ],
                 image: { url: '/images/work/studioyou/class_schedule.png', alt: '' },
             },
