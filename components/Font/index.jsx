@@ -99,3 +99,10 @@ export const Small = styled.div`
         props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
     font-style: ${props => (props.isItalic ? 'italic' : 'normal')};
 `;
+
+export const Strong = styled.strong`
+    font-style: ${props => (props.isItalic ? 'italic' : 'normal')};
+    color: ${props => props.theme.color.blue[600]};
+    font-weight: ${props =>
+        props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
+`;

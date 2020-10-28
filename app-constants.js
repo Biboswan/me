@@ -160,10 +160,17 @@ export const Projects = [
 ];
 
 export const CERTS = [
-    'Computer architecture and organization by IIT Kharagpur and NPTEL (Top 5%)',
-    'Mobile Web Specialist Nanodegree by Udacity and Google',
-    'Problem Solving(Advanced) Hackerrank',
-    'Programming, data structures and algorithms by IIT Madras and NPTEL (top 5%)',
+    <>
+        Computer architecture and organization by <strong>IIT Kharagpur</strong> and NPTEL (Top 5%)
+    </>,
+    <>
+        Mobile Web Specialist Nanodegree by <strong>Udacity</strong> and <strong>Google</strong>
+    </>,
+    <>Problem Solving (Advanced) Hackerrank</>,
+    <>
+        Programming, data structures and algorithms by <strong>IIT Madras</strong> and NPTEL (top
+        5%)
+    </>,
 ];
 
 export const Testimonials = [

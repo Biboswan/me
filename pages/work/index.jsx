@@ -16,9 +16,12 @@ const WorkSummary = styled.article`
     max-width: 65ch;
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 10}px;
-    .strong {
-        font-weight: ${props => props.theme.font_weight.bold};
-    }
+`;
+
+const WorkSummaryStrongTerm = styled.strong`
+    font-weight: ${props => props.theme.font_weight.medium};
+    font-style: italic;
+    color: ${props => props.theme.color.blue[600]};
 `;
 
 const ProjectCertTestContainer = styled.div`
@@ -187,15 +190,16 @@ const Work = () => {
                 <WorkSummary>
                     <Body1 weight="light" as="p">
                         I software engineered at Resto-G(intern),{' '}
-                        <span className="strong">Mozilla </span>
-                        (contributor), <span className="strong">StudioYou</span> (intern) and
-                        <span className="strong"> Creatella</span> (part-time dev). Each was a
-                        unique experience owing to their different company cultures and phases the
-                        respective companies were at.
+                        <WorkSummaryStrongTerm>Mozilla</WorkSummaryStrongTerm> (contributor),{' '}
+                        <WorkSummaryStrongTerm>StudioYou</WorkSummaryStrongTerm> (intern) and{' '}
+                        <WorkSummaryStrongTerm>Creatella</WorkSummaryStrongTerm> (part-time dev).
+                        Each was a unique experience owing to their different company cultures and
+                        phases the respective companies were at.
                     </Body1>
                     <Body1 weight="light" as="p">
-                        I have also interned at <span className="strong">IIM Lucknow</span> in Data
-                        Science and Anaytics.
+                        I have also interned at{' '}
+                        <WorkSummaryStrongTerm>IIM Lucknow</WorkSummaryStrongTerm> in Data Science
+                        and Anaytics.
                     </Body1>
                     <Body1 weight="light" as="p">
                         Somehow everything remote till date.

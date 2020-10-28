@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react';
 import useToggle from 'custom-hooks/useToggle';
 import styled, { keyframes } from 'styled-components';
 import { Fragment } from 'react';
-import { H1, H2, Body1 } from 'components/Font';
+import { H1, H2, Body1, Strong } from 'components/Font';
 import MainContainer from 'components/MainContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
@@ -115,6 +115,10 @@ const ProfilePicContainer = styled.div`
 `;
 
 const FIRSTNAME = ['B', 'i', 'b', 'o', 's', 'w', 'a', 'n'];
+
+const SemiStrong = styled.strong`
+    font-weight: 500;
+`;
 
 let audio;
 
@@ -251,23 +255,28 @@ const Home = () => {
                     <AnimatedBanner weight="light" style={{ height: trail[3].height }}>
                         <p>
                             physically based in India, inclined towards the web. Loves open source,
-                            tech communities, green tea (not coffee) and dancing too. Google Udacity
-                            Scholar 2k18 and a Mozillian
+                            tech communities, green tea (not coffee) and dancing too.{' '}
+                            <Strong isItalic>Google Udacity Scholar</Strong> 2k18 and a{' '}
+                            <Strong isItalic>Mozillian</Strong>.
                         </p>
                         <p>
-                            Building interfaces got me interested lately into Human Computer
-                            Interaction because I had always tried to understand why humans behave
-                            the way they do. Still I like to kinda meddle in both frontend and
-                            backend aspects of software and beyond if possible. Open to write code
-                            in any programming language but if it can be done with Javascript, would
-                            certainly do so.
+                            Building interfaces got me interested lately into{' '}
+                            <Strong isItalic>Human Computer Interaction</Strong> because I had
+                            always tried to understand why humans behave the way they do. Still I
+                            like to kinda meddle in both frontend and backend aspects of software
+                            and beyond if possible.
                         </p>
                         <p>
-                            Despite securing a seat in IIIT, I had to continue my computer science
-                            engineering degree from a tier-3 college because i wasn’t allowed to
-                            leave my hometown and study in a different city. Things have changed now
-                            though. Kudos to free online education, I think I have made up abit for
-                            that, to the point where college tag may not matter that much.
+                            Open to write code in any programming language but if it can be done
+                            with <SemiStrong>Javascript</SemiStrong>, would certainly do so.
+                        </p>
+                        <p>
+                            Despite securing a seat in <Strong isItalic>IIIT</Strong>, I had to
+                            continue my computer science engineering degree from a tier-3 college
+                            because I wasn’t allowed to leave my hometown and study in a different
+                            city. Things have changed now though. Kudos to free online education, I
+                            think I have made up abit for that, to the point where college tag may
+                            not matter that much.
                         </p>
                     </AnimatedBanner>
                 </animated.div>
