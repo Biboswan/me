@@ -258,3 +258,5 @@ export const WorkStories = {
 };
 //images/work/studioyou/class_schedule.png
 ///images/conf/abcofreact.png
+
+export const BASE_URL = 'https://biboswanroy.com';

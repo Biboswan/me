@@ -10,6 +10,7 @@ import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import ProfilePic from 'components/ProfilePic';
 import BlobOrangeBlue from 'components/Svgs/BlobOrangeBlue';
 import { useTrail, animated } from 'react-spring';
+import { BASE_URL } from 'app-constants';
 
 const config = { mass: 5, tension: 2000, friction: 400 };
 
@@ -181,13 +182,19 @@ const Home = () => {
                     property="og:description"
                     content="Frontend and full stackish engineer,passionate about open source and public speaking"
                 />
-                <meta property="og:image" content={require('public/images/seo/home-banner.png')} />
+                <meta
+                    property="og:image"
+                    content={`${BASE_URL}${require('public/images/seo/home-banner.png')}`}
+                />
                 <meta name="twitter:title" content="Biboswan Roy" />
                 <meta
                     name="twitter:description"
                     content="Frontend and full stackish engineer,passionate about open source and public speaking"
                 />
-                <meta name="twitter:image" content={require('public/images/seo/home-banner.png')} />
+                <meta
+                    name="twitter:image"
+                    content={`${BASE_URL}${require('public/images/seo/home-banner.png')}`}
+                />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:creator" content="@Biboswan98" />
             </Head>
