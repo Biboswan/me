@@ -154,7 +154,7 @@ export const Projects = [
             url: require('public/processed-images/work/480/HealthCheckZen.png'),
             alt: 'Questionaire having language options of hindi, english and bengali',
         },
-        techTags: ['Internationalization', 'Tree Traversal'],
+        techTags: ['Internationalization', 'Tree Traversal', 'Github Actions'],
         storyLink: '',
     },
 ];
