@@ -186,6 +186,7 @@ const Home = () => {
                     property="og:image"
                     content={`${BASE_URL}${require('public/images/seo/home-banner.png')}`}
                 />
+                <meta property="og:type" content="website" />
                 <meta name="twitter:title" content="Biboswan Roy" />
                 <meta
                     name="twitter:description"

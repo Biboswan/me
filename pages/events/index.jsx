@@ -103,6 +103,7 @@ const Events = () => {
                     property="og:image"
                     content={require('public/images/conf/AllHands2k18.jpg')}
                 />
+                <meta property="og:type" content="website" />
                 <meta name="twitter:title" content="Biboswan Roy" />
                 <meta
                     name="twitter:description"

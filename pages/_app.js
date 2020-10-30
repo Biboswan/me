@@ -131,7 +131,6 @@ const App = ({ Component, pageProps }) => {
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-                <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Biboswan Roy" />
             </Head>
             <ThemeProvider theme={getTheme(isLightTheme)}>
