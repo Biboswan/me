@@ -120,7 +120,7 @@ const BlogArticleCard = ({ thumbnail, link, title, startingLines, readTime, ...r
                     {startingLines}
                 </Body2>
                 <ReadAndCopy>
-                    <Read as="h4" isItalic weight="bold">
+                    <Read as="h3" isItalic weight="bold">
                         Read Time: {readTime}mins
                     </Read>
                     <CopyURLButton textToCopy={link} />

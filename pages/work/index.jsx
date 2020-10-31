@@ -112,7 +112,7 @@ const CertificateSection = () => {
     };
     return (
         <section>
-            <H4 as="h2">Certifications / Courses</H4>
+            <H4 as="h3">Certifications / Courses</H4>
             <CertificationList>{CERTS.map(renderListItem)}</CertificationList>
             <BlueValleyOBlobStyled />
         </section>
@@ -133,7 +133,7 @@ const TestimonialSection = () => {
 
     return (
         <section>
-            <H4 as="h2">Testimonials</H4>
+            <H4 as="h3">Testimonials</H4>
             <TestimonialList>{Testimonials.map(renderTestimonial)}</TestimonialList>
         </section>
     );
@@ -216,7 +216,7 @@ const Work = () => {
                         <ProjectCardsContainer>
                             {Projects.map(renderProjectCard)}
                         </ProjectCardsContainer>
-                        <H5 as="h3" className="projectInMindHeading">
+                        <H5 as="h2" className="projectInMindHeading">
                             Project in mind
                         </H5>
                         <Body1 weight="medium">

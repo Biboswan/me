@@ -84,8 +84,12 @@ export const Projects = [
         title: 'Open Source Saga @Mozilla',
         techTags: ['React', 'NodeJS', 'GraphQL', 'Go', 'Python', 'Testing', 'Documenting'],
         image: {
-            url: require('public/processed-images/work/480/tc-flow.gif'),
+            url: require('public/processed-images/work/480/tc-flow.webm'),
+            url2: require('public/processed-images/work/480/tc-flow.mp4'),
             alt: 'A gif show the taskcluster workflow',
+            width: 600,
+            height: 582,
+            isVideo: true,
         },
         intro: [
             'Contributed to multiple projects at Taskcluster a task execution framework that supports Mozilla’s CI and release process.',
@@ -106,6 +110,8 @@ export const Projects = [
         image: {
             url: require('public/processed-images/work/480/studioyou.png'),
             alt: 'Landing page of studioyou website',
+            width: 480,
+            height: 300,
         },
         intro: [
             'Webstore is my baby because I build it from scratch. Apart from this, I contributed slightly to their CRM and main site which actually helped me in many ways.',
@@ -121,6 +127,8 @@ export const Projects = [
             url: require('public/processed-images/work/480/RestReviewshp.png'),
             alt:
                 'Webpage showing list of restaurant cards having buttons to favourite them as well',
+            width: 480,
+            height: 280,
         },
         techTags: [
             'Vanilla JS',
@@ -141,6 +149,8 @@ export const Projects = [
         image: {
             url: require('public/processed-images/work/480/RestaurantE1.png'),
             alt: 'Typical food ordering website showing items ordered and add to cart',
+            width: 480,
+            height: 260,
         },
         techTags: ['MERN ', 'Material UI', 'Redux'],
         storyLink: '',
@@ -153,6 +163,8 @@ export const Projects = [
         image: {
             url: require('public/processed-images/work/480/HealthCheckZen.png'),
             alt: 'Questionaire having language options of hindi, english and bengali',
+            width: 480,
+            height: 987,
         },
         techTags: ['Internationalization', 'Tree Traversal', 'Github Actions'],
         storyLink: '',

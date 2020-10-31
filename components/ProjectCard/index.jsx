@@ -20,6 +20,13 @@ const Container = styled(animated.div)`
 const PreviewImage = styled.img`
     max-width: 100%;
     margin: auto;
+    height: auto;
+`;
+
+const PreviewGif = styled.video`
+    max-width: 100%;
+    margin: auto;
+    height: auto;
 `;
 //rgba(179, 182, 229, 1);
 //rgba(135, 198, 202, 1)
@@ -94,7 +101,28 @@ const ProjectCard = props => {
             style={isAnimateCard ? { transform: springprops.xys.to(trans) } : dummyObj}
             {...rest}
         >
-            <PreviewImage src={image.url} alt={image.alt} />
+            {!image.isVideo ? (
+                <PreviewImage
+                    src={image.url}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                />
+            ) : (
+                <PreviewGif
+                    autoPlay
+                    loop
+                    muted
+                    playsinline
+                    title={image.alt}
+                    width={image.width}
+                    height={image.height}
+                >
+                    <source src={image.url} type="video/webm"></source>
+                    <source src={image.url2} type="video/mp4"></source>
+                </PreviewGif>
+            )}
+
             <Description>
                 <H6 as="h3" weight="semibold">
                     {title}
@@ -117,7 +145,11 @@ ProjectCard.propTypes = {
     className: PropTypes.string,
     image: PropTypes.shape({
         url: PropTypes.string,
+        url2: PropTypes.string,
         alt: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        isVideo: PropTypes.boolean,
     }).isRequired,
     title: PropTypes.string.isRequired,
     techTags: PropTypes.arrayOf(PropTypes.string).isRequired,
