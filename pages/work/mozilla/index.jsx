@@ -65,6 +65,7 @@ const SubtopicsContainer = styled.div`
 
 const Image = styled.img`
     margin: auto;
+    height: auto;
 `;
 
 const TaskclusterServiceInfoContainer = styled.div`
@@ -129,8 +130,10 @@ const DevtoolsSection = () => {
                         supports inactive-css.
                     </BodyPara>
                     <Image
-                        src={require('public/images/work/mozilla/inactivecss.png')}
+                        src={require('public/processed-images/work/mozilla/inactivecss.png')}
                         alt="inspector tools - inactive css grid-auto-columns on non grid container"
+                        width={525}
+                        height={272}
                     />
                     <BodyPara>
                         I added specifically the inactive display property on floated element thing.
@@ -163,8 +166,10 @@ const DevtoolsSection = () => {
                         web.
                     </BodyPara>
                     <Image
-                        src={require('public/images/work/mozilla/FireFoxProfiler.png')}
+                        src={require('public/processed-images/work/mozilla/FireFoxProfiler.png')}
                         alt="Screenshot of firefox profiler ui"
+                        width={630}
+                        height={350}
                     />
                     <BodyPara>
                         So this was a feature I added in the profiler{' '}
@@ -213,12 +218,16 @@ const TaskclusterSection = () => {
                     </BodyPara>
                 </SubtopicSection>
                 <Image
-                    src={require('public/images/work/mozilla/tc-2k18.png')}
+                    src={require('public/processed-images/work/mozilla/tc-2k18.png')}
                     alt="github contribution in taskcluster platform in 2018"
+                    width={630}
+                    height={159}
                 />
                 <Image
-                    src={require('public/images/work/mozilla/tc-2k19.png')}
+                    src={require('public/processed-images/work/mozilla/tc-2k19.png')}
                     alt="github contribution in taskcluster platform in 2019"
+                    width={630}
+                    height={157}
                 />
                 <BodyPara>
                     It was damn overwhelming since hacking anything required so much understanding

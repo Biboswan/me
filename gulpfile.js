@@ -61,7 +61,7 @@ const resizeAndCompress = async (dir, outputdir, width) => {
                         }
 
                         image
-                            .resize(width, Jimp.AUTO)
+                            .resize(Math.min(width, image.bitmap.width), Jimp.AUTO)
                             .writeAsync(interOutputPath)
                             .catch(err => {
                                 console.log('err', err);
@@ -110,6 +110,15 @@ gulp.task('image-resizeAndCompress', async done => {
     ]);
 
     done();
+});
+
+gulp.task('image-resizeAndCompress-mozilla', async done => {
+    await resizeAndCompress(
+        'public/images/work/mozilla',
+        'public/processed-images/work/mozilla',
+        630
+    ),
+        done();
 });
 
 gulp.task('clean:processed-images', () => {
