@@ -78,7 +78,7 @@ const WebBall = ({ color, ...rest }) => {
         const geometry = new SphereGeometry(1, 32, 16);
         //const geometry = new THREE.SphereBufferGeometry(1,32,16);
         const loader = new TextureLoader();
-        const texture = loader.load('images/webwords.png');
+        const texture = loader.load(require('public/images/webwords.png'));
         const material = new MeshPhongMaterial({
             //wireframe: true,
             flatShading: true,
