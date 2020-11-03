@@ -49,7 +49,6 @@ const BannerImageWrapper = styled.div`
 const SubtopicSection = styled.div`
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 10}px;
-    max-width: 65ch;
 `;
 
 const SubtopicTitle = styled(Sub1)`
@@ -57,7 +56,6 @@ const SubtopicTitle = styled(Sub1)`
 `;
 
 const SubtopicsContainer = styled.div`
-    max-width: 65ch;
     margin-top: ${props => props.theme.base_spacing * 10}px;
     display: grid;
     row-gap: ${props => props.theme.base_spacing * 15}px;
@@ -82,10 +80,14 @@ const metaDesciption =
     'I wanted to code like professionals and write the best software. That motivated me towards open source and being aware of the “Mozilla” keyword as a browser, I chose to dive in there.  Mainly on taskcluster and out of curiosity, other projects FireFox Devtools, FixMe. etc';
 const bannerImageURl = require('public/images/seo/mozwork.jpg');
 
+const Para = styled(Body2)`
+    max-width: 65ch;
+`;
+
 const BodyPara = ({ children }) => (
-    <Body2 as="p" weight="light">
+    <Para as="p" weight="light">
         {children}
-    </Body2>
+    </Para>
 );
 
 BodyPara.propTypes = {
