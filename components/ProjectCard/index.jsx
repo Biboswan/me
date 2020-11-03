@@ -113,7 +113,7 @@ const ProjectCard = props => {
                     autoPlay
                     loop
                     muted
-                    playsinline
+                    playsInline
                     title={image.alt}
                     width={image.width}
                     height={image.height}

@@ -96,7 +96,8 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0;
 	}
 
-	img {
+	img,
+	video {
 		max-width: 100%;
 	}
 

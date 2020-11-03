@@ -96,7 +96,7 @@ export const Projects = [
             'Wrote taskcluster-lib-pulse v2',
             'Improved experience of Firefox Profiler  and added inactive css feature in Inspector Tools, FixMe Project etc',
         ],
-        storyLink: '',
+        storyLink: 'work/mozilla',
     },
     {
         title: 'StudioYou Webstore',
@@ -266,6 +266,17 @@ export const WorkStories = {
                 image: { url: '/images/work/studioyou/class_schedule.png', alt: '' },
             },
         ],
+    },
+    mozilla: {
+        title: 'Open Source Saga at Mozilla',
+        techTags: ['React', 'NodeJS', 'GraphQL', 'Go', 'Python', 'Testing', 'Documenting'],
+        image: {
+            url: require('public/processed-images/work/480/tc-flow.webm'),
+            url2: require('public/processed-images/work/480/tc-flow.mp4'),
+            alt: 'A gif show the taskcluster workflow',
+            width: 600,
+            height: 582,
+        },
     },
 };
 //images/work/studioyou/class_schedule.png

@@ -106,3 +106,10 @@ export const Strong = styled.strong`
     font-weight: ${props =>
         props.weight ? props.theme.font_weight[props.weight] : props.theme.font_weight.normal};
 `;
+
+export const Code = styled.code``;
+
+export const Pre = styled.pre`
+    background-color: ${({ theme }) => theme.color.blue[50]};
+    padding: ${props => props.theme.base_spacing * 4}px;
+`;
