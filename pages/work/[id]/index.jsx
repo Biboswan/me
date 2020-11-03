@@ -179,7 +179,9 @@ export async function getStaticProps({ params: { id } }) {
 
 export async function getStaticPaths() {
     return {
-        paths: Object.keys(WorkStories).map(key => ({ params: { id: key } })),
+        paths: Object.keys(WorkStories)
+            .filter(key => !key.includes('mozilla'))
+            .map(key => ({ params: { id: key } })),
         fallback: false,
     };
 }
