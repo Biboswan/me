@@ -78,6 +78,10 @@ const SemiStrong = styled.strong`
     font-weight: 600;
 `;
 
+const metaDesciption =
+    'I wanted to code like professionals and write the best software. That motivated me towards open source and being aware of the “Mozilla” keyword as a browser, I chose to dive in there.  Mainly on taskcluster and out of curiosity, other projects FireFox Devtools, FixMe. etc';
+const bannerImageURl = require('public/images/seo/mozwork.jpg');
+
 const BodyPara = ({ children }) => (
     <Body2 as="p" weight="light">
         {children}
@@ -277,13 +281,19 @@ const MozillaStory = () => {
     return (
         <>
             <Head>
+                <title>Work - {title}</title>
+                <meta name="description" content={metaDesciption} />
                 <meta
                     name="keywords"
                     content="work experience, mozilla, open source, javascript, react, software engineer"
                 />
                 <meta property="og:title" content={title} />
+                <meta property="og:description" content={metaDesciption} />
+                <meta property="og:image" content={bannerImageURl} />
                 <meta property="og:url" content={`https://biboswanroy.com/work/mozilla`} />
                 <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={metaDesciption} />
+                <meta name="twitter:image" content={bannerImageURl} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:creator" content="@Biboswan98" />
             </Head>

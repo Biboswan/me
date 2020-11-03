@@ -122,6 +122,7 @@ const WorkStory = ({ title, intro, bannerImage, techTags, subtopics, id }) => {
     return (
         <>
             <Head>
+                <title>Work - {title}</title>
                 <meta name="description" content={intro} />
                 <meta
                     name="keywords"
