@@ -262,7 +262,8 @@ const Home = () => {
                 >
                     <AnimatedBanner weight="light" style={{ height: trail[3].height }}>
                         <p>
-                            physically based in India, inclined towards the web. Loves open source,
+                            physically based in India, inclined towards the web{' '}
+                            <SemiStrong>(frontend but fullstackish)</SemiStrong>. Loves open source,
                             tech communities, green tea (not coffee) and dancing too.{' '}
                             <Strong isItalic>Google Udacity Scholar</Strong> 2k18 and a{' '}
                             <Strong isItalic>Mozillian</Strong>.
