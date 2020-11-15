@@ -58,6 +58,7 @@ export const darkTheme = {
     projectCardBg: COLOR.darksurfaces[5],
     projectSectionTitle: COLOR.textgrey[300],
     codeBg: COLOR.darksurfaces[5],
+    imageFilter: 'grayscale(35%)',
 };
 
 const getTheme = isLightTheme => {

@@ -103,6 +103,10 @@ const GlobalStyle = createGlobalStyle`
 		max-width: 100%;
 	}
 
+	img:not([src*=".svg"]) {
+ 		filter: var(--color-imageFilter);
+	}
+
 	@media screen and (prefers-reduced-motion: reduce), (update: slow) {
 		* {
 			animation-duration: 0.001ms !important;
