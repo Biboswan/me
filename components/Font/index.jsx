@@ -110,7 +110,7 @@ export const Strong = styled.strong`
 export const Code = styled.code``;
 
 export const Pre = styled.pre`
-    background-color: ${({ theme }) => theme.color.blue[50]};
+    background-color: var(--color-codeBg);
     padding: ${props => props.theme.base_spacing * 4}px;
     max-width: 65ch;
 `;

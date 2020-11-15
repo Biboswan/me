@@ -66,7 +66,7 @@ const SubtopicTextData = styled.div`
         max-width: 60ch;
 
         strong {
-            color: ${props => props.theme.color.blue[600]};
+            color: var(--color-strong);
         }
     }
 

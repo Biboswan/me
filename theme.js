@@ -32,6 +32,13 @@ export const lightTheme = {
     footerText: COLOR.white,
     strong: COLOR.blue[600],
     webballBg: COLOR.orange[50],
+    blueExtreme: COLOR.blue[900],
+    blogArticleCardBg: COLOR.white,
+    projectSectionBg:
+        'linear-gradient(180deg, rgba(67, 70, 241, 0.81) 0%, rgba(255, 143, 68, 0.9) 100%)',
+    projectCardBg: COLOR.blue[100],
+    projectSectionTitle: COLOR.white,
+    codeBg: COLOR.blue[50],
 };
 
 export const darkTheme = {
@@ -45,6 +52,12 @@ export const darkTheme = {
     footerText: COLOR.textgrey[300],
     strong: COLOR.blue[200],
     webballBg: COLOR.orange[800],
+    blueExtreme: COLOR.blue[50],
+    blogArticleCardBg: COLOR.darksurfaces[2],
+    projectSectionBg: COLOR.darksurfaces[2],
+    projectCardBg: COLOR.darksurfaces[5],
+    projectSectionTitle: COLOR.textgrey[300],
+    codeBg: COLOR.darksurfaces[5],
 };
 
 const getTheme = isLightTheme => {

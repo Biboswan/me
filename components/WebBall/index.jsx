@@ -20,7 +20,7 @@ const Container = styled.div`
 `;
 
 const widthFactor = 0.4;
-const WebBall = (...rest) => {
+const WebBall = props => {
     const canvasRef = useRef();
     useEffect(() => {
         let then = 0;
@@ -105,7 +105,7 @@ const WebBall = (...rest) => {
         };
     }, []);
 
-    return <Container ref={canvasRef} {...rest}></Container>;
+    return <Container ref={canvasRef} {...props}></Container>;
 };
 
 export default WebBall;

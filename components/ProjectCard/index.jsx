@@ -34,7 +34,7 @@ const Description = styled.div`
     padding: ${props => props.theme.base_spacing * 7}px ${props => props.theme.base_spacing * 4}px;
     border: 1px solid #000000;
     border-radius: 0px 0px 12px 12px;
-    background: ${props => props.theme.color.blue[100]};
+    background: var(--color-projectCardBg);
 `;
 
 const Brief = styled.ul`
