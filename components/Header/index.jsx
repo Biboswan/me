@@ -6,6 +6,7 @@ import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import Logo from 'components/Svgs/Logo';
+import ThemeSwitch from 'components/ThemeSwitch';
 
 const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
@@ -53,7 +54,7 @@ const PageLinkContainer = styled.div`
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
         display: inline-grid;
-        grid-template-columns: max-content max-content max-content;
+        grid-template-columns: max-content max-content max-content max-content;
         column-gap: ${props => props.theme.base_spacing * 18}px;
         justify-self: end;
     }
@@ -65,6 +66,12 @@ const PageLinkContainer = styled.div`
         color: var(--color-secondary);
         border: none;
         outline: none;
+    }
+
+    .header-themeswitch {
+        @media only screen and (max-width: ${props => props.theme.breakpoint.sm}px) {
+            display: none;
+        }
     }
 `;
 
@@ -111,7 +118,12 @@ const Header = () => {
                                 </a>
                             </Link>
                         </li>
-                        <PageLinkContainer>{NAVLINKS.map(renderNavLinks)}</PageLinkContainer>
+                        <PageLinkContainer>
+                            {NAVLINKS.map(renderNavLinks)}
+                            <li className="header-themeswitch">
+                                <ThemeSwitch />
+                            </li>
+                        </PageLinkContainer>
                     </ul>
                 </Nav>
             </Container>

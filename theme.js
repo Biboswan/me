@@ -39,6 +39,8 @@ export const lightTheme = {
     projectCardBg: COLOR.blue[100],
     projectSectionTitle: COLOR.white,
     codeBg: COLOR.blue[50],
+    themeSwitchBg: COLOR.blue[500] + '33',
+    imageFilter: 'none',
 };
 
 export const darkTheme = {
@@ -59,12 +61,13 @@ export const darkTheme = {
     projectSectionTitle: COLOR.textgrey[300],
     codeBg: COLOR.darksurfaces[5],
     imageFilter: 'grayscale(35%)',
+    themeSwitchBg: COLOR.darksurfaces[2],
 };
 
-const getTheme = isLightTheme => {
-    return isLightTheme
-        ? { ...basicTheme, color: { ...COLOR, ...lightTheme } }
-        : { ...basicTheme, ...darkTheme };
+const getTheme = themeMode => {
+    return themeMode === null || themeMode === 'light'
+        ? { ...basicTheme, themeMode, color: { ...COLOR, ...lightTheme } }
+        : { ...basicTheme, themeMode, color: { ...COLOR, ...darkTheme } };
 };
 
 export default getTheme;

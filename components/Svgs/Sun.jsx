@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-function Sun({ color, className }) {
+function Sun({ className }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill={color}
-            stroke={color}
+            fill="#ffffff"
+            stroke="#ffffff"
             className={className}
             viewBox="0 0 24 24"
         >
@@ -20,7 +20,6 @@ function Sun({ color, className }) {
 }
 
 Sun.propTypes = {
-    color: PropTypes.string.isRequired,
     className: PropTypes.string,
 };
 
