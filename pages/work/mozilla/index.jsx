@@ -10,8 +10,8 @@ const {
     mozilla: { title, techTags, image },
 } = WorkStories;
 
-const Container = styled(MainContainer)`
-    padding-top: ${props => props.theme.base_spacing * 15}px;
+const Article = styled.article`
+    padding-top: ${props => props.theme.base_spacing * 5}px;
 `;
 
 const Introduction = styled.div`
@@ -299,8 +299,8 @@ const MozillaStory = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:creator" content="@Biboswan98" />
             </Head>
-            <Container>
-                <article>
+            <MainContainer>
+                <Article>
                     <H4 as="h1" weight="bold">
                         {title}
                     </H4>
@@ -346,8 +346,8 @@ const MozillaStory = () => {
                         <TaskclusterSection />
                         <DevtoolsSection />
                     </WorkSectionsTopContainer>
-                </article>
-            </Container>
+                </Article>
+            </MainContainer>
         </>
     );
 };

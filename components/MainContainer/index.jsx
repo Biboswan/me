@@ -23,6 +23,9 @@ const Container = styled.main`
     margin: auto;
 
     .themeSwitch {
+        margin-top: ${props => props.theme.base_spacing * 2}px;
+        margin-bottom: ${props => props.theme.base_spacing * 8}px;
+
         @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
             display: none;
         }

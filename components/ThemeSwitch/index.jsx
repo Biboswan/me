@@ -39,7 +39,6 @@ const ThemeSwitch = props => {
 
 ThemeSwitch.propTypes = {
     className: PropTypes.string,
-    onClick: PropTypes.func.isRequired,
 };
 
 export default ThemeSwitch;
