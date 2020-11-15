@@ -10,11 +10,12 @@ import Logo from 'components/Svgs/Logo';
 const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.08);
-    background: ${props => props.theme.color.white};
+    background: var(--color-headerBg);
     width: 100%;
     box-sizing: border-box;
     position: sticky;
     top: 0;
+    color: var(--color-brand);
     z-index: ${zIndex.header};
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
@@ -61,7 +62,7 @@ const PageLinkContainer = styled.div`
     a:focus,
     a:hover,
     a:active {
-        color: ${props => props.theme.color.secondary};
+        color: var(--color-secondary);
         border: none;
         outline: none;
     }
@@ -73,7 +74,7 @@ const PageLinkItem = styled.a`
     flex-direction: column;
     align-items: center;
     font-size: 1rem;
-    color: ${props => props.theme.color.brand};
+    color: var(--color-brand);
     ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
     }

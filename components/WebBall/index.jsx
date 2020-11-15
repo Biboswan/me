@@ -10,7 +10,6 @@ import {
     Vector3,
 } from 'three';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -21,7 +20,7 @@ const Container = styled.div`
 `;
 
 const widthFactor = 0.4;
-const WebBall = ({ color, ...rest }) => {
+const WebBall = (...rest) => {
     const canvasRef = useRef();
     useEffect(() => {
         let then = 0;
@@ -79,12 +78,13 @@ const WebBall = ({ color, ...rest }) => {
         //const geometry = new THREE.SphereBufferGeometry(1,32,16);
         const loader = new TextureLoader();
         const texture = loader.load(require('public/images/webwords.png'));
+
         const material = new MeshPhongMaterial({
             //wireframe: true,
             flatShading: true,
             vertexColors: true,
             shininess: 0,
-            color,
+            color: getComputedStyle(document.documentElement).getPropertyValue('--color-webballBg'),
             map: texture,
         });
 
@@ -106,10 +106,6 @@ const WebBall = ({ color, ...rest }) => {
     }, []);
 
     return <Container ref={canvasRef} {...rest}></Container>;
-};
-
-WebBall.propTypes = {
-    color: PropTypes.string,
 };
 
 export default WebBall;

@@ -1,6 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GA_TRACKING_ID } from 'app-constants';
+import MagicScriptTag from 'components/MagicScriptTag';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -73,6 +74,7 @@ class MyDocument extends Document {
                     <noscript>This site runs best with JavaScript enabled.</noscript>
                 </Head>
                 <body>
+                    <MagicScriptTag />
                     <Main />
                     <NextScript />
                 </body>

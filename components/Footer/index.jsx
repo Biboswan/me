@@ -1,4 +1,4 @@
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,6 @@ import { Body2, Small } from 'components/Font';
 import WhiteLogo from 'components/Icons/WhiteLogo';
 import { NAVLINKS } from 'app-constants';
 import dynamic from 'next/dynamic';
-import { useContext } from 'react';
 
 const Container = styled.footer`
     width: 100%;
@@ -21,11 +20,7 @@ const Container = styled.footer`
     position: absolute;
     padding: ${props => props.theme.base_spacing * 12}px 0
         ${props => props.theme.base_spacing * 12}px;
-    background: linear-gradient(
-        233.58deg,
-        rgba(67, 70, 241, 0.9) 47.99%,
-        rgba(0, 154, 116, 0) 105.57%
-    );
+    background: var(--color-footerBg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +45,7 @@ const SocialLinkContainer = styled.section`
 `;
 
 const SocialLink = styled.a`
-    color: ${props => props.theme.color.white};
+    color: var(--color-footerText);
     font-size: 24px;
     text-align: center;
     display: flex;
@@ -100,8 +95,6 @@ const Copyright = styled(Small)`
 const WebBall = dynamic(() => import('components/WebBall'));
 
 const Footer = () => {
-    const themeContext = useContext(ThemeContext);
-
     const renderSocialIcons = ({ icon, link, label }) => {
         return (
             <SocialLink role="link" aria-label={label} key={label} href={link}>
@@ -115,7 +108,7 @@ const Footer = () => {
             <li key={label}>
                 <Link href={url}>
                     <a className="navLink">
-                        <Body2 color="white" weight="ebold">
+                        <Body2 color="footerText" weight="ebold">
                             {label}
                         </Body2>
                     </a>
@@ -128,7 +121,7 @@ const Footer = () => {
         <Container>
             <div>
                 <SocialLinkContainer>{socialIcons.map(renderSocialIcons)}</SocialLinkContainer>
-                <WebBall className="webball" color={themeContext.color.orange[800]} />
+                <WebBall className="webball" />
                 <NavContainer>{NAVLINKS.map(renderNavLinks)}</NavContainer>
                 <WhiteLogoLink>
                     <Link href="/">
@@ -137,7 +130,7 @@ const Footer = () => {
                         </a>
                     </Link>
                 </WhiteLogoLink>
-                <Copyright color="white" weight="medium">
+                <Copyright color="footerText" weight="medium">
                     All rights reserved © Biboswan Roy 2020
                 </Copyright>
             </div>

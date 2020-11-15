@@ -21,7 +21,7 @@ const WorkSummary = styled.article`
 const WorkSummaryStrongTerm = styled.strong`
     font-weight: ${props => props.theme.font_weight.medium};
     font-style: italic;
-    color: ${props => props.theme.color.blue[600]};
+    color: var(--color-strong);
 `;
 
 const ProjectCertTestContainer = styled.div`

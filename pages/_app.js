@@ -76,6 +76,8 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
 		font-family: ${props => props.theme.font_family.two};
+		background-color: var(--color-bgColor);
+		color: var(--color-primaryText);
 	}
 
 	h1,

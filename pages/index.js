@@ -50,6 +50,7 @@ const WavyTextContainer = styled.div`
         padding: 0;
         width: 50px;
         height: 50px;
+        color: var(--color-primaryText);
 
         span {
             width: inherit;
@@ -88,10 +89,10 @@ const AnimatedBanner = animated(styled(Body1)`
 `);
 
 const HI = animated(styled(H1)`
-    color: ${props => props.theme.color.brand};
+    color: var(--color-brand);
     margin-bottom: ${props => props.theme.base_spacing * 3}px;
     span {
-        color: ${props => props.theme.color.secondary};
+        color: var(--color-secondary);
     }
 `);
 
@@ -107,7 +108,7 @@ const BlobContainer = styled.div`
 `;
 
 const BrandColoredHeading = styled.span`
-    color: ${props => props.theme.color.brand};
+    color: var(--color-brand);
 `;
 
 const ProfilePicContainer = styled.div`

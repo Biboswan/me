@@ -8,7 +8,7 @@ const Image = styled.img`
     width: 100%;
     height: auto;
     border: 5px solid
-        ${props => (props.color ? props.theme.color[props.color] : props.theme.color.black)};
+        ${props => (props.color ? `var(--color-${props.color})` : props.theme.color.black)};
     box-sizing: border-box;
     border-radius: 24px;
     margin-bottom: ${props => props.theme.base_spacing * 6}px;
@@ -41,6 +41,9 @@ const ImageFrame = props => {
                 .image-hanger {
                     margin: 0 auto -8px;
                     width: 35%;
+                }
+                .image-hanger > path {
+                    stroke: var(--color-secondaryText);
                 }
             `}</style>
         </>
