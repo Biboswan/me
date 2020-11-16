@@ -19,7 +19,8 @@ const Container = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 800px;
+    perspective: 700px;
+    perspective-origin: bottom right;
     transform-style: preserve-3d;
 
     &:focus {

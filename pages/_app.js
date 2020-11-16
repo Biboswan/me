@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import * as gtag from 'utils/gtag';
 import getTheme from 'theme';
 import { THEME_MODE_KEY, INITIAL_THEME_MODE_CSS_PROP } from 'app-constants';
-import Header from 'components/Header';
+import Top from 'components/Top';
 import Footer from 'components/Footer';
 import { lightTheme, darkTheme } from 'theme';
 import usePrefersReducedMotion from 'custom-hooks/usePrefersReducedMotion';
@@ -169,7 +169,7 @@ const App = ({ Component, pageProps }) => {
                 <>
                     <GlobalStyle />
                     <AppContainer>
-                        <Header />
+                        <Top />
                         <Component {...pageProps} />
                         <Footer />
                     </AppContainer>

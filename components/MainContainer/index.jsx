@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ThemeSwitch from 'components/ThemeSwitch';
 
 const Container = styled.main`
     width: 100%;
@@ -21,22 +20,12 @@ const Container = styled.main`
 
     max-width: ${props => props.theme.breakpoint.lg}px;
     margin: auto;
-
-    .themeSwitch {
-        margin-top: ${props => props.theme.base_spacing * 2}px;
-        margin-bottom: ${props => props.theme.base_spacing * 8}px;
-
-        @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
-            display: none;
-        }
-    }
 `;
 
 const MainContainer = props => {
     const { children, className, ...rest } = props;
     return (
-        <Container className={className || ''} {...rest}>
-            <ThemeSwitch className="themeSwitch" />
+        <Container className={className} {...rest}>
             {children}
         </Container>
     );
