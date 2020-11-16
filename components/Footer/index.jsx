@@ -67,7 +67,7 @@ const NavContainer = styled.ul`
 `;
 
 const socialIcons = [
-    { icon: faEnvelope, link: 'mailto:biboswan98@gmail.com', label: 'email' },
+    { icon: faEnvelope, link: 'mailto:bibo@biboswanroy.com', label: 'email' },
     { icon: faTwitter, link: 'https://twitter.com/Biboswan98', label: 'twiiter' },
     { icon: faGithub, link: 'https://github.com/Biboswan', label: 'github' },
     { icon: faLinkedin, link: 'https://www.linkedin.com/in/biboswanroy/', label: 'linkedin' },
