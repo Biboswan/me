@@ -9,9 +9,7 @@ const Container = styled.div`
     .mobileThemeSwitchWrapper {
         padding-top: ${props => props.theme.base_spacing * 7}px;
         padding-bottom: ${props => props.theme.base_spacing * 3}px;
-    }
 
-    .mobileThemeSwitch {
         @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
             display: none;
         }
@@ -23,7 +21,7 @@ const Top = () => {
         <Container>
             <Header />
             <MainContainer as="div" className="mobileThemeSwitchWrapper">
-                <ThemeSwitch className="mobileThemeSwitch" />
+                <ThemeSwitch />
             </MainContainer>
         </Container>
     );
