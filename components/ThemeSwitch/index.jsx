@@ -16,6 +16,13 @@ const Container = styled.button`
     background-color: var(--color-themeSwitchBg);
     cursor: pointer;
 
+    &:focus {
+        outline: none;
+        border: 2px solid
+            ${({ theme }) =>
+                theme.themeMode == 'light' ? '#4346F1' : `${theme.color.textgrey[300]}`};
+    }
+
     svg {
         width: 36px !important;
         height: auto;
@@ -27,12 +34,16 @@ const ThemeSwitch = props => {
     const { themeMode, setColorMode } = useContext(ThemeContext);
 
     if (themeMode === null) {
-        return <div />;
+        return <div className={className} />;
     }
 
     return (
-        <Container onClick={setColorMode} className={className}>
-            {themeMode == 'light' ? <FontAwesomeIcon icon={faMoon} color="#4346F1" /> : <Sun />}
+        <Container aria-label="theme-toggle" onClick={setColorMode} className={className}>
+            {themeMode == 'light' ? (
+                <FontAwesomeIcon role="img" aria-label="moon" icon={faMoon} color="#4346F1" />
+            ) : (
+                <Sun role="img" aria-label="sun" />
+            )}
         </Container>
     );
 };

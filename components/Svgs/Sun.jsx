@@ -1,13 +1,11 @@
-import PropTypes from 'prop-types';
-
-function Sun({ className }) {
+function Sun(props) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#ffffff"
             stroke="#ffffff"
-            className={className}
             viewBox="0 0 24 24"
+            {...props}
         >
             <path
                 strokeLinecap="round"
@@ -18,9 +16,5 @@ function Sun({ className }) {
         </svg>
     );
 }
-
-Sun.propTypes = {
-    className: PropTypes.string,
-};
 
 export default Sun;
