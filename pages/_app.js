@@ -164,6 +164,7 @@ const App = ({ Component, pageProps }) => {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
                 <meta property="og:site_name" content="Biboswan Roy" />
+                <meta property="fb:app_id" content="400871734626165" />
             </Head>
             <ThemeProvider theme={{ prefersReducedMotion, setColorMode, ...getTheme(themeMode) }}>
                 <>
