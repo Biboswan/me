@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import * as gtag from 'utils/gtag';
 import getTheme from 'theme';
-import { THEME_MODE_KEY } from 'app-constants';
+import { THEME_MODE_KEY, INITIAL_THEME_MODE_CSS_PROP } from 'app-constants';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { lightTheme, darkTheme } from 'theme';
@@ -129,7 +129,7 @@ const App = ({ Component, pageProps }) => {
 
     useEffect(() => {
         const intialTheme = getComputedStyle(document.documentElement).getPropertyValue(
-            '--initial-theme-mode'
+            INITIAL_THEME_MODE_CSS_PROP
         );
         localStorage.setItem(THEME_MODE_KEY, intialTheme);
         setThemeMode(intialTheme);

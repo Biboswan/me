@@ -72,9 +72,9 @@ class MyDocument extends Document {
                         }}
                     />
                     <noscript>This site runs best with JavaScript enabled.</noscript>
+                    <MagicScriptTag />
                 </Head>
                 <body>
-                    <MagicScriptTag />
                     <Main />
                     <NextScript />
                 </body>
