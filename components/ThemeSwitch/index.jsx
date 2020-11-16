@@ -12,7 +12,7 @@ const Container = styled.button`
     width: 54px;
     height: 54px;
     padding: 0;
-    cursor: pointer;
+    cursor: ${({ theme }) => (theme.themeMode === undefined ? 'auto' : 'pointer')};
     background: transparent;
     border-radius: 25px;
     border-style: none;
@@ -70,7 +70,7 @@ const ThemeSwitch = props => {
     }, [setColorMode, toggleFlip]);
 
     if (themeMode === null) {
-        return <div className={className} />;
+        return <Container className={className} />;
     }
 
     const LightView = __props => {
