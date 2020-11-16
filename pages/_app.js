@@ -10,6 +10,7 @@ import { THEME_MODE_KEY } from 'app-constants';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { lightTheme, darkTheme } from 'theme';
+import usePrefersReducedMotion from 'custom-hooks/usePrefersReducedMotion';
 
 const GlobalStyle = createGlobalStyle`
 	:root {
@@ -124,6 +125,7 @@ const AppContainer = styled.div`
 const App = ({ Component, pageProps }) => {
     const [themeMode, setThemeMode] = useState(null);
     const router = useRouter();
+    const prefersReducedMotion = usePrefersReducedMotion();
 
     useEffect(() => {
         const intialTheme = getComputedStyle(document.documentElement).getPropertyValue(
@@ -163,7 +165,7 @@ const App = ({ Component, pageProps }) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
                 <meta property="og:site_name" content="Biboswan Roy" />
             </Head>
-            <ThemeProvider theme={{ setColorMode, ...getTheme(themeMode) }}>
+            <ThemeProvider theme={{ prefersReducedMotion, setColorMode, ...getTheme(themeMode) }}>
                 <>
                     <GlobalStyle />
                     <AppContainer>
