@@ -20,7 +20,7 @@ const Container = styled.button`
         outline: none;
         border: 2px solid
             ${({ theme }) =>
-                theme.themeMode == 'light' ? '#4346F1' : `${theme.color.textgrey[300]}`};
+                theme.themeMode == 'light' ? 'var(--color-brand)' : 'var(--color-primaryText)'};
     }
 
     svg {
