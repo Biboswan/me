@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 const Container = styled.section`
     border: 1px solid #000000;
     border-radius: 12px;
+    background-color: var(--color-blogArticleCardBg);
 `;
 
 const PreviewImage = styled.div`
@@ -60,8 +61,8 @@ const Read = styled(Small)`
 `;
 
 const Button = styled.button`
-    background-color: ${props => props.theme.color.blue[900]};
-    color: ${props => props.theme.color.white};
+    background-color: var(--color-blueExtreme);
+    color: var(--color-bgColor);
     border-radius: 8px;
     min-width: 48px;
     min-height: 48px;
@@ -71,7 +72,8 @@ const Button = styled.button`
     border: none;
 
     &:hover {
-        background-color: ${props => props.theme.color.secondary};
+        background-color: var(--color-secondary);
+        color: var(--color-primaryText);
     }
 `;
 

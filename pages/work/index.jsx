@@ -8,7 +8,6 @@ import { Projects, CERTS, Testimonials } from 'app-constants';
 import BlueValleyOBlob from 'components/Svgs/BlueValleyOBlob';
 import Testimonial from 'components/Testimonial';
 import useIsMobileDevice from 'custom-hooks/useIsMobileDevice';
-import usePrefersReducedMotion from 'custom-hooks/usePrefersReducedMotion';
 
 const WorkSummary = styled.article`
     margin-top: ${props => props.theme.base_spacing * 6}px;
@@ -21,7 +20,7 @@ const WorkSummary = styled.article`
 const WorkSummaryStrongTerm = styled.strong`
     font-weight: ${props => props.theme.font_weight.medium};
     font-style: italic;
-    color: ${props => props.theme.color.blue[600]};
+    color: var(--color-strong);
 `;
 
 const ProjectCertTestContainer = styled.div`
@@ -30,7 +29,7 @@ const ProjectCertTestContainer = styled.div`
 `;
 
 const ProjectContainer = styled.section`
-    background: linear-gradient(180deg, rgba(67, 70, 241, 0.81) 0%, rgba(255, 143, 68, 0.9) 100%);
+    background: var(--color-projectSectionBg);
     margin: 0 -${props => props.theme.spacing.pageside.sm}px 0;
     padding: ${props => props.theme.base_spacing * 10}px
         ${props => props.theme.spacing.pageside.sm}px ${props => props.theme.base_spacing * 20}px;
@@ -141,7 +140,7 @@ const TestimonialSection = () => {
 
 const Work = () => {
     const isMobileDevice = useIsMobileDevice();
-    const prefersReducedMotion = usePrefersReducedMotion();
+    const { prefersReducedMotion } = useContext(ThemeContext);
 
     const renderProjectCard = ({ image, title, techTags, storyLink, intro }) => {
         return (
@@ -207,19 +206,19 @@ const Work = () => {
                 </WorkSummary>
                 <ProjectCertTestContainer>
                     <ProjectContainer>
-                        <H2 as="h1" weight="bold" color="white">
+                        <H2 as="h1" weight="bold" color="projectSectionTitle">
                             Projects
                         </H2>
-                        <Body1 weight="light" color="white">
+                        <Body1 weight="light" color="projectSectionTitle">
                             Below is a some of what of I have done so far.
                         </Body1>
                         <ProjectCardsContainer>
                             {Projects.map(renderProjectCard)}
                         </ProjectCardsContainer>
-                        <H5 as="h2" className="projectInMindHeading">
+                        <H5 color="projectSectionTitle" as="h2" className="projectInMindHeading">
                             Project in mind
                         </H5>
-                        <Body1 weight="medium">
+                        <Body1 weight="medium" color="projectSectionTitle">
                             I at times find the need to compare files. Hence a cli to easliy compare
                             different files.{' '}
                             <a href="https://www.npmjs.com/package/filediffer-cli">

@@ -49,23 +49,43 @@ export const COLOR = {
         50: '#eaeafe',
     },
     orange: {
-        900: '#FF8F44',
-        800: '#ffb550',
-        700: '#ffcc57',
-        600: '#ffdc56',
-        500: '#ffe552',
-        400: '#ffeb6a',
-        300: '#fff084',
-        200: '#fff5a6',
-        100: '#fffaca',
-        50: '#fffeeb',
+        900: '#96826E',
+        800: '#97714D',
+        700: '#98602B',
+        600: '#A15B1C',
+        500: '#B25F16',
+        400: '#C86A14',
+        300: '#E07614',
+        200: '#F28114',
+        100: '#FF8F44',
+        50: '#FFB550',
     },
     green: {
         500: '#009A74',
     },
+    darksurfaces: {
+        0: 'hsl(240,25%,8%)',
+        1: 'hsl(240,25%,10%)',
+        2: 'hsl(240,25%,12%)',
+        3: 'hsl(240,25%,13%)',
+        4: 'hsl(240,25%,14%)',
+        5: 'hsl(240,25%,16%)',
+        6: 'hsl(240,25%,17%)',
+        7: 'hsl(240,25%,19%)',
+        8: 'hsl(240,25%,20%)',
+        9: 'hsl(240,25%,21%)',
+    },
     white: 'hsl(0,0%,100%)',
     black: 'hsl(0,0%,0%)',
+    textgrey: {
+        100: 'hsl(240,2%,43%)',
+        200: 'hsl(240,2%,63%)',
+        300: 'hsl(240,2%,88%)',
+    },
 };
+
+export const THEME_MODE_KEY = 'theme-mode';
+export const INITIAL_THEME_MODE_CSS_PROP = '--initial-theme-mode';
 
 export const FONT_FAMILY = {
     one: 'Grandstander, cursive',

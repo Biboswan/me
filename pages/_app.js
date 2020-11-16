@@ -2,13 +2,15 @@ import 'normalize.css';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import * as gtag from 'utils/gtag';
 import getTheme from 'theme';
-import useToggle from 'custom-hooks/useToggle';
+import { THEME_MODE_KEY } from 'app-constants';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import { lightTheme, darkTheme } from 'theme';
+import usePrefersReducedMotion from 'custom-hooks/usePrefersReducedMotion';
 
 const GlobalStyle = createGlobalStyle`
 	:root {
@@ -76,6 +78,8 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
 		font-family: ${props => props.theme.font_family.two};
+		background-color: var(--color-bgColor);
+		color: var(--color-primaryText);
 	}
 
 	h1,
@@ -101,6 +105,10 @@ const GlobalStyle = createGlobalStyle`
 		max-width: 100%;
 	}
 
+	img:not([src*=".svg"]) {
+ 		filter: var(--color-imageFilter);
+	}
+
 	@media screen and (prefers-reduced-motion: reduce), (update: slow) {
 		* {
 			animation-duration: 0.001ms !important;
@@ -115,8 +123,17 @@ const AppContainer = styled.div`
 `;
 
 const App = ({ Component, pageProps }) => {
-    const [isLightTheme, toggleTheme] = useToggle(true);
+    const [themeMode, setThemeMode] = useState(null);
     const router = useRouter();
+    const prefersReducedMotion = usePrefersReducedMotion();
+
+    useEffect(() => {
+        const intialTheme = getComputedStyle(document.documentElement).getPropertyValue(
+            '--initial-theme-mode'
+        );
+        localStorage.setItem(THEME_MODE_KEY, intialTheme);
+        setThemeMode(intialTheme);
+    }, []);
 
     useEffect(() => {
         const handleRouteChange = url => {
@@ -128,18 +145,32 @@ const App = ({ Component, pageProps }) => {
         };
     }, [router.events]);
 
+    const setColorMode = useCallback(() => {
+        const root = window.document.documentElement;
+        const newValue = themeMode === 'light' ? 'dark' : 'light';
+        const selectedTheme = newValue === 'light' ? lightTheme : darkTheme;
+
+        for (const [key, value] of Object.entries(selectedTheme)) {
+            const cssVarName = `--color-${key}`;
+            root.style.setProperty(cssVarName, value);
+        }
+
+        localStorage.setItem(THEME_MODE_KEY, newValue);
+        setThemeMode(newValue);
+    }, [themeMode, setThemeMode]);
+
     return (
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
                 <meta property="og:site_name" content="Biboswan Roy" />
             </Head>
-            <ThemeProvider theme={getTheme(isLightTheme)}>
+            <ThemeProvider theme={{ prefersReducedMotion, setColorMode, ...getTheme(themeMode) }}>
                 <>
                     <GlobalStyle />
                     <AppContainer>
                         <Header />
-                        <Component toggleTheme={toggleTheme} {...pageProps} />
+                        <Component {...pageProps} />
                         <Footer />
                     </AppContainer>
                 </>

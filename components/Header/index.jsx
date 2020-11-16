@@ -6,15 +6,17 @@ import { Body2 } from 'components/Font';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import Logo from 'components/Svgs/Logo';
+import ThemeSwitch from 'components/ThemeSwitch';
 
 const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.08);
-    background: ${props => props.theme.color.white};
+    background: var(--color-headerBg);
     width: 100%;
     box-sizing: border-box;
     position: sticky;
     top: 0;
+    color: var(--color-brand);
     z-index: ${zIndex.header};
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
@@ -44,6 +46,8 @@ const BrandLogo = styled(Logo)`
     width: max(50px, 5.6vw);
     margin-top: calc(max(5.6vw, 50px) * 40 / -240);
     margin-left: calc(max(5.6vw, 50px) * 40 / -240);
+    filter: ${({ theme }) => (theme.themeMode === 'dark' ? 'brightness(0) invert(1)' : 'none')};
+    display: ${({ theme }) => (theme.themeMode === undefined ? 'none' : 'inline')};
 `;
 
 const PageLinkContainer = styled.div`
@@ -52,7 +56,7 @@ const PageLinkContainer = styled.div`
 
     @media only screen and (min-width: ${props => props.theme.breakpoint.md}px) {
         display: inline-grid;
-        grid-template-columns: max-content max-content max-content;
+        grid-template-columns: max-content max-content max-content max-content;
         column-gap: ${props => props.theme.base_spacing * 18}px;
         justify-self: end;
     }
@@ -61,9 +65,15 @@ const PageLinkContainer = styled.div`
     a:focus,
     a:hover,
     a:active {
-        color: ${props => props.theme.color.secondary};
+        color: var(--color-secondary);
         border: none;
         outline: none;
+    }
+
+    .header-themeswitch {
+        @media only screen and (max-width: ${props => props.theme.breakpoint.sm}px) {
+            display: none;
+        }
     }
 `;
 
@@ -73,7 +83,7 @@ const PageLinkItem = styled.a`
     flex-direction: column;
     align-items: center;
     font-size: 1rem;
-    color: ${props => props.theme.color.brand};
+    color: var(--color-brand);
     ${Body2} {
         margin-top: ${props => props.theme.base_spacing * 3}px;
     }
@@ -83,6 +93,7 @@ const PagedLinkIcons = [faUsers, faBriefcase, faPen];
 
 const Header = () => {
     const { pathname } = useRouter();
+
     const renderNavLinks = ({ label, url }, ind) => {
         return (
             <li key={label}>
@@ -110,7 +121,12 @@ const Header = () => {
                                 </a>
                             </Link>
                         </li>
-                        <PageLinkContainer>{NAVLINKS.map(renderNavLinks)}</PageLinkContainer>
+                        <PageLinkContainer>
+                            {NAVLINKS.map(renderNavLinks)}
+                            <li className="header-themeswitch">
+                                <ThemeSwitch />
+                            </li>
+                        </PageLinkContainer>
                     </ul>
                 </Nav>
             </Container>

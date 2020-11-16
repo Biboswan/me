@@ -9,9 +9,8 @@ import {
     Mesh,
     Vector3,
 } from 'three';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import { useEffect, useContext, useRef } from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Container = styled.div`
@@ -21,15 +20,20 @@ const Container = styled.div`
 `;
 
 const widthFactor = 0.4;
-const WebBall = ({ color, ...rest }) => {
+let mesh, renderer, scene, camera;
+
+const renderScene = () => {
+    if (renderer) {
+        renderer.render(scene, camera);
+    }
+};
+
+const WebBall = props => {
+    const { themeMode } = useContext(ThemeContext);
     const canvasRef = useRef();
+
     useEffect(() => {
         let then = 0;
-        const renderScene = () => {
-            if (renderer) {
-                renderer.render(scene, camera);
-            }
-        };
 
         const animate = now => {
             const time = (now - then) / 100;
@@ -48,14 +52,14 @@ const WebBall = ({ color, ...rest }) => {
         };
 
         const getWidth = () => Math.min(Math.max(widthFactor * window.innerWidth, 150), 200);
-        const renderer = new WebGLRenderer({ antialias: true, alpha: true });
+        renderer = new WebGLRenderer({ antialias: true, alpha: true });
 
         // WebGL background color
         //renderer.setClearAlpha('');
         renderer.setClearColor(0xffffff, 0);
         let width = getWidth();
         // Setup a camera
-        const camera = new PerspectiveCamera(30, 1, 0.1, 20);
+        camera = new PerspectiveCamera(30, 1, 0.1, 20);
         camera.position.set(0, 0, 4);
         camera.lookAt(new Vector3());
         renderer.setPixelRatio(1);
@@ -67,7 +71,7 @@ const WebBall = ({ color, ...rest }) => {
         //const controls = new OrbitControls(camera, renderer.domElement);
 
         // Setup your scene
-        const scene = new Scene();
+        scene = new Scene();
         //scene.background =  new THREE.Color(0x7D86F7);
         const light = new DirectionalLight(0xffffff);
         light.position.set(0, 0, 1);
@@ -79,17 +83,18 @@ const WebBall = ({ color, ...rest }) => {
         //const geometry = new THREE.SphereBufferGeometry(1,32,16);
         const loader = new TextureLoader();
         const texture = loader.load(require('public/images/webwords.png'));
+
         const material = new MeshPhongMaterial({
             //wireframe: true,
             flatShading: true,
             vertexColors: true,
             shininess: 0,
-            color,
+            color: getComputedStyle(document.documentElement).getPropertyValue('--color-webballBg'),
             map: texture,
         });
 
         // Setup a mesh with geometry + material
-        const mesh = new Mesh(geometry, material);
+        mesh = new Mesh(geometry, material);
         const controls = new OrbitControls(camera, renderer.domElement);
 
         scene.add(mesh);
@@ -105,11 +110,14 @@ const WebBall = ({ color, ...rest }) => {
         };
     }, []);
 
-    return <Container ref={canvasRef} {...rest}></Container>;
-};
+    useEffect(() => {
+        mesh.material.color.set(
+            getComputedStyle(document.documentElement).getPropertyValue('--color-webballBg')
+        );
+        renderScene();
+    }, [themeMode]);
 
-WebBall.propTypes = {
-    color: PropTypes.string,
+    return <Container ref={canvasRef} {...props}></Container>;
 };
 
 export default WebBall;
