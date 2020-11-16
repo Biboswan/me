@@ -1,4 +1,4 @@
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NAVLINKS, zIndex } from 'app-constants';
@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faPen, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import Logo from 'components/Svgs/Logo';
 import ThemeSwitch from 'components/ThemeSwitch';
-import { useContext } from 'react';
 
 const Container = styled.header`
     padding: ${props => props.theme.spacing.pageside.sm}px;
@@ -48,6 +47,7 @@ const BrandLogo = styled(Logo)`
     margin-top: calc(max(5.6vw, 50px) * 40 / -240);
     margin-left: calc(max(5.6vw, 50px) * 40 / -240);
     filter: ${({ theme }) => (theme.themeMode === 'dark' ? 'brightness(0) invert(1)' : 'none')};
+    visibility:: ${({ theme }) => (theme.themeMode === undefined ? 'hidden' : 'visible')};
 `;
 
 const PageLinkContainer = styled.div`
@@ -93,7 +93,6 @@ const PagedLinkIcons = [faUsers, faBriefcase, faPen];
 
 const Header = () => {
     const { pathname } = useRouter();
-    const { themeMode } = useContext(ThemeContext);
 
     const renderNavLinks = ({ label, url }, ind) => {
         return (
@@ -116,15 +115,11 @@ const Header = () => {
                 <Nav>
                     <ul>
                         <li>
-                            {themeMode === undefined ? (
-                                <div />
-                            ) : (
-                                <Link href="/">
-                                    <a>
-                                        <BrandLogo />
-                                    </a>
-                                </Link>
-                            )}
+                            <Link href="/">
+                                <a>
+                                    <BrandLogo />
+                                </a>
+                            </Link>
                         </li>
                         <PageLinkContainer>
                             {NAVLINKS.map(renderNavLinks)}
