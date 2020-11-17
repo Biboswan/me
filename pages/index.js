@@ -16,6 +16,10 @@ const config = { mass: 5, tension: 2000, friction: 400 };
 
 const Container = styled(MainContainer)`
     min-height: 100vh;
+
+    @media only screen and (max-width: ${props => props.theme.breakpoint.sm}px) {
+        padding-top: 0;
+    }
 `;
 
 const wavyTextAnim = keyframes`
