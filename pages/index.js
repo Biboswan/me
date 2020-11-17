@@ -16,9 +16,10 @@ const config = { mass: 5, tension: 2000, friction: 400 };
 
 const Container = styled(MainContainer)`
     min-height: 100vh;
+    padding-top: 0;
 
-    @media only screen and (max-width: ${props => props.theme.breakpoint.sm}px) {
-        padding-top: 0;
+    @media only screen and (min-width: ${props => props.theme.breakpoint.sm}px) {
+        padding-top: ${props => props.theme.base_spacing * 5}px;
     }
 `;
 
