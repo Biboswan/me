@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import ThemeSwitch from 'components/ThemeSwitch';
 import MainContainer from 'components/MainContainer';
 import Header from 'components/Header';
+import useToggle from 'custom-hooks/useToggle';
 
 const Container = styled.div`
     width: 100%;
@@ -17,11 +18,13 @@ const Container = styled.div`
 `;
 
 const Top = () => {
+    const [isFlip, toggleFlip] = useToggle(false);
+
     return (
         <Container>
-            <Header />
+            <Header isFlip={isFlip} toggleFlip={toggleFlip} />
             <MainContainer as="div" className="mobileThemeSwitchWrapper">
-                <ThemeSwitch />
+                <ThemeSwitch isFlip={isFlip} toggleFlip={toggleFlip} />
             </MainContainer>
         </Container>
     );

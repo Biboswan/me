@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
-import useToggle from 'custom-hooks/useToggle';
 import { INITIAL_THEME_MODE_CSS_PROP } from 'app-constants';
 
 const Container = styled.button`
@@ -55,8 +54,7 @@ const Switch = styled(animated.div)`
 let initialMode;
 
 const ThemeSwitch = props => {
-    const { className } = props;
-    const [isFlip, toggleFlip] = useToggle(false);
+    const { className, isFlip, toggleFlip } = props;
     const { themeMode, setColorMode, prefersReducedMotion } = useContext(ThemeContext);
     const { transform, opacity } = useSpring({
         opacity: isFlip ? 1 : 0,
@@ -119,6 +117,8 @@ const ThemeSwitch = props => {
 
 ThemeSwitch.propTypes = {
     className: PropTypes.string,
+    isFlip: PropTypes.bool.isRequired,
+    toggleFlip: PropTypes.func.isRequired,
 };
 
 export default ThemeSwitch;

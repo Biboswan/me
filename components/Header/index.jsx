@@ -91,8 +91,9 @@ const PageLinkItem = styled.a`
 
 const PagedLinkIcons = [faUsers, faBriefcase, faPen];
 
-const Header = () => {
+const Header = props => {
     const { pathname } = useRouter();
+    const { isFlip, toggleFlip } = props;
 
     const renderNavLinks = ({ label, url }, ind) => {
         return (
@@ -124,7 +125,7 @@ const Header = () => {
                         <PageLinkContainer>
                             {NAVLINKS.map(renderNavLinks)}
                             <li className="header-themeswitch">
-                                <ThemeSwitch />
+                                <ThemeSwitch isFlip={isFlip} toggleFlip={toggleFlip} />
                             </li>
                         </PageLinkContainer>
                     </ul>
@@ -137,6 +138,11 @@ const Header = () => {
             `}</style>
         </>
     );
+};
+
+Header.propTypes = {
+    isFlip: ThemeSwitch.propTypes.isFlip,
+    toggleFlip: ThemeSwitch.propTypes.toggleFlip
 };
 
 export default Header;
