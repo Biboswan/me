@@ -47,7 +47,7 @@ const BrandLogo = styled(Logo)`
     margin-top: calc(max(5.6vw, 50px) * 40 / -240);
     margin-left: calc(max(5.6vw, 50px) * 40 / -240);
     filter: ${({ theme }) => (theme.themeMode === 'dark' ? 'brightness(0) invert(1)' : 'none')};
-    display: ${({ theme }) => (theme.themeMode === undefined ? 'none' : 'inline')};
+    display: ${({ theme }) => (theme.themeMode === null ? 'none' : 'inline')};
 `;
 
 const PageLinkContainer = styled.div`
@@ -142,7 +142,7 @@ const Header = props => {
 
 Header.propTypes = {
     isFlip: ThemeSwitch.propTypes.isFlip,
-    toggleFlip: ThemeSwitch.propTypes.toggleFlip
+    toggleFlip: ThemeSwitch.propTypes.toggleFlip,
 };
 
 export default Header;
