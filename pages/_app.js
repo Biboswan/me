@@ -165,6 +165,12 @@ const App = ({ Component, pageProps }) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
                 <meta property="og:site_name" content="Biboswan Roy" />
                 <meta property="fb:app_id" content="400871734626165" />
+                {themeMode && (
+                    <meta
+                        name="theme-color"
+                        content={themeMode === 'light' ? lightTheme.brand : darkTheme.bgColor}
+                    />
+                )}
             </Head>
             <ThemeProvider theme={{ prefersReducedMotion, setColorMode, ...getTheme(themeMode) }}>
                 <>
