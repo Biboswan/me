@@ -109,6 +109,25 @@ const GlobalStyle = createGlobalStyle`
  		filter: var(--color-imageFilter);
 	}
 
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-scrollbarThumb) var(--color-scrollbarTrack);
+	}
+
+	*::-webkit-scrollbar {
+  		width: 12px;
+	}
+
+	*::-webkit-scrollbar-track {
+		background: var(--color-scrollbarTrack);
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background-color: var(--color-scrollbarThumb);
+		border-radius: 20px;
+		border: 2px solid var(--color-scrollbarTrack);
+	}
+
 	@media screen and (prefers-reduced-motion: reduce), (update: slow) {
 		* {
 			animation-duration: 0.001ms !important;

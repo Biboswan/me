@@ -41,6 +41,8 @@ export const lightTheme = {
     codeBg: COLOR.blue[50],
     themeSwitchBg: COLOR.blue[500] + '33',
     imageFilter: 'none',
+    scrollbarThumb: COLOR.blue[200],
+    scrollbarTrack: COLOR.textgrey[300],
 };
 
 export const darkTheme = {
@@ -62,6 +64,8 @@ export const darkTheme = {
     codeBg: COLOR.darksurfaces[5],
     imageFilter: 'grayscale(35%)',
     themeSwitchBg: COLOR.darksurfaces[2],
+    scrollbarThumb: COLOR.orange[800],
+    scrollbarTrack: COLOR.darksurfaces[6],
 };
 
 const getTheme = themeMode => {
