@@ -11,6 +11,7 @@ import Top from 'components/Top';
 import Footer from 'components/Footer';
 import { lightTheme, darkTheme } from 'theme';
 import usePrefersReducedMotion from 'custom-hooks/usePrefersReducedMotion';
+import MDXProvider from 'components/MDXProvider';
 
 const GlobalStyle = createGlobalStyle`
 	:root {
@@ -195,8 +196,10 @@ const App = ({ Component, pageProps }) => {
                 <>
                     <GlobalStyle />
                     <AppContainer>
-                        <Top />
-                        <Component {...pageProps} />
+						<Top />
+						<MDXProvider>
+							<Component {...pageProps} />
+						</MDXProvider>
                         <Footer />
                     </AppContainer>
                 </>

@@ -2,14 +2,20 @@
 const withImages = require('next-images');
 const withVideos = require('next-videos');
 const withTM = require('next-transpile-modules')(['three']);
+const withMDX = require('@next/mdx')({
+    extension: /\.mdx?$/,
+});
 
 module.exports = withTM(
     withVideos(
-        withImages({
-            webpack(config) {
-                return config;
-            },
-        })
+        withImages(
+            withMDX({
+                pageExtensions: ['js', 'jsx', 'mdx'],
+                webpack: (config) => {
+                    return config;
+                }
+            }),
+        )
     )
 );
 /** 
