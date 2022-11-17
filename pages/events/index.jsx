@@ -19,6 +19,12 @@ const ImagesData = [
         height: 550,
     },
     {
+        src: require('public/processed-images/conf/440/apollo2urql.jpeg'),
+        label: 'Migrating partially from Apollo to Urql in a Nextjs application, GeekyAnts Event',
+        width: 440,
+        height: 294,
+    },
+    {
         src: require('public/processed-images/conf/440/FBDC.jpg'),
         label: 'React Fundamentals and State management in Facebook Develper Cirlces, Kolkata',
         width: 440,
