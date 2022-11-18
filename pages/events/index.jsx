@@ -20,7 +20,7 @@ const ImagesData = [
     },
     {
         src: require('public/processed-images/conf/440/apollo2urql.jpeg'),
-        label: 'Migrating partially from Apollo to Urql in a Nextjs application, GeekyAnts Event',
+        label: 'Migrating partially from Apollo to Urql in a Nextjs application, GeekyAnts Meetup Bangalore',
         width: 440,
         height: 294,
     },
