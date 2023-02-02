@@ -190,7 +190,7 @@ const Work = () => {
                     <Body1 weight="light" as="p">
                         Currently working remotely for a Copenhagen based startup and building a new
                         kind of professional network platform out of project history{' '}
-                        <a href="https://www.feats.co/">
+                        <a href="https://www.feats.co/profile/biboswan-roy">
                             <WorkSummaryStrongTerm>feats.co</WorkSummaryStrongTerm>
                         </a>
                         🔥. More update on this later.
