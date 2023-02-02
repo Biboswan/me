@@ -101,6 +101,25 @@ export const NAVLINKS = [
 
 export const Projects = [
     {
+        title: 'Web Extension - A11y Gradient',
+        techTags: ['Chrome Extension', 'Accessibility', 'Developer Tools', 'Javascript'],
+        image: {
+            url: require('public/processed-images/work/480/ally-gradient.png'),
+            alt: "Screenshot of the extension's panel opened and in use in devtools",
+            width: 480,
+            height: 300,
+        },
+        intros: [
+            ```It gives you contrast ratio (accessibility standards) for text against each pixel of multi-colored backgrounds.
+        Chrome developer tools gives you contrast ratio of text against only 
+        monochromatic backgrounds.```,
+
+            ```There are so many sites using gradients or images as backgrounds. 
+        The texts are not accessible because there is no tool to assess them.```,
+            ```This tool will help you fix those issues. You can compare background against text color, text border and even element border. There is no specification for element borders but I think it might help in making better visually appealing UIs.```,
+        ],
+    },
+    {
         title: 'Open Source Saga @Mozilla',
         techTags: ['React', 'NodeJS', 'GraphQL', 'Go', 'Python', 'Testing', 'Documenting'],
         image: {
