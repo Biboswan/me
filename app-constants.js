@@ -109,14 +109,11 @@ export const Projects = [
             width: 480,
             height: 300,
         },
-        intros: [
-            ```It gives you contrast ratio (accessibility standards) for text against each pixel of multi-colored backgrounds.
-        Chrome developer tools gives you contrast ratio of text against only 
-        monochromatic backgrounds.```,
-
-            ```There are so many sites using gradients or images as backgrounds. 
-        The texts are not accessible because there is no tool to assess them.```,
-            ```This tool will help you fix those issues. You can compare background against text color, text border and even element border. There is no specification for element borders but I think it might help in making better visually appealing UIs.```,
+        intro: [
+            'It gives you contrast ratio (accessibility standards) for text against each pixel of multi-colored backgrounds.',
+            'Chrome developer tools gives you contrast ratio of text against only monochromatic backgrounds.',
+            'There are so many sites using gradients or images as backgrounds. The texts are not accessible because there is no tool to assess them.',
+            'This tool will help you fix those issues. You can compare background against text color, text border and even element border. There is no specification for element borders but I think it might help in making better visually appealing UIs.',
         ],
     },
     {
