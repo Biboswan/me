@@ -188,12 +188,19 @@ const Work = () => {
             <MainContainer>
                 <WorkSummary>
                     <Body1 weight="light" as="p">
-                        Currently working remotely for a Copenhagen based startup and building a new
-                        kind of professional network platform out of project history{' '}
+                        Currently I'm a Senior Software Engineer at the AI powered cybersecurity
+                        company{' '}
+                        <a href="https://www.sentinelone.com">
+                            <WorkSummaryStrongTerm>SentinelOne</WorkSummaryStrongTerm>
+                        </a>{' '}
+                        building the singularity platform under the cloud security team.
+                    </Body1>
+                    <Body1 weight="light" as="p">
+                        My previously stint was at a Copenhagen based startup building a new kind of
+                        professional network platform out of project history{' '}
                         <a href="https://www.feats.co/profile/biboswan-roy">
                             <WorkSummaryStrongTerm>feats.co</WorkSummaryStrongTerm>
                         </a>
-                        🔥. More update on this later.
                     </Body1>
                     <Body1 weight="light" as="p">
                         I software engineered at Resto-G(intern),{' '}
