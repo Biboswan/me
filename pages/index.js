@@ -257,7 +257,7 @@ const Home = () => {
                     }}
                 >
                     <AnimatedH2 as="h2" style={{ height: trail[2].height }}>
-                        A <BrandColoredHeading>Software</BrandColoredHeading> Engineer
+                        A Senior <BrandColoredHeading>Software</BrandColoredHeading> Engineer
                     </AnimatedH2>
                 </animated.div>
                 <animated.div
@@ -268,30 +268,27 @@ const Home = () => {
                 >
                     <AnimatedBanner weight="light" style={{ height: trail[3].height }}>
                         <p>
-                            physically based in India, inclined towards the web{' '}
+                            and digital nomad from India, lived in 6 new countries last year,
+                            inclined towards the web{' '}
                             <SemiStrong>(frontend but fullstackish)</SemiStrong>. Loves open source,
-                            tech communities, green tea (not coffee) and dancing too.{' '}
+                            tech communities, ice latte and dancing too.{' '}
                             <Strong isItalic>Google Udacity Scholar</Strong> 2k18 and a{' '}
                             <Strong isItalic>Mozillian</Strong>.
                         </p>
                         <p>
-                            Building interfaces got me interested lately into{' '}
-                            <Strong isItalic>Human Computer Interaction</Strong> because I had
-                            always tried to understand why humans behave the way they do. Still I
-                            like to kinda meddle in both frontend and backend aspects of software
-                            and beyond if possible.
+                            I specialize in building complex frontend architectures powering
+                            enterprise security solutions with <Strong>React</Strong>,{' '}
+                            <Strong>GraphQL</Strong>, and <Strong>Typescript</Strong>. With proven
+                            expertise in leading distributed teams and delivering high-impact
+                            features, I excel at collaborating asynchronously across time zones.
                         </p>
                         <p>
-                            Open to write code in any programming language but if it can be done
-                            with <SemiStrong>Javascript</SemiStrong>, would certainly do so.
+                            Language agnostic but if it can be done with{' '}
+                            <SemiStrong>Javascript</SemiStrong>, would certainly do so.
                         </p>
                         <p>
-                            Despite securing a seat in <Strong isItalic>IIIT</Strong>, I had to
-                            continue my computer science engineering degree from a tier-3 college
-                            because I wasn’t allowed to leave my hometown and study in a different
-                            city. Things have changed now though. Kudos to free online education, I
-                            think I have made up abit for that, to the point where college tag may
-                            not matter that much.
+                            Recently I have been diving into <SemiStrong>web3</SemiStrong> and{' '}
+                            <SemiStrong>blockchain</SemiStrong>.
                         </p>
                     </AnimatedBanner>
                 </animated.div>

@@ -101,6 +101,50 @@ export const NAVLINKS = [
 
 export const Projects = [
     {
+        title: 'Unified Actions Platform Development - SentinelOne',
+        techTags: ['React', 'API Design', 'Typescript', 'CSS'],
+        image: {
+            url: require('public/processed-images/work/480/unified-actions.png'),
+            alt: 'Screenshot of the Unified Inventory with the Unified Actions dropdown',
+            width: 480,
+            height: 300,
+        },
+        intro: [
+            'Independently architected and developed the UnifiedActionsDropdown React component for the Unified Inventory, enabling customers to perform actions on 100k+ assets: endpoints,identity,cloud resources from all surface teams in a single interface.',
+            'The dropdown options are driven by the backend api and are based on the table selection of assets',
+            'Extended the Databridge plugin and developed a communication layer to open legacy Angular action modals running in iframe from the React app and extend it for newer actions with react modals.',
+        ],
+    },
+    {
+        title: 'Cloud Scanner Policies - SentinelOne',
+        techTags: ['React', 'Typescript', 'GraphQL', 'Recoil', 'React-hook-form', 'API Design'],
+        image: {
+            url: require('public/processed-images/work/480/CloudScannerPolicy.png'),
+            alt: 'Screenshot of the Cloud Scanner Policy Wizard',
+            width: 480,
+            height: 300,
+        },
+        intro: [
+            'Designed a dynamic JSON schema for the policy configuration API, enabling the development of a multi-step dynamic form wizard with advanced filters for cloud infrastructure resources, including VMs, organizations, and accounts.',
+            'Enabled policy creation for vulnerability scanning of 2 billion VM images daily (Cloud Native Security) and storage bucket scanning for threat detection with remediation (Cloud Data Security) across multiple cloud providers (AWS, GCP, Azure, OCI, Alibaba)',
+        ],
+    },
+    {
+        title: 'Unified Tagging Platform UI - SentinelOne',
+        techTags: ['React', 'Typescript', 'GraphQL', 'Playwright', 'CSS', 'API Design'],
+        image: {
+            url: require('public/processed-images/work/480/UnifiedTagging.png'),
+            alt: 'Unified Tagging table',
+            width: 480,
+            height: 300,
+        },
+        intro: [
+            'Created a shared, scalable UnifiedTagging UI React modal library for various tag operations on objects, handling permission cases for objects in various scopes in multi-tenancy with localization support, used by over 16 product lines.',
+            'Developed a centralized tag management platform enabling customers to perform CRUD operations on tags and tag diverse assets and objects, such as incidents, alerts, attack paths, Purple AI notebooks leading to effective organization.',
+            'Collaborated with the UI Platform team to design solutions for edge cases in the ”Select All” count feature of the InfraTable React component, (AG-Grid wrapper) supporting advanced grouping, filtering, sorting etc, used on more than 20 pages.',
+        ],
+    },
+    {
         title: 'Web Extension - A11y Gradient',
         techTags: ['Chrome Extension', 'Accessibility', 'Developer Tools', 'Javascript'],
         image: {

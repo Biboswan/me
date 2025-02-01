@@ -20,7 +20,8 @@ const ImagesData = [
     },
     {
         src: require('public/processed-images/conf/440/apollo2urql.jpeg'),
-        label: 'Migrating partially from Apollo to Urql in a Nextjs application, GeekyAnts Meetup Bangalore',
+        label:
+            'Migrating partially from Apollo to Urql in a Nextjs application, GeekyAnts Meetup Bangalore',
         width: 440,
         height: 294,
     },
@@ -54,6 +55,12 @@ const ImagesData = [
         label: 'Virtual session at Google Developer Student Club Techno India University',
         width: 440,
         height: 246,
+    },
+    {
+        src: require('public/processed-images/conf/440/javascriptLondon.jpg'),
+        label: 'Javascript London Meetup, October 2024',
+        width: 440,
+        height: 330,
     },
 ];
 
