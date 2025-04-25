@@ -26,9 +26,9 @@
         "three": "^0.121.1"
     },
     "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
+        "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
+        "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
+        "start": "NODE_OPTIONS='--openssl-legacy-provider' next start",
         "export": "yarn build && next export"
     },
     "devDependencies": {
@@ -37,6 +37,7 @@
         "del": "^6.0.0",
         "eslint": "^7.8.1",
         "eslint-plugin-react": "^7.20.6",
+        "gifsicle": "^7.0.1",
         "gulp": "^4.0.2",
         "husky": "^4.2.5",
         "imagemin": "^7.0.1",
@@ -60,6 +61,6 @@
         ]
     },
     "engines": {
-        "node": ">=16.13.0 < 18"
+        "node": "18.x"
     }
 }
