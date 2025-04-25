@@ -89,6 +89,10 @@ const ProjectCard = props => {
         );
     };
 
+    const isNewTabAttributes = storyLink?.includes('http')
+        ? { target: '_blank', rel: 'noopener noreferrer' }
+        : {};
+
     return (
         <Container
             className={className || ''}
@@ -131,7 +135,7 @@ const ProjectCard = props => {
                 <Brief listLen={intro.length}>{intro.map(renderInfoPoint)}</Brief>
                 {storyLink && (
                     <Link href={storyLink} passHref>
-                        <Sub1 isItalic as="a">
+                        <Sub1 isItalic as="a" {...isNewTabAttributes}>
                             Read Story...
                         </Sub1>
                     </Link>

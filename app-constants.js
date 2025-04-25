@@ -114,6 +114,22 @@ export const Projects = [
             'The dropdown options are driven by the backend api and are based on the table selection of assets',
             'Extended the Databridge plugin and developed a communication layer to open legacy Angular action modals running in iframe from the React app and extend it for newer actions with react modals.',
         ],
+        storyLink: 'https://www.sentinelone.com/platform/how-singularity-xdr-works',
+    },
+    {
+        title: 'Migrating to Singularity Shell Architecture - SentinelOne',
+        techTags: ['React', 'Typescript', 'Angular'],
+        image: {
+            url: require('public/processed-images/work/480/SingularityShellArchitecture.png'),
+            alt: 'Screenshot of the Singularity Shell Architecture',
+            width: 480,
+            height: 300,
+        },
+        intro: [
+            'This was a huge project requiring developers from all teams to contribute. I worked on the Shell Iframe Architecture, where I helped unify multiple apps into a single console using iframes. This project aimed to provide a consistent user experience across apps like the MGMT console, Attivo, and Skylight, which are built with different frontend frameworks.',
+        ],
+        storyLink:
+            'https://www.sentinelone.com/blog/unify-the-analyst-experience-with-singularity-operations-center',
     },
     {
         title: 'Cloud Scanner Policies - SentinelOne',
@@ -128,6 +144,7 @@ export const Projects = [
             'Designed a dynamic JSON schema for the policy configuration API, enabling the development of a multi-step dynamic form wizard with advanced filters for cloud infrastructure resources, including VMs, organizations, and accounts.',
             'Enabled policy creation for vulnerability scanning of 2 billion VM images daily (Cloud Native Security) and storage bucket scanning for threat detection with remediation (Cloud Data Security) across multiple cloud providers (AWS, GCP, Azure, OCI, Alibaba)',
         ],
+        storyLink: 'https://www.sentinelone.com/platform/cloud-security/',
     },
     {
         title: 'Unified Tagging Platform UI - SentinelOne',
@@ -159,6 +176,8 @@ export const Projects = [
             'There are so many sites using gradients or images as backgrounds. The texts are not accessible because there is no tool to assess them.',
             'This tool will help you fix those issues. You can compare background against text color, text border and even element border. There is no specification for element borders but I think it might help in making better visually appealing UIs.',
         ],
+        storyLink:
+            'https://chromewebstore.google.com/detail/a11y-gradient/kokihagjmdkofdmahbcofpnkccigjmnm',
     },
     {
         title: 'Open Source Saga @Mozilla',
@@ -197,57 +216,6 @@ export const Projects = [
             'Webstore is my baby because I build it from scratch. Apart from this, I contributed slightly to their CRM and main site which actually helped me in many ways.',
         ],
         storyLink: 'work/studioyou',
-    },
-    {
-        title: 'Restaurant Reviews App',
-        intro: [
-            'Works offline to the extend that you can add reviews offline and automatically send to server when connectivity restores, made during the Google India Scholarship program',
-        ],
-        image: {
-            url: require('public/processed-images/work/480/RestReviewshp.png'),
-            alt:
-                'Webpage showing list of restaurant cards having buttons to favourite them as well',
-            width: 480,
-            height: 280,
-        },
-        techTags: [
-            'Vanilla JS',
-            'PWA',
-            'Accessibility',
-            'Lazy-loading',
-            'Background Sync',
-            'Gulp',
-            'CSS',
-            'Image-Optimisation',
-        ],
-    },
-    {
-        title: 'Restaurant Ecommerce',
-        intro: [
-            'Features include add to card, payment, oauth. Took flow inspiration from Swiggy,Zomato,Flipkart.',
-        ],
-        image: {
-            url: require('public/processed-images/work/480/RestaurantE1.png'),
-            alt: 'Typical food ordering website showing items ordered and add to cart',
-            width: 480,
-            height: 260,
-        },
-        techTags: ['MERN ', 'Material UI', 'Redux'],
-        storyLink: '',
-    },
-    {
-        title: 'HealthCheckZen',
-        intro: [
-            'Primary level detection for Covid 19 signs to detect, monitor and avail suggestions via some simple questions asked by an application. Decision tree is being populated by medical researchers.',
-        ],
-        image: {
-            url: require('public/processed-images/work/480/HealthCheckZen.png'),
-            alt: 'Questionaire having language options of hindi, english and bengali',
-            width: 480,
-            height: 987,
-        },
-        techTags: ['Internationalization', 'Tree Traversal', 'Github Actions'],
-        storyLink: '',
     },
 ];
 
