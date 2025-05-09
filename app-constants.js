@@ -128,8 +128,7 @@ export const Projects = [
         intro: [
             'This was a huge project requiring developers from all teams to contribute. I worked on the Shell Iframe Architecture, where I helped unify multiple apps into a single console using iframes. This project aimed to provide a consistent user experience across apps like the MGMT console, Attivo, and Skylight, which are built with different frontend frameworks.',
         ],
-        storyLink:
-            'https://www.sentinelone.com/blog/unify-the-analyst-experience-with-singularity-operations-center',
+        storyLink: 'work/sentinelone/migrating-to-singularity-shell',
     },
     {
         title: 'Cloud Scanner Policies - SentinelOne',
