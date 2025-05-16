@@ -13,6 +13,12 @@ const Subheading = styled(Body1)`
 
 const ImagesData = [
     {
+        src: require('public/processed-images/conf/440/dubaiTechTuesday.jpg'),
+        label: 'Dubai Tech Tuesday, 2025',
+        width: 440,
+        height: 660,
+    },
+    {
         src: require('public/processed-images/conf/440/javascriptLondon.jpg'),
         label: 'Javascript London Meetup, October 2024',
         width: 440,
