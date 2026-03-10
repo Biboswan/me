@@ -101,6 +101,20 @@ export const NAVLINKS = [
 
 export const Projects = [
     {
+        title: 'Landing Page Design & Development - Tattvam AI',
+        techTags: ['React', 'Next.js', 'UI/UX Design'],
+        image: {
+            url: require('public/processed-images/work/480/tattvamai.png'),
+            alt: 'Tattvam AI landing page',
+            width: 2872,
+            height: 1496,
+        },
+        intro: [
+            "End-to-end design and development of the launch website for Tattvam AI, an AI-for-chip-design startup, debuting with their $1.7M funding announcement as the company's first public-facing presence.",
+        ],
+        storyLink: 'https://www.tattvamlabs.ai',
+    },
+    {
         title: 'Unified Actions Platform Development - SentinelOne',
         techTags: ['React', 'API Design', 'Typescript', 'CSS'],
         image: {
