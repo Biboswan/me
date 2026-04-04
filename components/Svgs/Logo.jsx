@@ -68,8 +68,9 @@ function Logo(props) {
             </desc>
             <defs>
                 <linearGradient id="linearGradient2218">
-                    <stop offset="0" stopColor="#ff8f44" stopOpacity="0.843"></stop>
-                    <stop offset="1" stopColor="#242cf6" stopOpacity="0.898"></stop>
+                    <stop offset="0" stopColor="#FF6B1A" stopOpacity="0.9"></stop>
+                    <stop offset="0.5" stopColor="#F026A8" stopOpacity="0.85"></stop>
+                    <stop offset="1" stopColor="#5E4AFF" stopOpacity="0.95"></stop>
                 </linearGradient>
                 <linearGradient
                     id="linearGradient2212"
