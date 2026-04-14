@@ -102,7 +102,7 @@ export const NAVLINKS = [
 export const Projects = [
     {
         title: 'Experts Connect - IIT Alumni Centre Bangalore',
-        techTags: ['React', 'Next.js', 'UI/UX Design', 'Supabase'],
+        techTags: ['React', 'Next.js', 'UI/UX Design', 'Supabase', 'GCP', 'LLMs'],
         image: {
             url: require('public/processed-images/work/480/expertsconnect.png'),
             alt: 'Experts Connect platform landing page',
