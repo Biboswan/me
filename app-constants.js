@@ -101,6 +101,20 @@ export const NAVLINKS = [
 
 export const Projects = [
     {
+        title: 'Experts Connect - IIT Alumni Centre Bangalore',
+        techTags: ['React', 'Next.js', 'UI/UX Design', 'Supabase'],
+        image: {
+            url: require('public/processed-images/work/480/expertsconnect.png'),
+            alt: 'Experts Connect platform landing page',
+            width: 480,
+            height: 300,
+        },
+        intro: [
+            'End-to-end design and development of Experts Connect, a platform that bridges the gap between industry and academic research by connecting businesses with top researchers and scientists from IITs.',
+            'Features AI-powered discovery to match technical bottlenecks with relevant deep-tech research and experts, along with streamlined workflows for secure introductions and R&D partnerships.',
+        ],
+    },
+    {
         title: 'Landing Page Design & Development - Tattvam AI',
         techTags: ['React', 'Next.js', 'UI/UX Design'],
         image: {
