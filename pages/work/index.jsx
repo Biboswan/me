@@ -216,6 +216,11 @@ const Work = () => {
                         and Anaytics.
                     </Body1>
                     <Body1 weight="light" as="p">
+                        On the entrepreneurship front, I cleared Round 1 of{' '}
+                        <WorkSummaryStrongTerm>Techstars NYC</WorkSummaryStrongTerm> and{' '}
+                        <WorkSummaryStrongTerm>VibeCon India</WorkSummaryStrongTerm>.
+                    </Body1>
+                    <Body1 weight="light" as="p">
                         Somehow everything remote till date.
                     </Body1>
                 </WorkSummary>
