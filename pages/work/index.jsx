@@ -1,9 +1,11 @@
 import Head from 'next/head';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import MainContainer from 'components/MainContainer';
 import { H2, Body1, H5, H4 } from 'components/Font';
 import ProjectCard from 'components/ProjectCard';
+import ProjectListItem from 'components/ProjectListItem';
+import ViewToggle from 'components/ViewToggle';
 import { Projects, CERTS, Testimonials } from 'app-constants';
 import BlueValleyOBlob from 'components/Svgs/BlueValleyOBlob';
 import Testimonial from 'components/Testimonial';
@@ -50,8 +52,18 @@ const ProjectContainer = styled.section`
     }
 
     .projectInMindHeading {
+        margin-top: ${props => props.theme.base_spacing * 10}px;
         margin-bottom: ${props => props.theme.base_spacing * 6}px;
     }
+`;
+
+const ProjectsHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: ${props => props.theme.base_spacing * 4}px;
+    margin-bottom: ${props => props.theme.base_spacing * 4}px;
 `;
 
 const ProjectCardsContainer = styled.ul`
@@ -65,6 +77,10 @@ const ProjectCardsContainer = styled.ul`
         max-width: 480px;
         margin-bottom: ${props => props.theme.base_spacing * 15}px;
     }
+`;
+
+const ProjectListContainer = styled.div`
+    margin-top: ${props => props.theme.base_spacing * 10}px;
 `;
 
 const CertificationList = styled.ul`
@@ -141,6 +157,7 @@ const TestimonialSection = () => {
 const Work = () => {
     const isMobileDevice = useIsMobileDevice();
     const { prefersReducedMotion } = useContext(ThemeContext);
+    const [viewMode, setViewMode] = useState('cards');
 
     const renderProjectCard = ({ image, title, techTags, storyLink, intro }) => {
         return (
@@ -226,15 +243,35 @@ const Work = () => {
                 </WorkSummary>
                 <ProjectCertTestContainer>
                     <ProjectContainer>
-                        <H2 as="h1" weight="bold" color="projectSectionTitle">
-                            Projects
-                        </H2>
-                        <Body1 weight="light" color="projectSectionTitle">
-                            Below is a some of what of I have done so far.
-                        </Body1>
-                        <ProjectCardsContainer>
-                            {Projects.map(renderProjectCard)}
-                        </ProjectCardsContainer>
+                        <ProjectsHeader>
+                            <div>
+                                <H2 as="h1" weight="bold" color="projectSectionTitle">
+                                    Projects
+                                </H2>
+                                <Body1 weight="light" color="projectSectionTitle">
+                                    Below is a some of what of I have done so far.
+                                </Body1>
+                            </div>
+                            <ViewToggle activeView={viewMode} onViewChange={setViewMode} />
+                        </ProjectsHeader>
+                        {viewMode === 'cards' ? (
+                            <ProjectCardsContainer>
+                                {Projects.map(renderProjectCard)}
+                            </ProjectCardsContainer>
+                        ) : (
+                            <ProjectListContainer>
+                                {Projects.map(({ image, title, techTags, storyLink, intro }) => (
+                                    <ProjectListItem
+                                        key={title}
+                                        image={image}
+                                        title={title}
+                                        techTags={techTags}
+                                        storyLink={storyLink}
+                                        intro={intro}
+                                    />
+                                ))}
+                            </ProjectListContainer>
+                        )}
                         <H5 color="projectSectionTitle" as="h2" className="projectInMindHeading">
                             Project in mind
                         </H5>
