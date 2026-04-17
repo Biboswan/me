@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { H6, Body2, Sub1 } from 'components/Font';
 import TechTag from 'components/TechTag';
+import ImageLightbox from 'components/ImageLightbox';
 
 const Container = styled.div`
     display: flex;
@@ -26,6 +27,11 @@ const Container = styled.div`
 const Thumbnail = styled.div`
     flex-shrink: 0;
     width: 120px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
 
     @media only screen and (max-width: ${props => props.theme.breakpoint.xs}px) {
         width: 100%;
@@ -104,6 +110,7 @@ const ExpandButton = styled.button`
 
 const ProjectListItem = ({ image, title, techTags, storyLink, intro }) => {
     const [expanded, setExpanded] = useState(false);
+    const [lightboxImage, setLightboxImage] = useState(null);
     const hasMultiplePoints = intro.length > 1;
 
     const isNewTabAttributes = storyLink?.includes('http')
@@ -111,60 +118,68 @@ const ProjectListItem = ({ image, title, techTags, storyLink, intro }) => {
         : {};
 
     return (
-        <Container>
-            <Thumbnail>
-                {!image.isVideo ? (
-                    <PreviewImage
-                        src={image.url}
-                        alt={image.alt}
-                        width={image.width}
-                        height={image.height}
-                    />
-                ) : (
-                    <PreviewVideo autoPlay loop muted playsInline title={image.alt}>
-                        <source src={image.url} type="video/webm" />
-                        <source src={image.url2} type="video/mp4" />
-                    </PreviewVideo>
-                )}
-            </Thumbnail>
-            <Content>
-                <Title as="h3" weight="semibold">
-                    {title}
-                </Title>
-                <TechTagsContainer>
-                    {techTags.slice(0, 4).map(tag => (
-                        <TechTag key={tag} label={tag} />
-                    ))}
-                </TechTagsContainer>
-                <IntroList $listLen={expanded ? intro.length : 1}>
-                    {(expanded ? intro : [intro[0]]).map((point, index) => (
-                        <Body2 key={index} as="li" color="projectSectionTitle">
-                            {point}
-                        </Body2>
-                    ))}
-                </IntroList>
-                <Actions>
-                    {hasMultiplePoints && (
-                        <ExpandButton $expanded={expanded} onClick={() => setExpanded(!expanded)}>
-                            {expanded ? 'Less' : 'More'}
-                            <FontAwesomeIcon icon={faChevronDown} />
-                        </ExpandButton>
+        <>
+            {lightboxImage && (
+                <ImageLightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
+            )}
+            <Container>
+                <Thumbnail onClick={() => setLightboxImage(image)}>
+                    {!image.isVideo ? (
+                        <PreviewImage
+                            src={image.url}
+                            alt={image.alt}
+                            width={image.width}
+                            height={image.height}
+                        />
+                    ) : (
+                        <PreviewVideo autoPlay loop muted playsInline title={image.alt}>
+                            <source src={image.url} type="video/webm" />
+                            <source src={image.url2} type="video/mp4" />
+                        </PreviewVideo>
                     )}
-                    {storyLink && (
-                        <Link href={storyLink} passHref>
-                            <Sub1
-                                isItalic
-                                as="a"
-                                color="projectReadStoryColor"
-                                {...isNewTabAttributes}
+                </Thumbnail>
+                <Content>
+                    <Title as="h3" weight="semibold">
+                        {title}
+                    </Title>
+                    <TechTagsContainer>
+                        {techTags.slice(0, 4).map(tag => (
+                            <TechTag key={tag} label={tag} />
+                        ))}
+                    </TechTagsContainer>
+                    <IntroList $listLen={expanded ? intro.length : 1}>
+                        {(expanded ? intro : [intro[0]]).map((point, index) => (
+                            <Body2 key={index} as="li" color="projectSectionTitle">
+                                {point}
+                            </Body2>
+                        ))}
+                    </IntroList>
+                    <Actions>
+                        {hasMultiplePoints && (
+                            <ExpandButton
+                                $expanded={expanded}
+                                onClick={() => setExpanded(!expanded)}
                             >
-                                Read Story...
-                            </Sub1>
-                        </Link>
-                    )}
-                </Actions>
-            </Content>
-        </Container>
+                                {expanded ? 'Less' : 'More'}
+                                <FontAwesomeIcon icon={faChevronDown} />
+                            </ExpandButton>
+                        )}
+                        {storyLink && (
+                            <Link href={storyLink} passHref>
+                                <Sub1
+                                    isItalic
+                                    as="a"
+                                    color="projectReadStoryColor"
+                                    {...isNewTabAttributes}
+                                >
+                                    Read Story...
+                                </Sub1>
+                            </Link>
+                        )}
+                    </Actions>
+                </Content>
+            </Container>
+        </>
     );
 };
 
